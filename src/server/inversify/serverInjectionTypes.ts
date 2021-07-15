@@ -1,1 +1,3 @@
-export const serverInjectionTypes = {};
+export const serverInjectionTypes = {
+  ExpressServer: Symbol('ExpressServer'),
+};

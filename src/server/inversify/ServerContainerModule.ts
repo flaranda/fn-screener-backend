@@ -1,11 +1,14 @@
 import * as inversify from 'inversify';
 
+import { ExpressServer } from '../modules/ExpressServer';
+import { serverInjectionTypes } from './serverInjectionTypes';
+
 export class ServerContainerModule extends inversify.ContainerModule {
   constructor() {
     const registry: inversify.interfaces.ContainerModuleCallBack = (
-      _bind: inversify.interfaces.Bind,
+      bind: inversify.interfaces.Bind,
     ): void => {
-      return;
+      bind(serverInjectionTypes.ExpressServer).to(ExpressServer);
     };
 
     super(registry);
