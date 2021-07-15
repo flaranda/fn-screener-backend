@@ -5,7 +5,10 @@
   "main": "dist/bin/start.js",
   "scripts": {
     "test": "jest",
-    "test:dev": "jest --changedSince=main"
+    "test:coverage": "npm test -- --coverage",
+    "test:dev": "npm test -- --changedSince=main",
+    "test:integration": "npm test -- --selectProjects Integration",
+    "test:unit": "npm test -- --selectProjects Unit"
   },
   "author": "Francisco Aranda <flarandagarcia@gmail.com>",
   "license": "MIT",
