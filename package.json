@@ -4,6 +4,9 @@
   "description": "FounderNest Screener Backend",
   "main": "dist/bin/start.js",
   "scripts": {
+    "build": "tsc",
+    "start": "ts-node ./src/bin/start-server.ts",
+    "start:dist": "node ./dist/bin/start-server.js",
     "test": "jest",
     "test:coverage": "npm test -- --coverage",
     "test:dev": "npm test -- --changedSince=main",
