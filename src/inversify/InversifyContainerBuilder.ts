@@ -3,6 +3,7 @@ import * as inversify from 'inversify';
 import { IBuilder } from '../common/interfaces/IBuilder';
 import { CriteriaContainerModule } from '../criteria/inversify/CriteriaContainerModule';
 import { EnvVariablesLoaderContainerModule } from '../env-variables-loader/inversify/EnvVariablesLoaderContainerModule';
+import { MongoContainerModule } from '../mongo/inversify/MongoContainerModule';
 import { ServerContainerModule } from '../server/inversify/ServerContainerModule';
 
 type InversifyContainerModuleConstructor = new () => inversify.ContainerModule;
@@ -14,6 +15,7 @@ export class InversifyContainerBuilder
     private readonly containerModules: InversifyContainerModuleConstructor[] = [
       CriteriaContainerModule,
       EnvVariablesLoaderContainerModule,
+      MongoContainerModule,
       ServerContainerModule,
     ],
   ) {}
