@@ -1,5 +1,6 @@
 import * as inversify from 'inversify';
 
+import { ServerConfig } from '../configs/ServerConfig';
 import { ExpressServer } from '../modules/ExpressServer';
 import { serverInjectionTypes } from './serverInjectionTypes';
 
@@ -9,6 +10,7 @@ export class ServerContainerModule extends inversify.ContainerModule {
       bind: inversify.interfaces.Bind,
     ): void => {
       bind(serverInjectionTypes.ExpressServer).to(ExpressServer);
+      bind(serverInjectionTypes.ServerConfig).to(ServerConfig);
     };
 
     super(registry);
