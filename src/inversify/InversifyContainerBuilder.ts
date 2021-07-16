@@ -4,6 +4,7 @@ import { IBuilder } from '../common/interfaces/IBuilder';
 import { CriteriaContainerModule } from '../criteria/inversify/CriteriaContainerModule';
 import { EnvVariablesLoaderContainerModule } from '../env-variables-loader/inversify/EnvVariablesLoaderContainerModule';
 import { MongoContainerModule } from '../mongo/inversify/MongoContainerModule';
+import { SeederContainerModule } from '../seeder/inversify/SeederContainerModule';
 import { ServerContainerModule } from '../server/inversify/ServerContainerModule';
 
 type InversifyContainerModuleConstructor = new () => inversify.ContainerModule;
@@ -16,6 +17,7 @@ export class InversifyContainerBuilder
       CriteriaContainerModule,
       EnvVariablesLoaderContainerModule,
       MongoContainerModule,
+      SeederContainerModule,
       ServerContainerModule,
     ],
   ) {}
