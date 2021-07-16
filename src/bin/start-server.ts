@@ -1,6 +1,6 @@
 import 'reflect-metadata';
 
-import { Script } from '../common/modules/Script';
+import { Script } from '../common/modules/domain/Script';
 import { IServer } from '../server/interfaces/IServer';
 import { serverInjectionTypes } from '../server/inversify/serverInjectionTypes';
 

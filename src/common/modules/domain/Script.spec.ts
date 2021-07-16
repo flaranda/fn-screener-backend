@@ -2,7 +2,7 @@ import 'reflect-metadata';
 
 jest.mock('../../inversify/InversifyContainerBuilder');
 
-import { InversifyContainerBuilder } from '../../inversify/InversifyContainerBuilder';
+import { InversifyContainerBuilder } from '../../../inversify/InversifyContainerBuilder';
 import { Script } from './Script';
 
 class ScriptMock extends Script {
