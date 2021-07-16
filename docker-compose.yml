@@ -1,0 +1,13 @@
+version: '3'
+
+services:
+  mongo:
+    container_name: fn-screener-backend_mongo
+    image: mongo:4.4-bionic
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: fnScreenerBackendLocal
+      MONGO_INITDB_ROOT_PASSWORD: fnScreenerBackendLocal
+    volumes:
+      - './docker/mongo_data:/data/db'
+    ports:
+      - 27017:27017
