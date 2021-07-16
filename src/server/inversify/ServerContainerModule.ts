@@ -9,8 +9,12 @@ export class ServerContainerModule extends inversify.ContainerModule {
     const registry: inversify.interfaces.ContainerModuleCallBack = (
       bind: inversify.interfaces.Bind,
     ): void => {
-      bind(serverInjectionTypes.ExpressServer).to(ExpressServer);
-      bind(serverInjectionTypes.ServerConfig).to(ServerConfig);
+      bind(serverInjectionTypes.ExpressServer)
+        .to(ExpressServer)
+        .inSingletonScope();
+      bind(serverInjectionTypes.ServerConfig)
+        .to(ServerConfig)
+        .inSingletonScope();
     };
 
     super(registry);

@@ -3,6 +3,8 @@ import http from 'http';
 import express from 'express';
 import * as inversify from 'inversify';
 
+import { IDatasource } from '../../common/interfaces/IDatasource';
+import { mongoInjectionTypes } from '../../mongo/inversify/mongoInjectionTypes';
 import { ServerConfig } from '../configs/ServerConfig';
 import { IServer } from '../interfaces/IServer';
 import { serverInjectionTypes } from '../inversify/serverInjectionTypes';
@@ -15,16 +17,22 @@ export class ExpressServer implements IServer {
   constructor(
     @inversify.inject(serverInjectionTypes.ServerConfig)
     private readonly serverConfig: ServerConfig,
+    @inversify.inject(mongoInjectionTypes.MongoDatasource)
+    private readonly mongoDatasource: IDatasource,
   ) {
     this.express = this.configureExpress();
     this.httpServer = http.createServer(this.express);
   }
 
   public async start(): Promise<void> {
+    await this.mongoDatasource.connect();
+
     await this.startHttpServer();
   }
 
   public async stop(): Promise<void> {
+    await this.mongoDatasource.disconnect();
+
     await this.stopHttpServer();
   }
 

@@ -8,6 +8,7 @@ jest.mock('express', () => jest.fn());
 
 import express from 'express';
 
+import { IDatasource } from '../../common/interfaces/IDatasource';
 import { EnvVariablesFixtures } from '../../env-variables-loader/fixtures/EnvVariablesFixtures';
 import { ServerConfig } from '../configs/ServerConfig';
 import { ExpressServer } from './ExpressServer';
@@ -16,6 +17,7 @@ describe('Server', () => {
   let expressMock: jest.Mocked<express.Express>;
   let httpServer: jest.Mocked<http.Server>;
   let serverConfig: jest.Mocked<ServerConfig>;
+  let mongoDatasource: jest.Mocked<IDatasource>;
 
   let expressServer: ExpressServer;
 
@@ -54,7 +56,12 @@ describe('Server', () => {
       port: EnvVariablesFixtures.withMandatory.SERVER_PORT,
     } as Partial<ServerConfig> as jest.Mocked<ServerConfig>;
 
-    expressServer = new ExpressServer(serverConfig);
+    mongoDatasource = {
+      connect: jest.fn(),
+      disconnect: jest.fn(),
+    };
+
+    expressServer = new ExpressServer(serverConfig, mongoDatasource);
   });
 
   describe('when instantiated', () => {
@@ -63,7 +70,7 @@ describe('Server', () => {
     beforeAll(() => {
       jest.clearAllMocks();
 
-      server = new ExpressServer(serverConfig);
+      server = new ExpressServer(serverConfig, mongoDatasource);
     });
 
     afterAll(() => {
@@ -92,6 +99,11 @@ describe('Server', () => {
         result = await expressServer.start();
       });
 
+      it('should call MongoDatasource.connect()', () => {
+        expect(mongoDatasource.connect).toHaveBeenCalledTimes(1);
+        expect(mongoDatasource.connect).toHaveBeenCalledWith();
+      });
+
       it('should call httpServer.listen()', () => {
         expect(expressServer.httpServer.listen).toHaveBeenCalledTimes(1);
         expect(expressServer.httpServer.listen).toHaveBeenCalledWith(
@@ -112,6 +124,11 @@ describe('Server', () => {
 
       beforeAll(async () => {
         result = await expressServer.stop();
+      });
+
+      it('should call MongoDatasource.disconnect()', () => {
+        expect(mongoDatasource.disconnect).toHaveBeenCalledTimes(1);
+        expect(mongoDatasource.disconnect).toHaveBeenCalledWith();
       });
 
       it('should call httpServer.close()', () => {
