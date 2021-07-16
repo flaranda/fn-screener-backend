@@ -7,6 +7,8 @@
     "build": "tsc",
     "start": "ts-node ./src/bin/start-server.ts",
     "start:dist": "node ./dist/bin/start-server.js",
+    "seed-mongo": "ts-node ./src/bin/seed-mongo.ts",
+    "seed-mongo:dist": "node ./dist/bin/seed-mongo.js",
     "docker": "docker compose up --build --detach mongo",
     "docker:down": "docker compose down",
     "test": "jest",
