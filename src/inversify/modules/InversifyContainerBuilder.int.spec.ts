@@ -2,6 +2,10 @@ import 'reflect-metadata';
 
 import * as inversify from 'inversify';
 
+jest.mock('./containerModuleConstructors', () => ({
+  containerModuleConstructors: [],
+}));
+
 import { InversifyContainerBuilder } from './InversifyContainerBuilder';
 
 @inversify.injectable()

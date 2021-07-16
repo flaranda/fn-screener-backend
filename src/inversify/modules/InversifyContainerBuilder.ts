@@ -1,11 +1,7 @@
 import * as inversify from 'inversify';
 
-import { IBuilder } from '../common/interfaces/IBuilder';
-import { CriteriaContainerModule } from '../criteria/inversify/CriteriaContainerModule';
-import { EnvVariablesLoaderContainerModule } from '../env-variables-loader/inversify/EnvVariablesLoaderContainerModule';
-import { MongoContainerModule } from '../mongo/inversify/MongoContainerModule';
-import { SeederContainerModule } from '../seeder/inversify/SeederContainerModule';
-import { ServerContainerModule } from '../server/inversify/ServerContainerModule';
+import { IBuilder } from '../../common/interfaces/IBuilder';
+import { containerModuleConstructors } from './containerModuleConstructors';
 
 type InversifyContainerModuleConstructor = new () => inversify.ContainerModule;
 
@@ -13,13 +9,7 @@ export class InversifyContainerBuilder
   implements IBuilder<inversify.Container>
 {
   constructor(
-    private readonly containerModules: InversifyContainerModuleConstructor[] = [
-      CriteriaContainerModule,
-      EnvVariablesLoaderContainerModule,
-      MongoContainerModule,
-      SeederContainerModule,
-      ServerContainerModule,
-    ],
+    private readonly containerModules: InversifyContainerModuleConstructor[] = containerModuleConstructors,
   ) {}
 
   public build(): inversify.Container {
