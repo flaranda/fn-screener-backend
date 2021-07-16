@@ -1,6 +1,6 @@
 import 'reflect-metadata';
 
-jest.mock('../../inversify/InversifyContainerBuilder');
+jest.mock('../../../inversify/InversifyContainerBuilder');
 
 import { InversifyContainerBuilder } from '../../../inversify/InversifyContainerBuilder';
 import { Script } from './Script';
