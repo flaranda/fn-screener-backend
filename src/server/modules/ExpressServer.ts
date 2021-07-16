@@ -3,15 +3,19 @@ import http from 'http';
 import express from 'express';
 import * as inversify from 'inversify';
 
+import { ServerConfig } from '../configs/ServerConfig';
 import { IServer } from '../interfaces/IServer';
+import { serverInjectionTypes } from '../inversify/serverInjectionTypes';
 
 @inversify.injectable()
 export class ExpressServer implements IServer {
   public readonly httpServer: http.Server;
   private readonly express: express.Express;
-  private readonly port: number = 3000;
 
-  constructor() {
+  constructor(
+    @inversify.inject(serverInjectionTypes.ServerConfig)
+    private readonly serverConfig: ServerConfig,
+  ) {
     this.express = this.configureExpress();
     this.httpServer = http.createServer(this.express);
   }
@@ -27,7 +31,7 @@ export class ExpressServer implements IServer {
   private async startHttpServer(): Promise<void> {
     const startHttpServerPromise: Promise<void> = new Promise(
       (resolve: (value: void | PromiseLike<void>) => void): void => {
-        this.httpServer.listen(this.port, resolve);
+        this.httpServer.listen(this.serverConfig.port, resolve);
       },
     );
 

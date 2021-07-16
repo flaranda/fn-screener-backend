@@ -8,11 +8,14 @@ jest.mock('express', () => jest.fn());
 
 import express from 'express';
 
+import { EnvVariablesFixtures } from '../../env-variables-loader/fixtures/EnvVariablesFixtures';
+import { ServerConfig } from '../configs/ServerConfig';
 import { ExpressServer } from './ExpressServer';
 
 describe('Server', () => {
   let expressMock: jest.Mocked<express.Express>;
   let httpServer: jest.Mocked<http.Server>;
+  let serverConfig: jest.Mocked<ServerConfig>;
 
   let expressServer: ExpressServer;
 
@@ -47,7 +50,11 @@ describe('Server', () => {
     (express as unknown as jest.Mock).mockReturnValue(expressMock);
     (http.createServer as jest.Mock).mockReturnValue(httpServer);
 
-    expressServer = new ExpressServer();
+    serverConfig = {
+      port: EnvVariablesFixtures.withMandatory.SERVER_PORT,
+    } as Partial<ServerConfig> as jest.Mocked<ServerConfig>;
+
+    expressServer = new ExpressServer(serverConfig);
   });
 
   describe('when instantiated', () => {
@@ -56,7 +63,7 @@ describe('Server', () => {
     beforeAll(() => {
       jest.clearAllMocks();
 
-      server = new ExpressServer();
+      server = new ExpressServer(serverConfig);
     });
 
     afterAll(() => {
@@ -86,11 +93,9 @@ describe('Server', () => {
       });
 
       it('should call httpServer.listen()', () => {
-        const expectedPort: number = 3000;
-
         expect(expressServer.httpServer.listen).toHaveBeenCalledTimes(1);
         expect(expressServer.httpServer.listen).toHaveBeenCalledWith(
-          expectedPort,
+          EnvVariablesFixtures.withMandatory.SERVER_PORT,
           expect.any(Function),
         );
       });
