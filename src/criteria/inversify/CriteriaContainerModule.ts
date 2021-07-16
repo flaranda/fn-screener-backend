@@ -1,6 +1,7 @@
 import * as inversify from 'inversify';
 
 import { CriteriaMongoSchemaContainer } from '../models/mongo/CriteriaMongoSchemaContainer';
+import { CriteriaMongoSeeder } from '../seeder/CriteriaMongoSeeder';
 import { CriteriaToCriteriaApiV1Transformer } from '../transformers/api/v1/CriteriaToCriteriaApiV1Transformer';
 import { criteriaInjectionTypes } from './criteriaInjectionTypes';
 
@@ -12,6 +13,7 @@ export class CriteriaContainerModule extends inversify.ContainerModule {
       bind(criteriaInjectionTypes.CriteriaMongoSchemaContainer).to(
         CriteriaMongoSchemaContainer,
       );
+      bind(criteriaInjectionTypes.CriteriaMongoSeeder).to(CriteriaMongoSeeder);
       bind(criteriaInjectionTypes.CriteriaToCriteriaApiV1Transformer).to(
         CriteriaToCriteriaApiV1Transformer,
       );
