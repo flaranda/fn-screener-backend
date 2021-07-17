@@ -17,7 +17,8 @@ import { CriteriaMongoDocument } from '../models/mongo/CriteriaMongoDocument';
 export class CriteriaMongoFindManyRepository extends EntityMongoFindManyRepository<
   CriteriaFindQuery,
   Criteria,
-  CriteriaMongo
+  CriteriaMongo,
+  CriteriaMongoDocument
 > {
   constructor(
     @inversify.inject(mongoInjectionTypes.MongoDatasource)
