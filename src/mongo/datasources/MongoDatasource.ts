@@ -7,6 +7,8 @@ import { EntityMongo } from '../../common/models/mongo/EntityMongo';
 import { EntityMongoSchemaContainer } from '../../common/models/mongo/EntityMongoSchemaContainer';
 import { criteriaInjectionTypes } from '../../criteria/inversify/criteriaInjectionTypes';
 import { CriteriaMongo } from '../../criteria/models/mongo/CriteriaMongo';
+import { userInjectionTypes } from '../../user/inversify/userInjectionTypes';
+import { UserMongo } from '../../user/models/mongo/UserMongo';
 import { MongoConfig } from '../configs/MongoConfig';
 import { mongoInjectionTypes } from '../inversify/mongoInjectionTypes';
 
@@ -19,6 +21,8 @@ export class MongoDatasource implements IDatasource {
     private readonly mongoConfig: MongoConfig,
     @inversify.inject(criteriaInjectionTypes.CriteriaMongoSchemaContainer)
     private readonly criteriaMongoSchemaContainer: EntityMongoSchemaContainer<CriteriaMongo>,
+    @inversify.inject(userInjectionTypes.UserMongoSchemaContainer)
+    private readonly userMongoSchemaContainer: EntityMongoSchemaContainer<UserMongo>,
   ) {}
 
   public get connection(): mongoose.Connection {
@@ -76,6 +80,7 @@ export class MongoDatasource implements IDatasource {
   private getSchemaContainers(): EntityMongoSchemaContainer<EntityMongo>[] {
     const schemaContainers: EntityMongoSchemaContainer<EntityMongo>[] = [
       this.criteriaMongoSchemaContainer,
+      this.userMongoSchemaContainer,
     ];
 
     return schemaContainers;
