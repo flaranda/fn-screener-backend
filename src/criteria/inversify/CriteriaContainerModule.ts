@@ -2,7 +2,7 @@ import * as inversify from 'inversify';
 
 import { FindManyCriteriasInteractor } from '../interactors/FindManyCriteriasInteractor';
 import { CriteriaMongoSchemaContainer } from '../models/mongo/CriteriaMongoSchemaContainer';
-import { CriteriaMongoFindManyRepository } from '../repositories/CriteriaMongoFindManyRepository';
+import { CriteriaMongoFindManyRepository } from '../repositories/mongo/CriteriaMongoFindManyRepository';
 import { GetCriteriasExpressRequestHandler } from '../request-handlers/express/GetCriteriasExpressRequestHandler';
 import { CriteriasExpressRouter } from '../routers/express/CriteriasExpressRouter';
 import { CriteriaMongoSeeder } from '../seeder/mongo/CriteriaMongoSeeder';
