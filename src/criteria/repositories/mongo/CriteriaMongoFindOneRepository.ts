@@ -3,7 +3,7 @@ import mongoose from 'mongoose';
 
 import { ITransformer } from '../../../common/interfaces/ITransformer';
 import { EntityMongoModelName } from '../../../common/models/mongo/EntityMongoModelName';
-import { EntityMongoFindManyRepository } from '../../../common/modules/mongo/EntityMongoFindManyRepository';
+import { EntityMongoFindOneRepository } from '../../../common/modules/mongo/EntityMongoFindOneRepository';
 import { MongoDatasource } from '../../../mongo/datasources/MongoDatasource';
 import { mongoInjectionTypes } from '../../../mongo/inversify/mongoInjectionTypes';
 import { criteriaInjectionTypes } from '../../inversify/criteriaInjectionTypes';
@@ -13,7 +13,7 @@ import { CriteriaMongo } from '../../models/mongo/CriteriaMongo';
 import { CriteriaMongoDocument } from '../../models/mongo/CriteriaMongoDocument';
 
 @inversify.injectable()
-export class CriteriaMongoFindManyRepository extends EntityMongoFindManyRepository<
+export class CriteriaMongoFindOneRepository extends EntityMongoFindOneRepository<
   CriteriaFindQuery,
   Criteria,
   CriteriaMongo,
