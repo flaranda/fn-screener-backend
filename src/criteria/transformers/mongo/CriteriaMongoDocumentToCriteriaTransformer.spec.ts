@@ -22,7 +22,7 @@ describe('CriteriaMongoDocumentToCriteriaTransformer', () => {
         );
       });
 
-      it('should returns a Criteria', () => {
+      it('should return a Criteria', () => {
         expect(result).toStrictEqual(CriteriaFixtures.withMandatory);
       });
     });

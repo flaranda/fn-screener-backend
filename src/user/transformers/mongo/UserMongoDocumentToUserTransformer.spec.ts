@@ -22,7 +22,7 @@ describe('UserMongoDocumentToUserTransformer', () => {
         );
       });
 
-      it('should returns a User', () => {
+      it('should return a User', () => {
         expect(result).toStrictEqual(UserFixtures.withMandatory);
       });
     });
