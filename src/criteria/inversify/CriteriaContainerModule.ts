@@ -1,7 +1,10 @@
 import * as inversify from 'inversify';
 
+import { FindManyCriteriasInteractor } from '../interactors/FindManyCriteriasInteractor';
 import { CriteriaMongoSchemaContainer } from '../models/mongo/CriteriaMongoSchemaContainer';
 import { CriteriaMongoFindManyRepository } from '../repositories/CriteriaMongoFindManyRepository';
+import { GetCriteriasExpressRequestHandler } from '../request-handlers/express/GetCriteriasExpressRequestHandler';
+import { CriteriasExpressRouter } from '../routers/express/CriteriasExpressRouter';
 import { CriteriaMongoSeeder } from '../seeder/CriteriaMongoSeeder';
 import { CriteriaToCriteriaApiV1Transformer } from '../transformers/api/v1/CriteriaToCriteriaApiV1Transformer';
 import { CriteriaMongoDocumentToCriteriaTransformer } from '../transformers/mongo/CriteriaMongoDocumentToCriteriaTransformer';
@@ -22,8 +25,17 @@ export class CriteriaContainerModule extends inversify.ContainerModule {
         CriteriaMongoSchemaContainer,
       );
       bind(criteriaInjectionTypes.CriteriaMongoSeeder).to(CriteriaMongoSeeder);
+      bind(criteriaInjectionTypes.CriteriasExpressRouter).to(
+        CriteriasExpressRouter,
+      );
       bind(criteriaInjectionTypes.CriteriaToCriteriaApiV1Transformer).to(
         CriteriaToCriteriaApiV1Transformer,
+      );
+      bind(criteriaInjectionTypes.FindManyCriteriasInteractor).to(
+        FindManyCriteriasInteractor,
+      );
+      bind(criteriaInjectionTypes.GetCriteriasExpressRequestHandler).to(
+        GetCriteriasExpressRequestHandler,
       );
     };
 

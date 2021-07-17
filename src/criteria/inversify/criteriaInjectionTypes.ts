@@ -5,7 +5,12 @@ export const criteriaInjectionTypes = {
   CriteriaMongoFindManyRepository: Symbol('CriteriaMongoFindManyRepository'),
   CriteriaMongoSchemaContainer: Symbol('CriteriaMongoSchemaContainer'),
   CriteriaMongoSeeder: Symbol('CriteriaMongoSeeder'),
+  CriteriasExpressRouter: Symbol('CriteriasExpressRouter'),
   CriteriaToCriteriaApiV1Transformer: Symbol(
     'CriteriaToCriteriaApiV1Transformer',
+  ),
+  FindManyCriteriasInteractor: Symbol('FindManyCriteriasInteractor'),
+  GetCriteriasExpressRequestHandler: Symbol(
+    'GetCriteriasExpressRequestHandler',
   ),
 };
