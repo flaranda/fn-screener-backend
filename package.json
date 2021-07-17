@@ -9,7 +9,7 @@
     "start:dist": "node ./dist/bin/start-server.js",
     "seed-mongo": "ts-node ./src/bin/seed-mongo.ts",
     "seed-mongo:dist": "node ./dist/bin/seed-mongo.js",
-    "docker": "docker compose up --build --detach mongo",
+    "docker": "docker compose up --build --detach mongo swagger",
     "docker:down": "docker compose down",
     "test": "jest",
     "test:coverage": "npm test -- --coverage",

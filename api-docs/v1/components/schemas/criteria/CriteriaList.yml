@@ -1,0 +1,4 @@
+CriteriaList:
+  type: array
+  items:
+    $ref: './Criteria.yml#/Criteria'

@@ -1,0 +1,16 @@
+Criteria:
+  type: object
+  properties:
+    name:
+      type: string
+      description: Criteria name
+      example: Stage is Seed or Series A
+    uuid:
+      type: string
+      format: uuid
+      description: Criteria identifier
+      example: d9d61a31-7486-420c-b0aa-4add784eaab8
+  required:
+    - name
+    - uuid
+  additionalProperties: false

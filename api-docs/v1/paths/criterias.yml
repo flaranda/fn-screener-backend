@@ -1,0 +1,10 @@
+get:
+  tags:
+    - Criteria
+  responses:
+    200:
+      description: Requested Criteria list
+      content:
+        application/json:
+          schema:
+            $ref: '../components/schemas/criteria/CriteriaList.yml#/CriteriaList'

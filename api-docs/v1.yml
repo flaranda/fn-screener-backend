@@ -1,0 +1,25 @@
+openapi: 3.0.3
+
+info:
+  title: FounderNest Screener Api
+  description: Specs for Foundernest Screener Api v1 endpoints
+  version: v1
+
+servers:
+  - url: 'http://127.0.0.1:{port}/v1'
+    description: Local
+    variables:
+      port:
+        default: '3000'
+
+tags:
+  - name: Criteria
+
+components:
+  schemas:
+    Criteria:
+      $ref: './v1/components/schemas/criteria/Criteria.yml#/Criteria'
+
+paths:
+  /criterias/:
+    $ref: './v1/paths/criterias.yml'

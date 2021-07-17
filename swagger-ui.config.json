@@ -1,0 +1,9 @@
+{
+  "deepLinking": true,
+  "docExpansion": "none",
+  "defaultModelRendering": "model",
+  "urls": [
+    { "url": "api-docs/v1.yml", "name": "v1" }
+  ],
+  "urls.primaryName": "v1"
+}

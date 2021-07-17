@@ -11,3 +11,21 @@ services:
       - './docker/mongo_data:/data/db'
     ports:
       - 27017:27017
+
+  swagger:
+    container_name: fn-screener-backend_mongo_swagger
+    image: swaggerapi/swagger-ui:v3.38.0
+    environment:
+      CONFIG_URL: swagger-ui.config.json
+    volumes:
+      - ./api-docs:/usr/share/nginx/html/api-docs
+      - ./swagger-ui.config.json:/usr/share/nginx/html/swagger-ui.config.json
+    ports:
+      - 8080:8080
+
+  swagger-validate:
+    container_name: fn-screener-backend_swagger-validate
+    image: node:12-alpine
+    volumes:
+      - ./api-docs:/api-docs
+    command: npx swagger-cli validate api-docs/${API_VERSION:-v1}.yml
