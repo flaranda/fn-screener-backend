@@ -14,7 +14,7 @@ import { ServerConfig } from '../../configs/ServerConfig';
 import { ExpressRouter } from './ExpressRouter';
 import { ExpressServer } from './ExpressServer';
 
-describe('Server', () => {
+describe('ExpressServer', () => {
   let expressMock: jest.Mocked<express.Express>;
   let httpServer: jest.Mocked<http.Server>;
   let serverConfig: jest.Mocked<ServerConfig>;

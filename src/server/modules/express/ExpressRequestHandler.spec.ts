@@ -1,5 +1,7 @@
 import 'reflect-metadata';
 
+jest.mock('express');
+
 import express from 'express';
 
 import { ExpressRequest } from '../../models/express/ExpressRequest';
@@ -96,7 +98,7 @@ describe('ExpressRequestHandler', () => {
         jest.clearAllMocks();
       });
 
-      it('should call RequestHandler.handle()', () => {
+      it('should call RequestHandler.handleMock()', () => {
         expect(requestHandler.handleMock).toHaveBeenCalledTimes(1);
         expect(requestHandler.handleMock).toHaveBeenCalledWith(
           requestFixture,
