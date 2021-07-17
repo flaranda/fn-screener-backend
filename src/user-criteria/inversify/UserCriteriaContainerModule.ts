@@ -1,6 +1,7 @@
 import * as inversify from 'inversify';
 
 import { UserCriteriaMongoSchemaContainer } from '../models/mongo/UserCriteriaMongoSchemaContainer';
+import { UserCriteriaMongoSeeder } from '../seeder/mongo/UserCriteriaMongoSeeder';
 import { userCriteriaInjectionTypes } from './userCriteriaInjectionTypes';
 
 export class UserCriteriaContainerModule extends inversify.ContainerModule {
@@ -10,6 +11,9 @@ export class UserCriteriaContainerModule extends inversify.ContainerModule {
     ): void => {
       bind(userCriteriaInjectionTypes.UserCriteriaMongoSchemaContainer).to(
         UserCriteriaMongoSchemaContainer,
+      );
+      bind(userCriteriaInjectionTypes.UserCriteriaMongoSeeder).to(
+        UserCriteriaMongoSeeder,
       );
     };
 
