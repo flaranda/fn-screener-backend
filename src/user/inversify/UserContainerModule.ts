@@ -1,5 +1,6 @@
 import * as inversify from 'inversify';
 
+import { FindOneUserInteractor } from '../interactors/FindOneUserInteractor';
 import { UserMongoSchemaContainer } from '../models/mongo/UserMongoSchemaContainer';
 import { UserMongoFindOneRepository } from '../repositories/mongo/UserMongoFindOneRepository';
 import { UserMongoSeeder } from '../seeder/mongo/UserMongoSeeder';
@@ -11,6 +12,7 @@ export class UserContainerModule extends inversify.ContainerModule {
     const registry: inversify.interfaces.ContainerModuleCallBack = (
       bind: inversify.interfaces.Bind,
     ): void => {
+      bind(userInjectionTypes.FindOneUserInteractor).to(FindOneUserInteractor);
       bind(userInjectionTypes.UserMongoDocumentToUserTransformer).to(
         UserMongoDocumentToUserTransformer,
       );
