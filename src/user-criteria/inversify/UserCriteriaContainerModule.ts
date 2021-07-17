@@ -1,5 +1,6 @@
 import * as inversify from 'inversify';
 
+import { FindManyUserCriteriasInteractor } from '../interactors/FindManyUserCriteriasInteractor';
 import { UserCriteriaMongoSchemaContainer } from '../models/mongo/UserCriteriaMongoSchemaContainer';
 import { UserCriteriaMongoFindManyRepository } from '../repositories/mongo/UserCriteriaMongoFindManyRepository';
 import { UserCriteriaMongoSeeder } from '../seeder/mongo/UserCriteriaMongoSeeder';
@@ -11,6 +12,9 @@ export class UserCriteriaContainerModule extends inversify.ContainerModule {
     const registry: inversify.interfaces.ContainerModuleCallBack = (
       bind: inversify.interfaces.Bind,
     ): void => {
+      bind(userCriteriaInjectionTypes.FindManyUserCriteriasInteractor).to(
+        FindManyUserCriteriasInteractor,
+      );
       bind(
         userCriteriaInjectionTypes.UserCriteriaMongoDocumentToUserCriteriaTransformer,
       ).to(UserCriteriaMongoDocumentToUserCriteriaTransformer);

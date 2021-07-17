@@ -1,4 +1,5 @@
 export const userCriteriaInjectionTypes = {
+  FindManyUserCriteriasInteractor: Symbol('FindManyUserCriteriasInteractor'),
   UserCriteriaMongoDocumentToUserCriteriaTransformer: Symbol(
     'UserCriteriaMongoDocumentToUserCriteriaTransformer',
   ),
