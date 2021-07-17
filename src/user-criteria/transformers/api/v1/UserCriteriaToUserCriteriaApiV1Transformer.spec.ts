@@ -1,7 +1,7 @@
 import 'reflect-metadata';
 
 import { IInteractor } from '../../../../common/interfaces/IInteractor';
-import { CriteriaFindQueryFixtues } from '../../../../criteria/fixtures/domain/CriteriaFindQueryFixtures';
+import { CriteriaFindQueryFixtures } from '../../../../criteria/fixtures/domain/CriteriaFindQueryFixtures';
 import { CriteriaFixtures } from '../../../../criteria/fixtures/domain/CriteriaFixtures';
 import { Criteria } from '../../../../criteria/models/domain/Criteria';
 import { CriteriaFindQuery } from '../../../../criteria/models/domain/CriteriaFindQuery';
@@ -44,7 +44,7 @@ describe('UserCriteriaToUserCriteriaApiV1Transformer', () => {
       it('should call FindOneCriteriaInteractor.interact()', () => {
         expect(findOneCriteriaInteractor.interact).toHaveBeenCalledTimes(1);
         expect(findOneCriteriaInteractor.interact).toHaveBeenCalledWith(
-          CriteriaFindQueryFixtues.withUuid,
+          CriteriaFindQueryFixtures.withUuid,
         );
       });
 

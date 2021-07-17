@@ -1,7 +1,7 @@
 import { CriteriaFindQuery } from '../../models/domain/CriteriaFindQuery';
 import { CriteriaFixtures } from './CriteriaFixtures';
 
-export class CriteriaFindQueryFixtues {
+export class CriteriaFindQueryFixtures {
   public static get withMandatory(): CriteriaFindQuery {
     const fixture: CriteriaFindQuery = {};
 

@@ -10,7 +10,7 @@ import { ApiVersion } from '../../../common/models/domain/ApiVersion';
 import { requestContextSymbol } from '../../../common/models/domain/requestContextSymbol';
 import { ExpressRequest } from '../../../server/models/express/ExpressRequest';
 import { CriteriaApiV1Fixtures } from '../../fixtures/api/v1/CriteriaApiV1Fixtures';
-import { CriteriaFindQueryFixtues } from '../../fixtures/domain/CriteriaFindQueryFixtures';
+import { CriteriaFindQueryFixtures } from '../../fixtures/domain/CriteriaFindQueryFixtures';
 import { CriteriaFixtures } from '../../fixtures/domain/CriteriaFixtures';
 import { CriteriaApiV1 } from '../../models/api/v1/CriteriaApiV1';
 import { Criteria } from '../../models/domain/Criteria';
@@ -118,7 +118,7 @@ describe('GetCriteriasExpressRequestHandler', () => {
         it('should call findManyCriteriasInteractor.interact()', () => {
           expect(findManyCriteriasInteractor.interact).toHaveBeenCalledTimes(1);
           expect(findManyCriteriasInteractor.interact).toHaveBeenCalledWith(
-            CriteriaFindQueryFixtues.withMandatory,
+            CriteriaFindQueryFixtures.withMandatory,
           );
         });
 
