@@ -1,13 +1,13 @@
 import * as inversify from 'inversify';
 
+import { selectedCriteriaInjectionTypes } from '../../selected-criteria/inversify/selectedCriteriaInjectionTypes';
 import { ExpressRouter } from '../../server/modules/ExpressRouter';
-import { userCriteriaInjectionTypes } from '../../user-criteria/inversify/userCriteriaInjectionTypes';
 
 @inversify.injectable()
 export class UsersMeRouter extends ExpressRouter {
   constructor(
-    @inversify.inject(userCriteriaInjectionTypes.MeUserCriteriasRouter)
-    private readonly meUserCriteriasRouter: ExpressRouter,
+    @inversify.inject(selectedCriteriaInjectionTypes.MeSelectedCriteriasRouter)
+    private readonly meSelectedCriteriasRouter: ExpressRouter,
   ) {
     super();
 
@@ -15,6 +15,9 @@ export class UsersMeRouter extends ExpressRouter {
   }
 
   protected initialize(): void {
-    this.expressRouter.use('/criterias', this.meUserCriteriasRouter.handler);
+    this.expressRouter.use(
+      '/selected-criterias',
+      this.meSelectedCriteriasRouter.handler,
+    );
   }
 }

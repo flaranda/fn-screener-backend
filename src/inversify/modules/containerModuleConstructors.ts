@@ -3,8 +3,8 @@ import { EnvVariablesLoaderContainerModule } from '../../env-variables-loader/in
 import { MongoContainerModule } from '../../mongo/inversify/MongoContainerModule';
 import { PingContainerModule } from '../../ping/inversify/PingContainerModule';
 import { SeederContainerModule } from '../../seeder/inversify/SeederContainerModule';
+import { SelectedCriteriaContainerModule } from '../../selected-criteria/inversify/SelectedCriteriaContainerModule';
 import { ServerContainerModule } from '../../server/inversify/ServerContainerModule';
-import { UserCriteriaContainerModule } from '../../user-criteria/inversify/UserCriteriaContainerModule';
 import { UserContainerModule } from '../../user/inversify/UserContainerModule';
 import { ContainerModuleConstructor } from '../models/ContainerModuleConstructor';
 
@@ -14,7 +14,7 @@ export const containerModuleConstructors: ContainerModuleConstructor[] = [
   MongoContainerModule,
   PingContainerModule,
   SeederContainerModule,
+  SelectedCriteriaContainerModule,
   ServerContainerModule,
   UserContainerModule,
-  UserCriteriaContainerModule,
 ];
