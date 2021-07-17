@@ -3,6 +3,7 @@ import * as inversify from 'inversify';
 import { FindManyUserCriteriasInteractor } from '../interactors/FindManyUserCriteriasInteractor';
 import { UserCriteriaMongoSchemaContainer } from '../models/mongo/UserCriteriaMongoSchemaContainer';
 import { UserCriteriaMongoFindManyRepository } from '../repositories/mongo/UserCriteriaMongoFindManyRepository';
+import { GetUsersMeUserCriteriasExpressRequestHandler } from '../request-handlers/express/GetUsersMeUserCriteriasExpressRequestHandler';
 import { UserCriteriaMongoSeeder } from '../seeder/mongo/UserCriteriaMongoSeeder';
 import { UserCriteriaToUserCriteriaApiV1Transformer } from '../transformers/api/v1/UserCriteriaToUserCriteriaApiV1Transformer';
 import { UserCriteriaMongoDocumentToUserCriteriaTransformer } from '../transformers/mongo/UserCriteriaMongoDocumentToUserCriteriaTransformer';
@@ -16,6 +17,9 @@ export class UserCriteriaContainerModule extends inversify.ContainerModule {
       bind(userCriteriaInjectionTypes.FindManyUserCriteriasInteractor).to(
         FindManyUserCriteriasInteractor,
       );
+      bind(
+        userCriteriaInjectionTypes.GetUsersMeUserCriteriasExpressRequestHandler,
+      ).to(GetUsersMeUserCriteriasExpressRequestHandler);
       bind(
         userCriteriaInjectionTypes.UserCriteriaMongoDocumentToUserCriteriaTransformer,
       ).to(UserCriteriaMongoDocumentToUserCriteriaTransformer);
