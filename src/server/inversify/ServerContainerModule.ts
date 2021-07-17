@@ -1,10 +1,10 @@
 import * as inversify from 'inversify';
 
 import { ServerConfig } from '../configs/ServerConfig';
-import { ExpressServer } from '../modules/express/ExpressServer';
+import { ExpressServer } from '../modules/ExpressServer';
 import { ApiVersionExpressRequestParamHandler } from '../request-handlers/ApiVersionExpressRequestParamHandler';
-import { ApiExpressRouter } from '../routers/express/ApiExpressRouter';
-import { MainExpressRouter } from '../routers/express/MainExpressRouter';
+import { ApiExpressRouter } from '../routers/ApiExpressRouter';
+import { MainExpressRouter } from '../routers/MainExpressRouter';
 import { serverInjectionTypes } from './serverInjectionTypes';
 
 export class ServerContainerModule extends inversify.ContainerModule {

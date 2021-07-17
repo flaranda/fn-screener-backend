@@ -4,7 +4,7 @@ jest.mock('express');
 
 import express from 'express';
 
-import { ExpressRequest } from '../../models/express/ExpressRequest';
+import { RequestWithContext } from '../models/RequestWithContext';
 import { ExpressRequestHandler } from './ExpressRequestHandler';
 
 class ExpressRequestHandlerMock extends ExpressRequestHandler {
@@ -13,7 +13,7 @@ class ExpressRequestHandlerMock extends ExpressRequestHandler {
   }
 
   protected async handle(
-    request: ExpressRequest,
+    request: RequestWithContext,
     response: express.Response,
     next: express.NextFunction,
   ): Promise<void> {
@@ -35,13 +35,13 @@ describe('ExpressRequestHandler', () => {
 
   describe('.handler()', () => {
     describe('when called', () => {
-      let requestFixture: ExpressRequest;
+      let requestFixture: RequestWithContext;
       let responseFixture: express.Response;
       let nextFunctionMock: express.NextFunction;
 
       // eslint-disable-next-line jest/no-done-callback
       beforeAll((done: jest.DoneCallback) => {
-        requestFixture = {} as ExpressRequest;
+        requestFixture = {} as RequestWithContext;
         responseFixture = {} as express.Response;
         nextFunctionMock = jest.fn().mockImplementationOnce(() => {
           done();
@@ -69,7 +69,7 @@ describe('ExpressRequestHandler', () => {
     });
 
     describe('when called, and the handler fails', () => {
-      let requestFixture: ExpressRequest;
+      let requestFixture: RequestWithContext;
       let responseFixture: express.Response;
       let nextFunctionMock: express.NextFunction;
 
@@ -77,7 +77,7 @@ describe('ExpressRequestHandler', () => {
 
       // eslint-disable-next-line jest/no-done-callback
       beforeAll((done: jest.DoneCallback) => {
-        requestFixture = {} as ExpressRequest;
+        requestFixture = {} as RequestWithContext;
         responseFixture = {} as express.Response;
         nextFunctionMock = jest.fn().mockImplementationOnce(() => {
           done();

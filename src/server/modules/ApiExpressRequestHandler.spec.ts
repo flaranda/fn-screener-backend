@@ -4,9 +4,9 @@ jest.mock('express');
 
 import express from 'express';
 
-import { ApiVersion } from '../../../common/models/domain/ApiVersion';
-import { requestContextSymbol } from '../../../common/models/domain/requestContextSymbol';
-import { ExpressRequest } from '../../models/express/ExpressRequest';
+import { ApiVersion } from '../../common/models/domain/ApiVersion';
+import { requestContextSymbol } from '../../common/models/domain/requestContextSymbol';
+import { RequestWithContext } from '../models/RequestWithContext';
 import { ApiExpressRequestHandler } from './ApiExpressRequestHandler';
 
 class ApiExpressRequestHandlerMock extends ApiExpressRequestHandler {
@@ -15,7 +15,7 @@ class ApiExpressRequestHandlerMock extends ApiExpressRequestHandler {
   }
 
   protected async handleV1(
-    request: ExpressRequest,
+    request: RequestWithContext,
     response: express.Response,
     next: express.NextFunction,
   ): Promise<void> {
@@ -73,14 +73,14 @@ describe('ApiExpressRequestHandler', () => {
     });
 
     describe('having an ExpressRequest with ApiVersion.v1', () => {
-      let expressRequestMock: ExpressRequest;
+      let expressRequestMock: RequestWithContext;
 
       beforeAll(() => {
         expressRequestMock = {
           [requestContextSymbol]: {
             apiVersion: ApiVersion.v1,
           },
-        } as ExpressRequest;
+        } as RequestWithContext;
       });
 
       describe('when called', () => {
@@ -112,12 +112,12 @@ describe('ApiExpressRequestHandler', () => {
     });
 
     describe('having an ExpressRequest with no ApiVersion', () => {
-      let expressRequestMock: ExpressRequest;
+      let expressRequestMock: RequestWithContext;
 
       beforeAll(() => {
         expressRequestMock = {
           [requestContextSymbol]: {},
-        } as ExpressRequest;
+        } as RequestWithContext;
       });
 
       describe('when called', () => {

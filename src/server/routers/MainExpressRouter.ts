@@ -1,9 +1,9 @@
 import * as inversify from 'inversify';
 
-import { pingInjectionTypes } from '../../../ping/inversify/pingInjectionTypes';
-import { serverInjectionTypes } from '../../inversify/serverInjectionTypes';
-import { ExpressRequestParamHandler } from '../../modules/express/ExpressRequestParamHandler';
-import { ExpressRouter } from '../../modules/express/ExpressRouter';
+import { pingInjectionTypes } from '../../ping/inversify/pingInjectionTypes';
+import { serverInjectionTypes } from '../inversify/serverInjectionTypes';
+import { ExpressRequestParamHandler } from '../modules/ExpressRequestParamHandler';
+import { ExpressRouter } from '../modules/ExpressRouter';
 
 inversify.injectable();
 export class MainExpressRouter extends ExpressRouter {

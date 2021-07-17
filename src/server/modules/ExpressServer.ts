@@ -3,11 +3,11 @@ import http from 'http';
 import express from 'express';
 import * as inversify from 'inversify';
 
-import { IDatasource } from '../../../common/interfaces/IDatasource';
-import { mongoInjectionTypes } from '../../../mongo/inversify/mongoInjectionTypes';
-import { ServerConfig } from '../../configs/ServerConfig';
-import { IServer } from '../../interfaces/IServer';
-import { serverInjectionTypes } from '../../inversify/serverInjectionTypes';
+import { IDatasource } from '../../common/interfaces/IDatasource';
+import { mongoInjectionTypes } from '../../mongo/inversify/mongoInjectionTypes';
+import { ServerConfig } from '../configs/ServerConfig';
+import { IServer } from '../interfaces/IServer';
+import { serverInjectionTypes } from '../inversify/serverInjectionTypes';
 import { ExpressRouter } from './ExpressRouter';
 
 @inversify.injectable()

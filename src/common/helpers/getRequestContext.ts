@@ -1,9 +1,9 @@
-import { ExpressRequest } from '../../server/models/express/ExpressRequest';
+import { RequestWithContext } from '../../server/models/RequestWithContext';
 import { RequestContext } from '../models/domain/RequestContext';
 import { requestContextSymbol } from '../models/domain/requestContextSymbol';
 import { hasValue } from './hasValue';
 
-export function getRequestContext(request: ExpressRequest): RequestContext {
+export function getRequestContext(request: RequestWithContext): RequestContext {
   let context: RequestContext | undefined = request[requestContextSymbol];
 
   if (!hasValue(context)) {

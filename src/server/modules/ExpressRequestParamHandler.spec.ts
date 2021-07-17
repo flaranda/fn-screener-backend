@@ -2,7 +2,7 @@ import 'reflect-metadata';
 
 import express from 'express';
 
-import { ExpressRequest } from '../../models/express/ExpressRequest';
+import { RequestWithContext } from '../models/RequestWithContext';
 import { ExpressRequestParamHandler } from './ExpressRequestParamHandler';
 
 class ExpressRequestParamHandlerMock extends ExpressRequestParamHandler {
@@ -11,7 +11,7 @@ class ExpressRequestParamHandlerMock extends ExpressRequestParamHandler {
   }
 
   protected async handle(
-    request: ExpressRequest,
+    request: RequestWithContext,
     response: express.Response,
     next: express.NextFunction,
   ): Promise<void> {
@@ -30,7 +30,7 @@ describe('RequestParamHandler', () => {
     describe('when called', () => {
       beforeAll(() => {
         expressRequestParamHandler.handler(
-          {} as ExpressRequest,
+          {} as RequestWithContext,
           {} as express.Response,
           jest.fn(),
           'paramValue',

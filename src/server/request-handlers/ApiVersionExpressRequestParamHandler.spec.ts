@@ -5,7 +5,7 @@ import express from 'express';
 import { RequestContextFixtures } from '../../common/fixtures/domain/RequestContextFixtures';
 import { ApiVersion } from '../../common/models/domain/ApiVersion';
 import { requestContextSymbol } from '../../common/models/domain/requestContextSymbol';
-import { ExpressRequest } from '../models/express/ExpressRequest';
+import { RequestWithContext } from '../models/RequestWithContext';
 import { ApiVersionExpressRequestParamHandler } from './ApiVersionExpressRequestParamHandler';
 
 describe('ApiVersionExpressRequestParamHandler', () => {
@@ -26,14 +26,14 @@ describe('ApiVersionExpressRequestParamHandler', () => {
     });
 
     describe('when called', () => {
-      let requestFixture: ExpressRequest;
+      let requestFixture: RequestWithContext;
       let nextMock: express.NextFunction;
 
       // eslint-disable-next-line jest/no-done-callback
       beforeAll((done: jest.DoneCallback) => {
         requestFixture = {
           [requestContextSymbol]: {},
-        } as ExpressRequest;
+        } as RequestWithContext;
 
         nextMock = jest.fn().mockImplementation(() => {
           done();
@@ -60,13 +60,13 @@ describe('ApiVersionExpressRequestParamHandler', () => {
     });
 
     describe('having an invalid apiVersion param', () => {
-      let requestFixture: ExpressRequest;
+      let requestFixture: RequestWithContext;
       let invalidApiVersionParamFixture: string;
 
       beforeAll(() => {
         requestFixture = {
           [requestContextSymbol]: {},
-        } as ExpressRequest;
+        } as RequestWithContext;
 
         invalidApiVersionParamFixture = 'v0';
       });

@@ -1,8 +1,8 @@
 import * as inversify from 'inversify';
 
-import { ExpressRequestHandler } from '../../../server/modules/express/ExpressRequestHandler';
-import { ExpressRouter } from '../../../server/modules/express/ExpressRouter';
-import { criteriaInjectionTypes } from '../../inversify/criteriaInjectionTypes';
+import { ExpressRequestHandler } from '../../server/modules/ExpressRequestHandler';
+import { ExpressRouter } from '../../server/modules/ExpressRouter';
+import { criteriaInjectionTypes } from '../inversify/criteriaInjectionTypes';
 
 @inversify.injectable()
 export class CriteriasExpressRouter extends ExpressRouter {

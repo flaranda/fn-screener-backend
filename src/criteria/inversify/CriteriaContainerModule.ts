@@ -5,8 +5,8 @@ import { FindOneCriteriaInteractor } from '../interactors/FindOneCriteriaInterac
 import { CriteriaMongoSchemaContainer } from '../models/mongo/CriteriaMongoSchemaContainer';
 import { CriteriaMongoFindManyRepository } from '../repositories/mongo/CriteriaMongoFindManyRepository';
 import { CriteriaMongoFindOneRepository } from '../repositories/mongo/CriteriaMongoFindOneRepository';
-import { GetCriteriasExpressRequestHandler } from '../request-handlers/express/GetCriteriasExpressRequestHandler';
-import { CriteriasExpressRouter } from '../routers/express/CriteriasExpressRouter';
+import { GetCriteriasExpressRequestHandler } from '../request-handlers/GetCriteriasExpressRequestHandler';
+import { CriteriasExpressRouter } from '../routers/CriteriasExpressRouter';
 import { CriteriaMongoSeeder } from '../seeder/mongo/CriteriaMongoSeeder';
 import { CriteriaToCriteriaApiV1Transformer } from '../transformers/api/v1/CriteriaToCriteriaApiV1Transformer';
 import { CriteriaMongoDocumentToCriteriaTransformer } from '../transformers/mongo/CriteriaMongoDocumentToCriteriaTransformer';

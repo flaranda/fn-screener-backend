@@ -4,18 +4,18 @@ jest.mock('express');
 
 import express from 'express';
 
-import { IInteractor } from '../../../common/interfaces/IInteractor';
-import { ITransformer } from '../../../common/interfaces/ITransformer';
-import { ApiVersion } from '../../../common/models/domain/ApiVersion';
-import { requestContextSymbol } from '../../../common/models/domain/requestContextSymbol';
-import { ExpressRequest } from '../../../server/models/express/ExpressRequest';
-import { UserFixtures } from '../../../user/fixtures/domain/UserFixtures';
-import { UserCriteriaApiV1Fixtures } from '../../fixtures/api/v1/UserCriteriaApiV1Fixtures';
-import { UserCriteriaFindQueryFixtures } from '../../fixtures/domain/UserCriteriaFindQueryFixtures';
-import { UserCriteriaFixtures } from '../../fixtures/domain/UserCriteriaFixtures';
-import { UserCriteriaApiV1 } from '../../models/api/v1/UserCriteriaApiV1';
-import { UserCriteria } from '../../models/domain/UserCriteria';
-import { UserCriteriaFindQuery } from '../../models/domain/UserCriteriaFindQuery';
+import { IInteractor } from '../../common/interfaces/IInteractor';
+import { ITransformer } from '../../common/interfaces/ITransformer';
+import { ApiVersion } from '../../common/models/domain/ApiVersion';
+import { requestContextSymbol } from '../../common/models/domain/requestContextSymbol';
+import { RequestWithContext } from '../../server/models/RequestWithContext';
+import { UserFixtures } from '../../user/fixtures/domain/UserFixtures';
+import { UserCriteriaApiV1Fixtures } from '../fixtures/api/v1/UserCriteriaApiV1Fixtures';
+import { UserCriteriaFindQueryFixtures } from '../fixtures/domain/UserCriteriaFindQueryFixtures';
+import { UserCriteriaFixtures } from '../fixtures/domain/UserCriteriaFixtures';
+import { UserCriteriaApiV1 } from '../models/api/v1/UserCriteriaApiV1';
+import { UserCriteria } from '../models/domain/UserCriteria';
+import { UserCriteriaFindQuery } from '../models/domain/UserCriteriaFindQuery';
 import { GetUsersMeUserCriteriasExpressRequestHandler } from './GetUsersMeUserCriteriasExpressRequestHandler';
 
 describe('GetUsersMeUserCriteriasExpressRequestHandler', () => {
@@ -94,7 +94,7 @@ describe('GetUsersMeUserCriteriasExpressRequestHandler', () => {
     });
 
     describe('having an ExpressRequest with ApiVersion.v1 and User', () => {
-      let expressRequestMock: ExpressRequest;
+      let expressRequestMock: RequestWithContext;
 
       beforeAll(() => {
         expressRequestMock = {
@@ -102,7 +102,7 @@ describe('GetUsersMeUserCriteriasExpressRequestHandler', () => {
             apiVersion: ApiVersion.v1,
             user: UserFixtures.withMandatory,
           },
-        } as ExpressRequest;
+        } as RequestWithContext;
       });
 
       describe('when called', () => {

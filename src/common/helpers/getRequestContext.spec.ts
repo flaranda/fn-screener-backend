@@ -1,6 +1,6 @@
 import 'reflect-metadata';
 
-import { ExpressRequest } from '../../server/models/express/ExpressRequest';
+import { RequestWithContext } from '../../server/models/RequestWithContext';
 import { RequestContextFixtures } from '../fixtures/domain/RequestContextFixtures';
 import { RequestContext } from '../models/domain/RequestContext';
 import { requestContextSymbol } from '../models/domain/requestContextSymbol';
@@ -8,13 +8,13 @@ import { getRequestContext } from './getRequestContext';
 
 describe('getRequestContext()', () => {
   describe('when called', () => {
-    let requestFixture: ExpressRequest;
+    let requestFixture: RequestWithContext;
     let result: unknown;
 
     beforeAll(() => {
       requestFixture = {
         [requestContextSymbol]: RequestContextFixtures.withMandatory,
-      } as ExpressRequest;
+      } as RequestWithContext;
 
       result = getRequestContext(requestFixture);
     });
@@ -25,11 +25,11 @@ describe('getRequestContext()', () => {
   });
 
   describe('having a Request with no RequestContext', () => {
-    let requestFixture: ExpressRequest;
+    let requestFixture: RequestWithContext;
     let emptyRequestContextFixture: RequestContext;
 
     beforeAll(() => {
-      requestFixture = {} as ExpressRequest;
+      requestFixture = {} as RequestWithContext;
       emptyRequestContextFixture = {};
     });
 

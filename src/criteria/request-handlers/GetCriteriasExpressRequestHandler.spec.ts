@@ -4,17 +4,17 @@ jest.mock('express');
 
 import express from 'express';
 
-import { IInteractor } from '../../../common/interfaces/IInteractor';
-import { ITransformer } from '../../../common/interfaces/ITransformer';
-import { ApiVersion } from '../../../common/models/domain/ApiVersion';
-import { requestContextSymbol } from '../../../common/models/domain/requestContextSymbol';
-import { ExpressRequest } from '../../../server/models/express/ExpressRequest';
-import { CriteriaApiV1Fixtures } from '../../fixtures/api/v1/CriteriaApiV1Fixtures';
-import { CriteriaFindQueryFixtures } from '../../fixtures/domain/CriteriaFindQueryFixtures';
-import { CriteriaFixtures } from '../../fixtures/domain/CriteriaFixtures';
-import { CriteriaApiV1 } from '../../models/api/v1/CriteriaApiV1';
-import { Criteria } from '../../models/domain/Criteria';
-import { CriteriaFindQuery } from '../../models/domain/CriteriaFindQuery';
+import { IInteractor } from '../../common/interfaces/IInteractor';
+import { ITransformer } from '../../common/interfaces/ITransformer';
+import { ApiVersion } from '../../common/models/domain/ApiVersion';
+import { requestContextSymbol } from '../../common/models/domain/requestContextSymbol';
+import { RequestWithContext } from '../../server/models/RequestWithContext';
+import { CriteriaApiV1Fixtures } from '../fixtures/api/v1/CriteriaApiV1Fixtures';
+import { CriteriaFindQueryFixtures } from '../fixtures/domain/CriteriaFindQueryFixtures';
+import { CriteriaFixtures } from '../fixtures/domain/CriteriaFixtures';
+import { CriteriaApiV1 } from '../models/api/v1/CriteriaApiV1';
+import { Criteria } from '../models/domain/Criteria';
+import { CriteriaFindQuery } from '../models/domain/CriteriaFindQuery';
 import { GetCriteriasExpressRequestHandler } from './GetCriteriasExpressRequestHandler';
 
 describe('GetCriteriasExpressRequestHandler', () => {
@@ -92,14 +92,14 @@ describe('GetCriteriasExpressRequestHandler', () => {
     });
 
     describe('having an ExpressRequest with ApiVersion.v1', () => {
-      let expressRequestMock: ExpressRequest;
+      let expressRequestMock: RequestWithContext;
 
       beforeAll(() => {
         expressRequestMock = {
           [requestContextSymbol]: {
             apiVersion: ApiVersion.v1,
           },
-        } as ExpressRequest;
+        } as RequestWithContext;
       });
 
       describe('when called', () => {

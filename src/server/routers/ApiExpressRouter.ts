@@ -1,7 +1,7 @@
 import * as inversify from 'inversify';
 
-import { criteriaInjectionTypes } from '../../../criteria/inversify/criteriaInjectionTypes';
-import { ExpressRouter } from '../../modules/express/ExpressRouter';
+import { criteriaInjectionTypes } from '../../criteria/inversify/criteriaInjectionTypes';
+import { ExpressRouter } from '../modules/ExpressRouter';
 
 inversify.injectable();
 export class ApiExpressRouter extends ExpressRouter {

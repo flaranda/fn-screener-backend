@@ -1,7 +1,7 @@
 import express from 'express';
 import * as inversify from 'inversify';
 
-import { ExpressRequest } from '../../models/express/ExpressRequest';
+import { RequestWithContext } from '../models/RequestWithContext';
 
 @inversify.injectable()
 export abstract class ExpressRequestParamHandler {
@@ -10,7 +10,7 @@ export abstract class ExpressRequestParamHandler {
   }
 
   protected abstract handle(
-    request: ExpressRequest,
+    request: RequestWithContext,
     response: express.Response,
     next: express.NextFunction,
     param: string,

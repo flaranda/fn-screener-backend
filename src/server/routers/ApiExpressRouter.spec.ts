@@ -4,7 +4,7 @@ jest.mock('express');
 
 import express from 'express';
 
-import { ExpressRouter } from '../../modules/express/ExpressRouter';
+import { ExpressRouter } from '../modules/ExpressRouter';
 import { ApiExpressRouter } from './ApiExpressRouter';
 
 describe('ApiExpressRouter', () => {

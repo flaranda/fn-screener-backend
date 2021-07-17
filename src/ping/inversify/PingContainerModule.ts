@@ -1,7 +1,7 @@
 import * as inversify from 'inversify';
 
-import { GetPingExpressRequestHandler } from '../request-handlers/express/GetPingExpressRequestHandler';
-import { PingExpressRouter } from '../routers/express/PingExpressRouter';
+import { GetPingExpressRequestHandler } from '../request-handlers/GetPingExpressRequestHandler';
+import { PingExpressRouter } from '../routers/PingExpressRouter';
 import { pingInjectionTypes } from './pingInjectionTypes';
 
 export class PingContainerModule extends inversify.ContainerModule {
