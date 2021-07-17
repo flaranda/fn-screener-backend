@@ -1,4 +1,4 @@
-import { CriteriaMongoSeed } from '../models/mongo/CriteriaMongoSeed';
+import { CriteriaMongoSeed } from '../../models/mongo/CriteriaMongoSeed';
 
 export const criteriaMongoSeeds: CriteriaMongoSeed[] = [
   {

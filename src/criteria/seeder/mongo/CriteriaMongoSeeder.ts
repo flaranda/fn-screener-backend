@@ -1,13 +1,13 @@
 import * as inversify from 'inversify';
 import mongoose from 'mongoose';
 
-import { hasValue } from '../../common/helpers/hasValue';
-import { ISeeder } from '../../common/interfaces/ISeeder';
-import { EntityMongoModelName } from '../../common/models/mongo/EntityMongoModelName';
-import { MongoDatasource } from '../../mongo/datasources/MongoDatasource';
-import { mongoInjectionTypes } from '../../mongo/inversify/mongoInjectionTypes';
-import { CriteriaMongo } from '../models/mongo/CriteriaMongo';
-import { CriteriaMongoDocument } from '../models/mongo/CriteriaMongoDocument';
+import { hasValue } from '../../../common/helpers/hasValue';
+import { ISeeder } from '../../../common/interfaces/ISeeder';
+import { EntityMongoModelName } from '../../../common/models/mongo/EntityMongoModelName';
+import { MongoDatasource } from '../../../mongo/datasources/MongoDatasource';
+import { mongoInjectionTypes } from '../../../mongo/inversify/mongoInjectionTypes';
+import { CriteriaMongo } from '../../models/mongo/CriteriaMongo';
+import { CriteriaMongoDocument } from '../../models/mongo/CriteriaMongoDocument';
 import { criteriaMongoSeeds } from './criteriaMongoSeeds';
 
 @inversify.injectable()

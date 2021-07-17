@@ -5,7 +5,7 @@ import { CriteriaMongoSchemaContainer } from '../models/mongo/CriteriaMongoSchem
 import { CriteriaMongoFindManyRepository } from '../repositories/CriteriaMongoFindManyRepository';
 import { GetCriteriasExpressRequestHandler } from '../request-handlers/express/GetCriteriasExpressRequestHandler';
 import { CriteriasExpressRouter } from '../routers/express/CriteriasExpressRouter';
-import { CriteriaMongoSeeder } from '../seeder/CriteriaMongoSeeder';
+import { CriteriaMongoSeeder } from '../seeder/mongo/CriteriaMongoSeeder';
 import { CriteriaToCriteriaApiV1Transformer } from '../transformers/api/v1/CriteriaToCriteriaApiV1Transformer';
 import { CriteriaMongoDocumentToCriteriaTransformer } from '../transformers/mongo/CriteriaMongoDocumentToCriteriaTransformer';
 import { criteriaInjectionTypes } from './criteriaInjectionTypes';
