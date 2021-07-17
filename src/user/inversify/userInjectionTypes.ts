@@ -3,4 +3,5 @@ export const userInjectionTypes = {
     'UserMongoDocumentToUserTransformer',
   ),
   UserMongoSchemaContainer: Symbol('UserMongoSchemaContainer'),
+  UserMongoSeeder: Symbol('UserMongoSeeder'),
 };

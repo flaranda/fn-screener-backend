@@ -1,6 +1,7 @@
 import * as inversify from 'inversify';
 
 import { UserMongoSchemaContainer } from '../models/mongo/UserMongoSchemaContainer';
+import { UserMongoSeeder } from '../seeder/mongo/UserMongoSeeder';
 import { UserMongoDocumentToUserTransformer } from '../transformers/mongo/UserMongoDocumentToUserTransformer';
 import { userInjectionTypes } from './userInjectionTypes';
 
@@ -15,6 +16,7 @@ export class UserContainerModule extends inversify.ContainerModule {
       bind(userInjectionTypes.UserMongoSchemaContainer).to(
         UserMongoSchemaContainer,
       );
+      bind(userInjectionTypes.UserMongoSeeder).to(UserMongoSeeder);
     };
 
     super(registry);
