@@ -50,12 +50,12 @@ export class GetUsersMeUserCriteriasExpressRequestHandler extends ApiExpressRequ
 
     const userCriteriasApiV1: UserCriteriaApiV1[] = await Promise.all(
       userCriterias.map(async (userCriteria: UserCriteria) => {
-        const criteriaApiV1: UserCriteriaApiV1 =
+        const userCriteriaApiV1: UserCriteriaApiV1 =
           await this.userCriteriaToUserCriteriaApiV1Transformer.transform(
             userCriteria,
           );
 
-        return criteriaApiV1;
+        return userCriteriaApiV1;
       }),
     );
 
