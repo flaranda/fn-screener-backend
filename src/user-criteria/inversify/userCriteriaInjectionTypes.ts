@@ -8,4 +8,7 @@ export const userCriteriaInjectionTypes = {
   ),
   UserCriteriaMongoSchemaContainer: Symbol('UserCriteriaMongoSchemaContainer'),
   UserCriteriaMongoSeeder: Symbol('UserCriteriaMongoSeeder'),
+  UserCriteriaToUserCriteriaApiV1Transformer: Symbol(
+    'UserCriteriaToUserCriteriaApiV1Transformer',
+  ),
 };
