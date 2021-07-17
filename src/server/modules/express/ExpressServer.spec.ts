@@ -8,9 +8,9 @@ jest.mock('express', () => jest.fn());
 
 import express from 'express';
 
-import { IDatasource } from '../../common/interfaces/IDatasource';
-import { EnvVariablesFixtures } from '../../env-variables-loader/fixtures/EnvVariablesFixtures';
-import { ServerConfig } from '../configs/ServerConfig';
+import { IDatasource } from '../../../common/interfaces/IDatasource';
+import { EnvVariablesFixtures } from '../../../env-variables-loader/fixtures/EnvVariablesFixtures';
+import { ServerConfig } from '../../configs/ServerConfig';
 import { ExpressServer } from './ExpressServer';
 
 describe('Server', () => {

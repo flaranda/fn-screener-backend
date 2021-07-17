@@ -1,7 +1,7 @@
 import * as inversify from 'inversify';
 
 import { ServerConfig } from '../configs/ServerConfig';
-import { ExpressServer } from '../modules/ExpressServer';
+import { ExpressServer } from '../modules/express/ExpressServer';
 import { serverInjectionTypes } from './serverInjectionTypes';
 
 export class ServerContainerModule extends inversify.ContainerModule {
