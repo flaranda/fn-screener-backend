@@ -4,6 +4,7 @@ import { FindManyUserCriteriasInteractor } from '../interactors/FindManyUserCrit
 import { UserCriteriaMongoSchemaContainer } from '../models/mongo/UserCriteriaMongoSchemaContainer';
 import { UserCriteriaMongoFindManyRepository } from '../repositories/mongo/UserCriteriaMongoFindManyRepository';
 import { GetUsersMeUserCriteriasExpressRequestHandler } from '../request-handlers/GetUsersMeUserCriteriasExpressRequestHandler';
+import { MeUserCriteriasRouter } from '../routers/MeUserCriteriasRouter';
 import { UserCriteriaMongoSeeder } from '../seeder/mongo/UserCriteriaMongoSeeder';
 import { UserCriteriaToUserCriteriaApiV1Transformer } from '../transformers/api/v1/UserCriteriaToUserCriteriaApiV1Transformer';
 import { UserCriteriaMongoDocumentToUserCriteriaTransformer } from '../transformers/mongo/UserCriteriaMongoDocumentToUserCriteriaTransformer';
@@ -31,6 +32,9 @@ export class UserCriteriaContainerModule extends inversify.ContainerModule {
       );
       bind(userCriteriaInjectionTypes.UserCriteriaMongoSeeder).to(
         UserCriteriaMongoSeeder,
+      );
+      bind(userCriteriaInjectionTypes.MeUserCriteriasRouter).to(
+        MeUserCriteriasRouter,
       );
       bind(
         userCriteriaInjectionTypes.UserCriteriaToUserCriteriaApiV1Transformer,

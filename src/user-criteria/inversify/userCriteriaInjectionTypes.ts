@@ -11,6 +11,7 @@ export const userCriteriaInjectionTypes = {
   ),
   UserCriteriaMongoSchemaContainer: Symbol('UserCriteriaMongoSchemaContainer'),
   UserCriteriaMongoSeeder: Symbol('UserCriteriaMongoSeeder'),
+  MeUserCriteriasRouter: Symbol('UserCriteriasRouter'),
   UserCriteriaToUserCriteriaApiV1Transformer: Symbol(
     'UserCriteriaToUserCriteriaApiV1Transformer',
   ),
