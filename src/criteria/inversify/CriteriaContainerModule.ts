@@ -1,6 +1,7 @@
 import * as inversify from 'inversify';
 
 import { FindManyCriteriasInteractor } from '../interactors/FindManyCriteriasInteractor';
+import { FindOneCriteriaInteractor } from '../interactors/FindOneCriteriaInteractor';
 import { CriteriaMongoSchemaContainer } from '../models/mongo/CriteriaMongoSchemaContainer';
 import { CriteriaMongoFindManyRepository } from '../repositories/mongo/CriteriaMongoFindManyRepository';
 import { CriteriaMongoFindOneRepository } from '../repositories/mongo/CriteriaMongoFindOneRepository';
@@ -37,6 +38,9 @@ export class CriteriaContainerModule extends inversify.ContainerModule {
       );
       bind(criteriaInjectionTypes.FindManyCriteriasInteractor).to(
         FindManyCriteriasInteractor,
+      );
+      bind(criteriaInjectionTypes.FindOneCriteriaInteractor).to(
+        FindOneCriteriaInteractor,
       );
       bind(criteriaInjectionTypes.GetCriteriasExpressRequestHandler).to(
         GetCriteriasExpressRequestHandler,

@@ -11,6 +11,7 @@ export const criteriaInjectionTypes = {
     'CriteriaToCriteriaApiV1Transformer',
   ),
   FindManyCriteriasInteractor: Symbol('FindManyCriteriasInteractor'),
+  FindOneCriteriaInteractor: Symbol('FindOneCriteriaInteractor'),
   GetCriteriasExpressRequestHandler: Symbol(
     'GetCriteriasExpressRequestHandler',
   ),
