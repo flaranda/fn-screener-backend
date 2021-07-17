@@ -8,6 +8,7 @@ import { mongoInjectionTypes } from '../../../mongo/inversify/mongoInjectionType
 import { ServerConfig } from '../../configs/ServerConfig';
 import { IServer } from '../../interfaces/IServer';
 import { serverInjectionTypes } from '../../inversify/serverInjectionTypes';
+import { ExpressRouter } from './ExpressRouter';
 
 @inversify.injectable()
 export class ExpressServer implements IServer {
@@ -19,6 +20,8 @@ export class ExpressServer implements IServer {
     private readonly serverConfig: ServerConfig,
     @inversify.inject(mongoInjectionTypes.MongoDatasource)
     private readonly mongoDatasource: IDatasource,
+    @inversify.inject(serverInjectionTypes.MainExpressRouter)
+    private readonly mainExpressRouter: ExpressRouter,
   ) {
     this.express = this.configureExpress();
     this.httpServer = http.createServer(this.express);
@@ -69,6 +72,8 @@ export class ExpressServer implements IServer {
     const expressInstance: express.Express = express();
 
     expressInstance.disable('x-powered-by');
+
+    expressInstance.use(this.mainExpressRouter.handler);
 
     return expressInstance;
   }

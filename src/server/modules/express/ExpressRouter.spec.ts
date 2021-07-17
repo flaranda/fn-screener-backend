@@ -13,12 +13,13 @@ class ExpressRouterMock extends ExpressRouter {
 }
 
 describe('ExpressRouter', () => {
-  let expressRouterFixture: express.Router;
+  let expressRouterFixture: jest.Mocked<express.Router>;
 
   let router: ExpressRouter;
 
   beforeAll(() => {
-    expressRouterFixture = {} as express.Router;
+    expressRouterFixture =
+      {} as Partial<express.Router> as jest.Mocked<express.Router>;
 
     (express.Router as jest.Mock).mockReturnValue(expressRouterFixture);
 

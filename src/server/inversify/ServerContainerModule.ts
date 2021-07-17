@@ -2,6 +2,7 @@ import * as inversify from 'inversify';
 
 import { ServerConfig } from '../configs/ServerConfig';
 import { ExpressServer } from '../modules/express/ExpressServer';
+import { MainExpressRouter } from '../routers/express/MainExpressRouter';
 import { serverInjectionTypes } from './serverInjectionTypes';
 
 export class ServerContainerModule extends inversify.ContainerModule {
@@ -12,6 +13,7 @@ export class ServerContainerModule extends inversify.ContainerModule {
       bind(serverInjectionTypes.ExpressServer)
         .to(ExpressServer)
         .inSingletonScope();
+      bind(serverInjectionTypes.MainExpressRouter).to(MainExpressRouter);
       bind(serverInjectionTypes.ServerConfig)
         .to(ServerConfig)
         .inSingletonScope();

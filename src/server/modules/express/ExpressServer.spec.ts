@@ -11,6 +11,7 @@ import express from 'express';
 import { IDatasource } from '../../../common/interfaces/IDatasource';
 import { EnvVariablesFixtures } from '../../../env-variables-loader/fixtures/EnvVariablesFixtures';
 import { ServerConfig } from '../../configs/ServerConfig';
+import { ExpressRouter } from './ExpressRouter';
 import { ExpressServer } from './ExpressServer';
 
 describe('Server', () => {
@@ -18,12 +19,14 @@ describe('Server', () => {
   let httpServer: jest.Mocked<http.Server>;
   let serverConfig: jest.Mocked<ServerConfig>;
   let mongoDatasource: jest.Mocked<IDatasource>;
+  let mainExpressRouter: jest.Mocked<ExpressRouter>;
 
   let expressServer: ExpressServer;
 
   beforeAll(() => {
     expressMock = {
       disable: jest.fn(),
+      use: jest.fn(),
     } as Partial<express.Express> as jest.Mocked<express.Express>;
 
     httpServer = {
@@ -61,7 +64,15 @@ describe('Server', () => {
       disconnect: jest.fn(),
     };
 
-    expressServer = new ExpressServer(serverConfig, mongoDatasource);
+    mainExpressRouter = {
+      handler: jest.fn(),
+    } as Partial<ExpressRouter> as jest.Mocked<ExpressRouter>;
+
+    expressServer = new ExpressServer(
+      serverConfig,
+      mongoDatasource,
+      mainExpressRouter,
+    );
   });
 
   describe('when instantiated', () => {
@@ -70,7 +81,11 @@ describe('Server', () => {
     beforeAll(() => {
       jest.clearAllMocks();
 
-      server = new ExpressServer(serverConfig, mongoDatasource);
+      server = new ExpressServer(
+        serverConfig,
+        mongoDatasource,
+        mainExpressRouter,
+      );
     });
 
     afterAll(() => {
@@ -79,6 +94,14 @@ describe('Server', () => {
 
     it('should call express()', () => {
       expect(express).toHaveBeenCalledTimes(1);
+    });
+
+    it('should call expressMock.use()', () => {
+      expect(expressMock.use).toHaveBeenCalledTimes(1);
+      expect(expressMock.use).toHaveBeenNthCalledWith(
+        1,
+        mainExpressRouter.handler,
+      );
     });
 
     it('should call http.createServer()', () => {
