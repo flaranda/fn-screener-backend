@@ -6,4 +6,6 @@ export const userInjectionTypes = {
   UserMongoFindOneRepository: Symbol('UserMongoFindOneRepository'),
   UserMongoSchemaContainer: Symbol('UserMongoSchemaContainer'),
   UserMongoSeeder: Symbol('UserMongoSeeder'),
+  UsersMeRouter: Symbol('UsersMeRouter'),
+  UsersRouter: Symbol('UsersRouter'),
 };

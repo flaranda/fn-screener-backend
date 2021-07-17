@@ -3,6 +3,8 @@ import * as inversify from 'inversify';
 import { FindOneUserInteractor } from '../interactors/FindOneUserInteractor';
 import { UserMongoSchemaContainer } from '../models/mongo/UserMongoSchemaContainer';
 import { UserMongoFindOneRepository } from '../repositories/mongo/UserMongoFindOneRepository';
+import { UsersMeRouter } from '../routers/UsersMeRouter';
+import { UsersRouter } from '../routers/UsersRouter';
 import { UserMongoSeeder } from '../seeder/mongo/UserMongoSeeder';
 import { UserMongoDocumentToUserTransformer } from '../transformers/mongo/UserMongoDocumentToUserTransformer';
 import { userInjectionTypes } from './userInjectionTypes';
@@ -23,6 +25,8 @@ export class UserContainerModule extends inversify.ContainerModule {
         UserMongoSchemaContainer,
       );
       bind(userInjectionTypes.UserMongoSeeder).to(UserMongoSeeder);
+      bind(userInjectionTypes.UsersMeRouter).to(UsersMeRouter);
+      bind(userInjectionTypes.UsersRouter).to(UsersRouter);
     };
 
     super(registry);
