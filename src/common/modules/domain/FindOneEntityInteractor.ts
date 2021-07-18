@@ -7,16 +7,19 @@ import { EntityFindQuery } from '../../models/domain/EntityFindQuery';
 
 @inversify.injectable()
 export abstract class FindOneEntityInteractor<
-  TFindQuery extends EntityFindQuery = EntityFindQuery,
+  TEntityFindQuery extends EntityFindQuery = EntityFindQuery,
   TEntity extends Entity = Entity,
-> implements IInteractor<TFindQuery, TEntity>
+> implements IInteractor<TEntityFindQuery, TEntity>
 {
   constructor(
     @inversify.unmanaged()
-    private readonly findOneRepository: IFindOneRepository<TFindQuery, TEntity>,
+    private readonly findOneRepository: IFindOneRepository<
+      TEntityFindQuery,
+      TEntity
+    >,
   ) {}
 
-  public async interact(entityFindQuery: TFindQuery): Promise<TEntity> {
+  public async interact(entityFindQuery: TEntityFindQuery): Promise<TEntity> {
     const entity: TEntity = await this.findOneRepository.findOne(
       entityFindQuery,
     );
