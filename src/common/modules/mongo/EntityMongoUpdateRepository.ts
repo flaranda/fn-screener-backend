@@ -49,6 +49,7 @@ export abstract class EntityMongoUpdateRepository<
       this.transformEntityUpdateQueryToMogooseUpdateQuery(entityUpdateQuery);
 
     const mongooseQueryOptions: mongoose.QueryOptions = {
+      new: true,
       useFindAndModify: false,
     };
 

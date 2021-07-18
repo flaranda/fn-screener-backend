@@ -4,7 +4,13 @@ jest.mock('http');
 
 import http from 'http';
 
-jest.mock('express', () => jest.fn());
+jest.mock('express', () => {
+  const express: jest.Mock = jest.fn();
+
+  (express as unknown as { json: jest.Mock }).json = jest.fn();
+
+  return express;
+});
 
 import express from 'express';
 
@@ -97,9 +103,9 @@ describe('ExpressServer', () => {
     });
 
     it('should call expressMock.use()', () => {
-      expect(expressMock.use).toHaveBeenCalledTimes(1);
+      expect(expressMock.use).toHaveBeenCalledTimes(2);
       expect(expressMock.use).toHaveBeenNthCalledWith(
-        1,
+        2,
         mainExpressRouter.handler,
       );
     });

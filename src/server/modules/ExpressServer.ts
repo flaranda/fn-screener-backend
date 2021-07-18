@@ -73,6 +73,8 @@ export class ExpressServer implements IServer {
 
     expressInstance.disable('x-powered-by');
 
+    expressInstance.use(express.json());
+
     expressInstance.use(this.mainExpressRouter.handler);
 
     return expressInstance;
