@@ -16,6 +16,9 @@ export const selectedCriteriaInjectionTypes = {
     'SelectedCriteriaMongoSchemaContainer',
   ),
   SelectedCriteriaMongoSeeder: Symbol('SelectedCriteriaMongoSeeder'),
+  SelectedCriteriaMongoUpdateRepository: Symbol(
+    'SelectedCriteriaMongoUpdateRepository',
+  ),
   SelectedCriteriaToSelectedCriteriaApiV1Transformer: Symbol(
     'SelectedCriteriaToSelectedCriteriaApiV1Transformer',
   ),

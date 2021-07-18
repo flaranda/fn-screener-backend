@@ -1,20 +1,22 @@
 import * as inversify from 'inversify';
 import mongoose from 'mongoose';
 
+import { hasValue } from '../../../common/helpers/hasValue';
 import { ITransformer } from '../../../common/interfaces/ITransformer';
 import { EntityMongoModelName } from '../../../common/models/mongo/EntityMongoModelName';
-import { EntityMongoFindManyRepository } from '../../../common/modules/mongo/EntityMongoFindManyRepository';
+import { EntityMongoUpdateRepository } from '../../../common/modules/mongo/EntityMongoUpdateRepository';
 import { MongoDatasource } from '../../../mongo/datasources/MongoDatasource';
 import { mongoInjectionTypes } from '../../../mongo/inversify/mongoInjectionTypes';
 import { selectedCriteriaInjectionTypes } from '../../inversify/selectedCriteriaInjectionTypes';
 import { SelectedCriteria } from '../../models/domain/SelectedCriteria';
-import { SelectedCriteriaFindQuery } from '../../models/domain/SelectedCriteriaFindQuery';
+import { SelectedCriteriaUpdateQuery } from '../../models/domain/SelectedCriteriaUpdateQuery';
+import { selectedCriteriaImportanceToSelectedCriteriaMongoImportanceMap } from '../../models/mongo/selectedCriteriaImportanceToSelectedCriteriaMongoImportanceMap';
 import { SelectedCriteriaMongo } from '../../models/mongo/SelectedCriteriaMongo';
 import { SelectedCriteriaMongoDocument } from '../../models/mongo/SelectedCriteriaMongoDocument';
 
 @inversify.injectable()
-export class SelectedCriteriaMongoFindManyRepository extends EntityMongoFindManyRepository<
-  SelectedCriteriaFindQuery,
+export class SelectedCriteriaMongoUpdateRepository extends EntityMongoUpdateRepository<
+  SelectedCriteriaUpdateQuery,
   SelectedCriteria,
   SelectedCriteriaMongo,
   SelectedCriteriaMongoDocument
@@ -37,14 +39,24 @@ export class SelectedCriteriaMongoFindManyRepository extends EntityMongoFindMany
     );
   }
 
-  protected hydrateBaseMongooseFilterQueryFromEntityFindQuery(
-    mongooseFilterQuery: mongoose.FilterQuery<SelectedCriteriaMongo>,
-    selectedCriteriaFindQuery: SelectedCriteriaFindQuery,
-  ): mongoose.FilterQuery<SelectedCriteriaMongo> {
-    if ('userUuid' in selectedCriteriaFindQuery) {
-      mongooseFilterQuery.user_uuid = selectedCriteriaFindQuery.userUuid;
+  protected buildMongooseUpdateQueryFromBaseMongooseUpdateQueryAndEntityUpdateQuery(
+    baseMongooseUpdateQuery: mongoose.UpdateQuery<SelectedCriteriaMongo>,
+    selectedCriteriaUpdateQuery: SelectedCriteriaUpdateQuery,
+  ): mongoose.UpdateQuery<SelectedCriteriaMongo> {
+    const selectedCriteriaMongo: Partial<SelectedCriteriaMongo> = {};
+
+    if (hasValue(selectedCriteriaUpdateQuery.importance)) {
+      selectedCriteriaMongo.importance =
+        selectedCriteriaImportanceToSelectedCriteriaMongoImportanceMap[
+          selectedCriteriaUpdateQuery.importance
+        ];
     }
 
-    return mongooseFilterQuery;
+    const mongooseUpdateQuery: mongoose.UpdateQuery<SelectedCriteriaMongo> = {
+      ...baseMongooseUpdateQuery,
+      ...selectedCriteriaMongo,
+    };
+
+    return mongooseUpdateQuery;
   }
 }

@@ -3,6 +3,7 @@ import * as inversify from 'inversify';
 import { FindManySelectedCriteriasInteractor } from '../interactors/FindManySelectedCriteriasInteractor';
 import { SelectedCriteriaMongoSchemaContainer } from '../models/mongo/SelectedCriteriaMongoSchemaContainer';
 import { SelectedCriteriaMongoFindManyRepository } from '../repositories/mongo/SelectedCriteriaMongoFindManyRepository';
+import { SelectedCriteriaMongoUpdateRepository } from '../repositories/mongo/SelectedCriteriaMongoUpdateRepository';
 import { GetUsersMeSelectedCriteriasExpressRequestHandler } from '../request-handlers/GetUsersMeSelectedCriteriasExpressRequestHandler';
 import { MeSelectedCriteriasRouter } from '../routers/MeSelectedCriteriasRouter';
 import { SelectedCriteriaMongoSeeder } from '../seeder/mongo/SelectedCriteriaMongoSeeder';
@@ -36,6 +37,9 @@ export class SelectedCriteriaContainerModule extends inversify.ContainerModule {
       bind(selectedCriteriaInjectionTypes.SelectedCriteriaMongoSeeder).to(
         SelectedCriteriaMongoSeeder,
       );
+      bind(
+        selectedCriteriaInjectionTypes.SelectedCriteriaMongoUpdateRepository,
+      ).to(SelectedCriteriaMongoUpdateRepository);
       bind(
         selectedCriteriaInjectionTypes.SelectedCriteriaToSelectedCriteriaApiV1Transformer,
       ).to(SelectedCriteriaToSelectedCriteriaApiV1Transformer);
