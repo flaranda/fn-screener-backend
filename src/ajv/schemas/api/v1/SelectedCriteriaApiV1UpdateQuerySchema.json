@@ -4,14 +4,13 @@
   "type": "object",
   "properties": {
     "importance": {
-      "type": "string"
-    },
-    "uuid": {
-      "type": "string"
+      "type": "string",
+      "enum": [
+        "must_have",
+        "nice_to_have",
+        "super_nice_to_have"
+      ]
     }
   },
-  "required": [
-    "uuid"
-  ],
   "additionalProperties": true
 }

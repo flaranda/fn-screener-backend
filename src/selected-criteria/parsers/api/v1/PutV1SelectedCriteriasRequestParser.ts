@@ -25,9 +25,7 @@ export class PutV1SelectedCriteriasRequestParser
 
     if (this.selectedCriteriaApiV1UpdateQueryTypeGuard.is(body)) {
       const selectedCriteriaApiV1UpdateQuery: SelectedCriteriaApiV1UpdateQuery =
-        {
-          uuid: body.uuid,
-        };
+        {};
 
       if (hasValue(body.importance)) {
         selectedCriteriaApiV1UpdateQuery.importance = body.importance;

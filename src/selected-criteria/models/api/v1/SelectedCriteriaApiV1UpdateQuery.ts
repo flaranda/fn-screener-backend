@@ -2,5 +2,4 @@ import { SelectedCriteriaApiV1Importance } from './SelectedCriteriaApiV1Importan
 
 export interface SelectedCriteriaApiV1UpdateQuery {
   importance?: SelectedCriteriaApiV1Importance;
-  uuid: string;
 }

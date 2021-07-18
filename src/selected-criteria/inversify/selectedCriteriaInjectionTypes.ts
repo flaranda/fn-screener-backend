@@ -9,13 +9,12 @@ export const selectedCriteriaInjectionTypes = {
     'GetUsersMeSelectedCriteriasExpressRequestHandler',
   ),
   MeSelectedCriteriasRouter: Symbol('SelectedCriteriasRouter'),
+  PutUsersMeSelectedCriteriasRequestHandler: Symbol(
+    'PutUsersMeSelectedCriteriasRequestHandler',
+  ),
   PutV1SelectedCriteriasRequestParser: Symbol(
     'PutV1SelectedCriteriasRequestParser',
   ),
-  SelectedCriteriaApiV1UpdateQueryToSelectedCriteriaUpdateQueryTransformer:
-    Symbol(
-      'SelectedCriteriaApiV1UpdateQueryToSelectedCriteriaUpdateQueryTransformer',
-    ),
   SelectedCriteriaApiV1UpdateQueryTypeGuard: Symbol(
     'SelectedCriteriaApiV1UpdateQueryTypeGuard',
   ),
