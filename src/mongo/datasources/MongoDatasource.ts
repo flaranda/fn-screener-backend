@@ -6,8 +6,11 @@ import { IDatasource } from '../../common/interfaces/IDatasource';
 import { EntityMongo } from '../../common/models/mongo/EntityMongo';
 import { EntityMongoSchemaContainer } from '../../common/models/mongo/EntityMongoSchemaContainer';
 import { criteriaComplianceInjectionTypes } from '../../criteria-compliance/inversify/criteriaComplianceInjectionTypes';
+import { CriteriaComplianceMongo } from '../../criteria-compliance/models/mongo/CriteriaComplianceMongo';
 import { criteriaInjectionTypes } from '../../criteria/inversify/criteriaInjectionTypes';
 import { CriteriaMongo } from '../../criteria/models/mongo/CriteriaMongo';
+import { matchingInjectionTypes } from '../../matching/inversify/matchingInjectionTypes';
+import { MatchingMongo } from '../../matching/models/mongo/MatchingMongo';
 import { selectedCriteriaInjectionTypes } from '../../selected-criteria/inversify/selectedCriteriaInjectionTypes';
 import { SelectedCriteriaMongo } from '../../selected-criteria/models/mongo/SelectedCriteriaMongo';
 import { startupInjectionTypes } from '../../startup/inversify/startupInjectionTypes';
@@ -29,7 +32,9 @@ export class MongoDatasource implements IDatasource {
     @inversify.inject(
       criteriaComplianceInjectionTypes.CriteriaComplianceMongoSchemaContainer,
     )
-    private readonly criteriaComplianceMongoSchemaContainer: EntityMongoSchemaContainer<StartupMongo>,
+    private readonly criteriaComplianceMongoSchemaContainer: EntityMongoSchemaContainer<CriteriaComplianceMongo>,
+    @inversify.inject(matchingInjectionTypes.MatchingMongoSchemaContainer)
+    private readonly matchingMongoSchemaContainer: EntityMongoSchemaContainer<MatchingMongo>,
     @inversify.inject(
       selectedCriteriaInjectionTypes.SelectedCriteriaMongoSchemaContainer,
     )
@@ -96,6 +101,7 @@ export class MongoDatasource implements IDatasource {
     const schemaContainers: EntityMongoSchemaContainer<EntityMongo>[] = [
       this.criteriaMongoSchemaContainer,
       this.criteriaComplianceMongoSchemaContainer,
+      this.matchingMongoSchemaContainer,
       this.selectedCriteriaMongoSchemaContainer,
       this.startupMongoSchemaContainer,
       this.userMongoSchemaContainer,
