@@ -4,6 +4,25 @@ CriteriaCompliance:
     compliance:
       type: boolean
       description: Wether the criteria is complied or not by the startup
+      example: true
+    criteria_name:
+      type: string
+      description: Related criteria name
+      example: Stage is Seed or Series A
+    criteria_uuid:
+      type: string
+      format: uuid
+      description: Related criteria identifier
+      example: d9d61a31-7486-420c-b0aa-4add784eaab8
+    startup_name:
+      type: string
+      description: Related startup name
+      example: Blissey
+    startup_uuid:
+      type: string
+      format: uuid
+      description: Related startup identifier
+      example: 556c886c-f357-4c69-ae0f-cd2f8e1ba38a
     uuid:
       type: string
       format: uuid

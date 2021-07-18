@@ -5,7 +5,7 @@ import { IInteractor } from '../../common/interfaces/IInteractor';
 import { ITransformer } from '../../common/interfaces/ITransformer';
 import { RequestWithContext } from '../../server/models/RequestWithContext';
 import { ApiExpressRequestHandler } from '../../server/modules/ApiExpressRequestHandler';
-import { CriteriaComplianceApiV1 } from '../fixtures/api/v1/CriteriaComplianceApiV1';
+import { CriteriaComplianceApiV1 } from '../models/api/v1/CriteriaComplianceApiV1';
 import { criteriaComplianceInjectionTypes } from '../inversify/criteriaComplianceInjectionTypes';
 import { CriteriaCompliance } from '../models/domain/CriteriaCompliance';
 import { CriteriaComplianceUpdateQuery } from '../models/domain/CriteriaComplianceUpdateQuery';
