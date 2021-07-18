@@ -1,5 +1,6 @@
 export const userInjectionTypes = {
   FindOneUserInteractor: Symbol('FindOneUserInteractor'),
+  UserMiddleware: Symbol('UserMiddleware'),
   UserMongoDocumentToUserTransformer: Symbol(
     'UserMongoDocumentToUserTransformer',
   ),

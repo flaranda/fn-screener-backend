@@ -48,8 +48,8 @@ describe('ApiExpressRouter', () => {
       );
       expect(expressRouterFixture.use).toHaveBeenNthCalledWith(
         2,
-        '/users/',
-        criteriasRouter.handler,
+        '/users',
+        usersRouter.handler,
       );
     });
   });

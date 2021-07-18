@@ -1,6 +1,7 @@
 import * as inversify from 'inversify';
 
 import { FindOneUserInteractor } from '../interactors/FindOneUserInteractor';
+import { UserMiddleware } from '../middlewares/UserMiddleware';
 import { UserMongoSchemaContainer } from '../models/mongo/UserMongoSchemaContainer';
 import { UserMongoFindOneRepository } from '../repositories/mongo/UserMongoFindOneRepository';
 import { UsersMeRouter } from '../routers/UsersMeRouter';
@@ -15,6 +16,7 @@ export class UserContainerModule extends inversify.ContainerModule {
       bind: inversify.interfaces.Bind,
     ): void => {
       bind(userInjectionTypes.FindOneUserInteractor).to(FindOneUserInteractor);
+      bind(userInjectionTypes.UserMiddleware).to(UserMiddleware);
       bind(userInjectionTypes.UserMongoDocumentToUserTransformer).to(
         UserMongoDocumentToUserTransformer,
       );
