@@ -2,6 +2,7 @@ import { SelectedCriteriaApiV1Importance } from './SelectedCriteriaApiV1Importan
 
 export interface SelectedCriteriaApiV1 {
   criteria_name: string;
+  criteria_uuid: string;
   importance: SelectedCriteriaApiV1Importance;
   uuid: string;
 }

@@ -6,6 +6,7 @@ export class SelectedCriteriaApiV1Fixtures {
   public static get withMandatory(): SelectedCriteriaApiV1 {
     const fixture: SelectedCriteriaApiV1 = {
       criteria_name: CriteriaApiV1Fixtures.withMandatory.name,
+      criteria_uuid: CriteriaApiV1Fixtures.withMandatory.uuid,
       importance: SelectedCriteriaApiV1Importance.must_have,
       uuid: 'ca062b0f-ff9f-41da-a223-05855ce0d1cd',
     };

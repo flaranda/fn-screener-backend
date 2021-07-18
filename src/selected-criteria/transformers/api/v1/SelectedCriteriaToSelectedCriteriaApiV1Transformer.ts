@@ -28,6 +28,7 @@ export class SelectedCriteriaToSelectedCriteriaApiV1Transformer
 
     const selectedCriteriaApiV1: SelectedCriteriaApiV1 = {
       criteria_name: criteria.name,
+      criteria_uuid: selectedCriteria.criteriaUuid,
       importance:
         selectedCriteriaImportanceToSelectedCriteriaApiV1ImportanceMap[
           selectedCriteria.importance
