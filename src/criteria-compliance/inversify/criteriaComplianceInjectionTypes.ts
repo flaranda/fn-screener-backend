@@ -21,4 +21,7 @@ export const criteriaComplianceInjectionTypes = {
   FindOneCriteriaComplianceInteractor: Symbol(
     'FindOneCriteriaComplianceInteractor',
   ),
+  UpdateCriteriaCompliancesInteractor: Symbol(
+    'UpdateCriteriaCompliancesInteractor',
+  ),
 };
