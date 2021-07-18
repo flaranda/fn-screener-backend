@@ -10,6 +10,7 @@ import { CriteriaComplianceMongoFindOneRepository } from '../repositories/mongo/
 import { CriteriaComplianceMongoUpdateRepository } from '../repositories/mongo/CriteriaComplianceMongoUpdateRepository';
 import { CriteriaComplianceRequestParamHandler } from '../request-handlers/CriteriaComplianceRequestParamHandler';
 import { CriteriaComplianceMongoSeeder } from '../seeder/mongo/CriteriaComplianceMongoSeeder';
+import { PatchV1CriteriaCompliancesRequestToCriteriaComplianceUpdateQueryTransformer } from '../transformers/api/v1/PatchV1CriteriaCompliancesRequestToCriteriaComplianceUpdateQueryTransformer';
 import { CriteriaComplianceMongoDocumentToCriteriaComplianceTransformer } from '../transformers/mongo/CriteriaComplianceMongoDocumentToCriteriaComplianceTransformer';
 import { CriteriaComplianceApiV1UpdateQueryTypeGuard } from '../type-guards/api/v1/CriteriaComplianceApiV1UpdateQueryTypeGuard';
 import { criteriaComplianceInjectionTypes } from './criteriaComplianceInjectionTypes';
@@ -52,6 +53,11 @@ export class CriteriaComplianceContainerModule extends inversify.ContainerModule
       bind(
         criteriaComplianceInjectionTypes.PatchV1CriteriaCompliancesRequestParser,
       ).to(PatchV1CriteriaCompliancesRequestParser);
+      bind(
+        criteriaComplianceInjectionTypes.PatchV1CriteriaCompliancesRequestToCriteriaComplianceUpdateQueryTransformer,
+      ).to(
+        PatchV1CriteriaCompliancesRequestToCriteriaComplianceUpdateQueryTransformer,
+      );
       bind(
         criteriaComplianceInjectionTypes.UpdateCriteriaCompliancesInteractor,
       ).to(UpdateCriteriaCompliancesInteractor);
