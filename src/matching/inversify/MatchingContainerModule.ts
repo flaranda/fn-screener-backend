@@ -1,6 +1,7 @@
 import * as inversify from 'inversify';
 
 import { MatchingMongoSchemaContainer } from '../models/mongo/MatchingMongoSchemaContainer';
+import { MatchingMongoSeeder } from '../seeders/mongo/MatchingMongoSeeder';
 import { matchingInjectionTypes } from './matchingInjectionTypes';
 
 export class MatchingContainerModule extends inversify.ContainerModule {
@@ -11,6 +12,7 @@ export class MatchingContainerModule extends inversify.ContainerModule {
       bind(matchingInjectionTypes.MatchingMongoSchemaContainer).to(
         MatchingMongoSchemaContainer,
       );
+      bind(matchingInjectionTypes.MatchingMongoSeeder).to(MatchingMongoSeeder);
     };
 
     super(registry);

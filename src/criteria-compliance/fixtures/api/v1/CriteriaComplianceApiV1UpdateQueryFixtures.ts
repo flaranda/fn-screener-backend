@@ -9,6 +9,7 @@ export class CriteriaComplianceApiV1UpdateQueryFixtures {
 
   public static get withAll(): Required<CriteriaComplianceApiV1UpdateQuery> {
     const fixture: Required<CriteriaComplianceApiV1UpdateQuery> = {
+      ...this.withMandatory,
       compliance: true,
     };
 
