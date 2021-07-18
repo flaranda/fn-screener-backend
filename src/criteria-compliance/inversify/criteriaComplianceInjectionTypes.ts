@@ -18,4 +18,7 @@ export const criteriaComplianceInjectionTypes = {
   FindManyCriteriaCompliancesInteractor: Symbol(
     'FindManyCriteriaCompliancesInteractor',
   ),
+  FindOneCriteriaComplianceInteractor: Symbol(
+    'FindOneCriteriaComplianceInteractor',
+  ),
 };
