@@ -7,8 +7,10 @@ import { CriteriaComplianceMongoSchemaContainer } from '../models/mongo/Criteria
 import { CriteriaComplianceMongoFindManyRepository } from '../repositories/mongo/CriteriaComplianceMongoFindManyRepository';
 import { CriteriaComplianceMongoFindOneRepository } from '../repositories/mongo/CriteriaComplianceMongoFindOneRepository';
 import { CriteriaComplianceMongoUpdateRepository } from '../repositories/mongo/CriteriaComplianceMongoUpdateRepository';
+import { CriteriaComplianceRequestParamHandler } from '../request-handlers/CriteriaComplianceRequestParamHandler';
 import { CriteriaComplianceMongoSeeder } from '../seeder/mongo/CriteriaComplianceMongoSeeder';
 import { CriteriaComplianceMongoDocumentToCriteriaComplianceTransformer } from '../transformers/mongo/CriteriaComplianceMongoDocumentToCriteriaComplianceTransformer';
+import { CriteriaComplianceApiV1UpdateQueryTypeGuard } from '../type-guards/api/v1/CriteriaComplianceApiV1UpdateQueryTypeGuard';
 import { criteriaComplianceInjectionTypes } from './criteriaComplianceInjectionTypes';
 
 export class CriteriaComplianceContainerModule extends inversify.ContainerModule {
@@ -16,6 +18,9 @@ export class CriteriaComplianceContainerModule extends inversify.ContainerModule
     const registry: inversify.interfaces.ContainerModuleCallBack = (
       bind: inversify.interfaces.Bind,
     ): void => {
+      bind(
+        criteriaComplianceInjectionTypes.CriteriaComplianceApiV1UpdateQueryTypeGuard,
+      ).to(CriteriaComplianceApiV1UpdateQueryTypeGuard);
       bind(
         criteriaComplianceInjectionTypes.CriteriaComplianceMongoDocumentToCriteriaComplianceTransformer,
       ).to(CriteriaComplianceMongoDocumentToCriteriaComplianceTransformer);
@@ -34,6 +39,9 @@ export class CriteriaComplianceContainerModule extends inversify.ContainerModule
       bind(
         criteriaComplianceInjectionTypes.CriteriaComplianceMongoUpdateRepository,
       ).to(CriteriaComplianceMongoUpdateRepository);
+      bind(
+        criteriaComplianceInjectionTypes.CriteriaComplianceRequestParamHandler,
+      ).to(CriteriaComplianceRequestParamHandler);
       bind(
         criteriaComplianceInjectionTypes.FindManyCriteriaCompliancesInteractor,
       ).to(FindManyCriteriaCompliancesInteractor);

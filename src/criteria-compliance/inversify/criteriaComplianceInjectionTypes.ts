@@ -1,4 +1,7 @@
 export const criteriaComplianceInjectionTypes = {
+  CriteriaComplianceApiV1UpdateQueryTypeGuard: Symbol(
+    'CriteriaComplianceApiV1UpdateQueryTypeGuard',
+  ),
   CriteriaComplianceMongoDocumentToCriteriaComplianceTransformer: Symbol(
     'CriteriaComplianceMongoDocumentToCriteriaComplianceTransformer',
   ),
@@ -14,6 +17,9 @@ export const criteriaComplianceInjectionTypes = {
   CriteriaComplianceMongoSeeder: Symbol('CriteriaComplianceMongoSeeder'),
   CriteriaComplianceMongoUpdateRepository: Symbol(
     'CriteriaComplianceMongoUpdateRepository',
+  ),
+  CriteriaComplianceRequestParamHandler: Symbol(
+    'CriteriaComplianceRequestParamHandler',
   ),
   FindManyCriteriaCompliancesInteractor: Symbol(
     'FindManyCriteriaCompliancesInteractor',
