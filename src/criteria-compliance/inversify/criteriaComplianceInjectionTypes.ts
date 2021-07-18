@@ -30,6 +30,9 @@ export const criteriaComplianceInjectionTypes = {
   FindOneCriteriaComplianceInteractor: Symbol(
     'FindOneCriteriaComplianceInteractor',
   ),
+  PatchCriteriaCompliancesRequestHandler: Symbol(
+    'PatchCriteriaCompliancesRequestHandler',
+  ),
   PatchV1CriteriaCompliancesRequestParser: Symbol(
     'PatchV1CriteriaCompliancesRequestParser',
   ),
