@@ -2,16 +2,16 @@ patch:
   tags:
     - SelectedCriteria
   parameters:
-    - $ref: '../components/parameters/SelectedCriteriaId.yml#/SelectedCriteriaId'
+    - $ref: '../components/parameters/SelectedCriteriaUuid.yml#/SelectedCriteriaUuid'
   requestBody:
-    description: Endpoint to update a discovery topic
+    description: Endpoint to update a user's selected criteria
     content:
       application/json:
         schema:
           $ref: '../components/schemas/selected-criteria/SelectedCriteriaUpdateQuery.yml#/SelectedCriteriaUpdateQuery'
   responses:
     200:
-      description: Updated selected criteria
+      description: Updated user's selected criteria
       content:
         application/json:
           schema:

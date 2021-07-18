@@ -1,0 +1,18 @@
+patch:
+  tags:
+    - CriteriaCompliance
+  parameters:
+    - $ref: '../components/parameters/CriteriaComplianceUuid.yml#/CriteriaComplianceUuid'
+  requestBody:
+    description: Endpoint to update a criteria compliance
+    content:
+      application/json:
+        schema:
+          $ref: '../components/schemas/criteria-compliance/CriteriaComplianceUpdateQuery.yml#/CriteriaComplianceUpdateQuery'
+  responses:
+    200:
+      description: Updated criteria compliance
+      content:
+        application/json:
+          schema:
+            $ref: '../components/schemas/criteria-compliance/CriteriaCompliance.yml#/CriteriaCompliance'

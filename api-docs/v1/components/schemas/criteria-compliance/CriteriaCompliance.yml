@@ -1,0 +1,12 @@
+CriteriaCompliance:
+  type: object
+  properties:
+    compliance:
+      type: boolean
+      description: Wether the criteria is complied or not by the startup
+    uuid:
+      type: string
+      format: uuid
+      description: Criteria compliance identifier
+      example: 8c04525a-90c8-40c7-a151-d18859cecfc9
+  additionalProperties: false

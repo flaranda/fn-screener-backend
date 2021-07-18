@@ -14,12 +14,17 @@ servers:
 
 tags:
   - name: Criteria
+  - name: CriteriaCompliance
   - name: SelectedCriteria
 
 components:
   schemas:
     Criteria:
       $ref: './v1/components/schemas/criteria/Criteria.yml#/Criteria'
+    CriteriaCompliance:
+      $ref: './v1/components/schemas/criteria/CriteriaCompliance.yml#/CriteriaCompliance'
+    CriteriaComplianceUpdateQuery:
+      $ref: './v1/components/schemas/criteria/CriteriaComplianceUpdateQuery.yml#/CriteriaComplianceUpdateQuery'
     SelectedCriteria:
       $ref: './v1/components/schemas/selected-criteria/SelectedCriteria.yml#/SelectedCriteria'
     SelectedCriteriaUpdateQuery:
@@ -28,11 +33,15 @@ components:
 paths:
   /criterias/:
     $ref: './v1/paths/criterias.yml'
+  /criteria-compliances/{criteriaComplianceUuid}/:
+    $ref: './v1/paths/criteria-compliances_criteriaComplianceUuid.yml'
   /users/me/selected-criterias/:
     $ref: './v1/paths/users_me_selected-criterias.yml'
-  /users/me/selected-criterias/{selectedCriteriaId}/:
-    $ref: './v1/paths/users_me_selected-criterias_selectedCriteriaId.yml'
+  /users/me/selected-criterias/{selectedCriteriaUuid}/:
+    $ref: './v1/paths/users_me_selected-criterias_selectedCriteriaUuid.yml'
 
 parameters:
-  SelectedCriteriaId:
-    $ref: './v1/components/parameters/SelectedCriteriaId.yml#/SelectedCriteriaId'
+  CriteriaComplianceUuid:
+    $ref: './v1/components/parameters/CriteriaComplianceUuid.yml#/CriteriaComplianceUuid'
+  SelectedCriteriaUuid:
+    $ref: './v1/components/parameters/SelectedCriteriaUuid.yml#/SelectedCriteriaUuid'

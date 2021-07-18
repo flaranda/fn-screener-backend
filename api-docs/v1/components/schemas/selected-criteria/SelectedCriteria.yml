@@ -3,14 +3,14 @@ SelectedCriteria:
   properties:
     criteria_name:
       type: string
-      description: Criteria name
+      description: Criteria name or description
       example: Stage is Seed or Series A
     importance:
       $ref: './SelectedCriteriaImportance.yml#/SelectedCriteriaImportance'
     uuid:
       type: string
       format: uuid
-      description: Selected Criteria identifier
+      description: Selected criteria identifier
       example: ca062b0f-ff9f-41da-a223-05855ce0d1cd
   required:
     - criteria_name

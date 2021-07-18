@@ -1,7 +1,7 @@
-SelectedCriteriaId:
-  name: selectedCriteriaId
+SelectedCriteriaUuid:
+  name: selectedCriteriaUuid
   in: path
-  description: Select Criteria identifier
+  description: Selected criteria identifier
   required: true
   schema:
     type: string

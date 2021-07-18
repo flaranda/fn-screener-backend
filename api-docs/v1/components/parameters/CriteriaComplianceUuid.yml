@@ -1,0 +1,9 @@
+CriteriaComplianceUuid:
+  name: criteriaComplianceUuid
+  in: path
+  description: Criteria compliance identifier
+  required: true
+  schema:
+    type: string
+    format: uuid
+    example: 8c04525a-90c8-40c7-a151-d18859cecfc9

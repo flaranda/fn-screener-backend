@@ -1,0 +1,6 @@
+CriteriaComplianceUpdateQuery:
+  type: object
+  properties:
+    compliance:
+      type: boolean
+  additionalProperties: false
