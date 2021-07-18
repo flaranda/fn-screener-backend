@@ -6,6 +6,9 @@ export const selectedCriteriaInjectionTypes = {
     'GetUsersMeSelectedCriteriasExpressRequestHandler',
   ),
   MeSelectedCriteriasRouter: Symbol('SelectedCriteriasRouter'),
+  PutV1SelectedCriteriasRequestParser: Symbol(
+    'PutV1SelectedCriteriasRequestParser',
+  ),
   SelectedCriteriaApiV1UpdateQueryTypeGuard: Symbol(
     'SelectedCriteriaApiV1UpdateQueryTypeGuard',
   ),

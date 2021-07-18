@@ -2,6 +2,7 @@ import * as inversify from 'inversify';
 
 import { FindManySelectedCriteriasInteractor } from '../interactors/FindManySelectedCriteriasInteractor';
 import { SelectedCriteriaMongoSchemaContainer } from '../models/mongo/SelectedCriteriaMongoSchemaContainer';
+import { PutV1SelectedCriteriasRequestParser } from '../parsers/api/v1/PutV1SelectedCriteriasRequestParser';
 import { SelectedCriteriaMongoFindManyRepository } from '../repositories/mongo/SelectedCriteriaMongoFindManyRepository';
 import { SelectedCriteriaMongoUpdateRepository } from '../repositories/mongo/SelectedCriteriaMongoUpdateRepository';
 import { GetUsersMeSelectedCriteriasExpressRequestHandler } from '../request-handlers/GetUsersMeSelectedCriteriasExpressRequestHandler';
@@ -26,6 +27,9 @@ export class SelectedCriteriaContainerModule extends inversify.ContainerModule {
       bind(selectedCriteriaInjectionTypes.MeSelectedCriteriasRouter).to(
         MeSelectedCriteriasRouter,
       );
+      bind(
+        selectedCriteriaInjectionTypes.PutV1SelectedCriteriasRequestParser,
+      ).to(PutV1SelectedCriteriasRequestParser);
       bind(
         selectedCriteriaInjectionTypes.SelectedCriteriaApiV1UpdateQueryTypeGuard,
       ).to(SelectedCriteriaApiV1UpdateQueryTypeGuard);
