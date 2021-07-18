@@ -2,6 +2,9 @@ export const selectedCriteriaInjectionTypes = {
   FindManySelectedCriteriasInteractor: Symbol(
     'FindManySelectedCriteriasInteractor',
   ),
+  FindOneSelectedCriteriasInteractor: Symbol(
+    'FindOneSelectedCriteriasInteractor',
+  ),
   GetUsersMeSelectedCriteriasExpressRequestHandler: Symbol(
     'GetUsersMeSelectedCriteriasExpressRequestHandler',
   ),
@@ -22,12 +25,18 @@ export const selectedCriteriaInjectionTypes = {
   SelectedCriteriaMongoFindManyRepository: Symbol(
     'SelectedCriteriaMongoFindManyRepository',
   ),
+  SelectedCriteriaMongoFindOneRepository: Symbol(
+    'SelectedCriteriaMongoFindOneRepository',
+  ),
   SelectedCriteriaMongoSchemaContainer: Symbol(
     'SelectedCriteriaMongoSchemaContainer',
   ),
   SelectedCriteriaMongoSeeder: Symbol('SelectedCriteriaMongoSeeder'),
   SelectedCriteriaMongoUpdateRepository: Symbol(
     'SelectedCriteriaMongoUpdateRepository',
+  ),
+  SelectedCriteriaRequestParamHandler: Symbol(
+    'SelectedCriteriaRequestParamHandler',
   ),
   SelectedCriteriaToSelectedCriteriaApiV1Transformer: Symbol(
     'SelectedCriteriaToSelectedCriteriaApiV1Transformer',
