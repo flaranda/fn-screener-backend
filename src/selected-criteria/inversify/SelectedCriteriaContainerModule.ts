@@ -4,12 +4,12 @@ import { FindManySelectedCriteriasInteractor } from '../interactors/FindManySele
 import { FindOneSelectedCriteriasInteractor } from '../interactors/FindOneSelectedCriteriasInteractor';
 import { UpdateSelectedCriteriasInteractor } from '../interactors/UpdateSelectedCriteriaInteractor';
 import { SelectedCriteriaMongoSchemaContainer } from '../models/mongo/SelectedCriteriaMongoSchemaContainer';
-import { PutV1SelectedCriteriasRequestParser } from '../parsers/api/v1/PutV1SelectedCriteriasRequestParser';
+import { PatchV1SelectedCriteriasRequestParser } from '../parsers/api/v1/PatchV1SelectedCriteriasRequestParser';
 import { SelectedCriteriaMongoFindManyRepository } from '../repositories/mongo/SelectedCriteriaMongoFindManyRepository';
 import { SelectedCriteriaMongoFindOneRepository } from '../repositories/mongo/SelectedCriteriaMongoFindOneRepository';
 import { SelectedCriteriaMongoUpdateRepository } from '../repositories/mongo/SelectedCriteriaMongoUpdateRepository';
 import { GetUsersMeSelectedCriteriasExpressRequestHandler } from '../request-handlers/GetUsersMeSelectedCriteriasExpressRequestHandler';
-import { PutUsersMeSelectedCriteriasRequestHandler } from '../request-handlers/PutUsersMeSelectedCriteriasRequestHandler';
+import { PatchUsersMeSelectedCriteriasRequestHandler } from '../request-handlers/PatchUsersMeSelectedCriteriasRequestHandler';
 import { SelectedCriteriaRequestParamHandler } from '../request-handlers/SelectedCriteriaRequestParamHandler';
 import { MeSelectedCriteriasRouter } from '../routers/MeSelectedCriteriasRouter';
 import { SelectedCriteriaMongoSeeder } from '../seeder/mongo/SelectedCriteriaMongoSeeder';
@@ -36,11 +36,11 @@ export class SelectedCriteriaContainerModule extends inversify.ContainerModule {
         MeSelectedCriteriasRouter,
       );
       bind(
-        selectedCriteriaInjectionTypes.PutUsersMeSelectedCriteriasRequestHandler,
-      ).to(PutUsersMeSelectedCriteriasRequestHandler);
+        selectedCriteriaInjectionTypes.PatchUsersMeSelectedCriteriasRequestHandler,
+      ).to(PatchUsersMeSelectedCriteriasRequestHandler);
       bind(
-        selectedCriteriaInjectionTypes.PutV1SelectedCriteriasRequestParser,
-      ).to(PutV1SelectedCriteriasRequestParser);
+        selectedCriteriaInjectionTypes.PatchV1SelectedCriteriasRequestParser,
+      ).to(PatchV1SelectedCriteriasRequestParser);
       bind(
         selectedCriteriaInjectionTypes.SelectedCriteriaApiV1UpdateQueryTypeGuard,
       ).to(SelectedCriteriaApiV1UpdateQueryTypeGuard);

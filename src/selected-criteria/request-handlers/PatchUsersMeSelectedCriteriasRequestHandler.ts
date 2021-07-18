@@ -6,6 +6,7 @@ import { hasValue } from '../../common/helpers/hasValue';
 import { IInteractor } from '../../common/interfaces/IInteractor';
 import { IRequestParser } from '../../common/interfaces/IRequestParser';
 import { ITransformer } from '../../common/interfaces/ITransformer';
+import { RequestContext } from '../../common/models/domain/RequestContext';
 import { RequestWithContext } from '../../server/models/RequestWithContext';
 import { ApiExpressRequestHandler } from '../../server/modules/ApiExpressRequestHandler';
 import { selectedCriteriaInjectionTypes } from '../inversify/selectedCriteriaInjectionTypes';
@@ -16,10 +17,10 @@ import { SelectedCriteria } from '../models/domain/SelectedCriteria';
 import { SelectedCriteriaUpdateQuery } from '../models/domain/SelectedCriteriaUpdateQuery';
 
 @inversify.injectable()
-export class PutUsersMeSelectedCriteriasRequestHandler extends ApiExpressRequestHandler {
+export class PatchUsersMeSelectedCriteriasRequestHandler extends ApiExpressRequestHandler {
   constructor(
     @inversify.inject(
-      selectedCriteriaInjectionTypes.PutV1SelectedCriteriasRequestParser,
+      selectedCriteriaInjectionTypes.PatchV1SelectedCriteriasRequestParser,
     )
     private readonly putV1SelectedCriteriasRequestParser: IRequestParser<SelectedCriteriaApiV1UpdateQuery>,
     @inversify.inject(
@@ -67,8 +68,10 @@ export class PutUsersMeSelectedCriteriasRequestHandler extends ApiExpressRequest
     const selectCriteriaApiV1UpdateQuery: SelectedCriteriaApiV1UpdateQuery =
       await this.putV1SelectedCriteriasRequestParser.parse(request);
 
+    const requestContext: RequestContext = getRequestContext(request);
+
     const selectedCriteriaUpdateQuery: SelectedCriteriaUpdateQuery = {
-      uuid: getRequestContext(request).selectedCriteria?.uuid as string,
+      uuid: requestContext.selectedCriteria?.uuid as string,
     };
 
     if (hasValue(selectCriteriaApiV1UpdateQuery.importance)) {

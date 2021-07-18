@@ -3,22 +3,22 @@ import { ITypeGuard } from '../../../../common/interfaces/ITypeGuard';
 import { RequestWithContext } from '../../../../server/models/RequestWithContext';
 import { SelectedCriteriaApiV1UpdateQueryFixtures } from '../../../fixtures/api/v1/SelectedCriteriaApiV1UpdateQueryFixtures';
 import { SelectedCriteriaApiV1UpdateQuery } from '../../../models/api/v1/SelectedCriteriaApiV1UpdateQuery';
-import { PutV1SelectedCriteriasRequestParser } from './PutV1SelectedCriteriasRequestParser';
+import { PatchV1SelectedCriteriasRequestParser } from './PatchV1SelectedCriteriasRequestParser';
 
-describe('PutV1SelectedCriteriasRequestParser', () => {
+describe('PatchV1SelectedCriteriasRequestParser', () => {
   let selectedCriteriaApiV1UpdateQueryTypeGuard: jest.Mocked<
     ITypeGuard<SelectedCriteriaApiV1UpdateQuery>
   >;
 
-  let putV1SelectedCriteriasRequestParser: PutV1SelectedCriteriasRequestParser;
+  let patchV1SelectedCriteriasRequestParser: PatchV1SelectedCriteriasRequestParser;
 
   beforeAll(() => {
     selectedCriteriaApiV1UpdateQueryTypeGuard = {
       is: jest.fn(),
     } as unknown as jest.Mocked<ITypeGuard<SelectedCriteriaApiV1UpdateQuery>>;
 
-    putV1SelectedCriteriasRequestParser =
-      new PutV1SelectedCriteriasRequestParser(
+    patchV1SelectedCriteriasRequestParser =
+      new PatchV1SelectedCriteriasRequestParser(
         selectedCriteriaApiV1UpdateQueryTypeGuard,
       );
   });
@@ -43,7 +43,7 @@ describe('PutV1SelectedCriteriasRequestParser', () => {
         let result: unknown;
 
         beforeAll(async () => {
-          result = await putV1SelectedCriteriasRequestParser.parse(
+          result = await patchV1SelectedCriteriasRequestParser.parse(
             requestFixture,
           );
         });
@@ -85,7 +85,7 @@ describe('PutV1SelectedCriteriasRequestParser', () => {
 
         beforeAll(async () => {
           try {
-            await putV1SelectedCriteriasRequestParser.parse(requestFixture);
+            await patchV1SelectedCriteriasRequestParser.parse(requestFixture);
           } catch (err) {
             result = err;
           }

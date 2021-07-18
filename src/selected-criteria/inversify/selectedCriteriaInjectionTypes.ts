@@ -9,11 +9,11 @@ export const selectedCriteriaInjectionTypes = {
     'GetUsersMeSelectedCriteriasExpressRequestHandler',
   ),
   MeSelectedCriteriasRouter: Symbol('SelectedCriteriasRouter'),
-  PutUsersMeSelectedCriteriasRequestHandler: Symbol(
-    'PutUsersMeSelectedCriteriasRequestHandler',
+  PatchUsersMeSelectedCriteriasRequestHandler: Symbol(
+    'PatchUsersMeSelectedCriteriasRequestHandler',
   ),
-  PutV1SelectedCriteriasRequestParser: Symbol(
-    'PutV1SelectedCriteriasRequestParser',
+  PatchV1SelectedCriteriasRequestParser: Symbol(
+    'PatchV1SelectedCriteriasRequestParser',
   ),
   SelectedCriteriaApiV1UpdateQueryTypeGuard: Symbol(
     'SelectedCriteriaApiV1UpdateQueryTypeGuard',
