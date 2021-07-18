@@ -6,6 +6,9 @@ export const selectedCriteriaInjectionTypes = {
     'GetUsersMeSelectedCriteriasExpressRequestHandler',
   ),
   MeSelectedCriteriasRouter: Symbol('SelectedCriteriasRouter'),
+  SelectedCriteriaApiV1UpdateQueryTypeGuard: Symbol(
+    'SelectedCriteriaApiV1UpdateQueryTypeGuard',
+  ),
   SelectedCriteriaMongoDocumentToSelectedCriteriaTransformer: Symbol(
     'SelectedCriteriaMongoDocumentToSelectedCriteriaTransformer',
   ),

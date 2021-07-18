@@ -9,6 +9,7 @@ import { MeSelectedCriteriasRouter } from '../routers/MeSelectedCriteriasRouter'
 import { SelectedCriteriaMongoSeeder } from '../seeder/mongo/SelectedCriteriaMongoSeeder';
 import { SelectedCriteriaToSelectedCriteriaApiV1Transformer } from '../transformers/api/v1/SelectedCriteriaToSelectedCriteriaApiV1Transformer';
 import { SelectedCriteriaMongoDocumentToSelectedCriteriaTransformer } from '../transformers/mongo/SelectedCriteriaMongoDocumentToSelectedCriteriaTransformer';
+import { SelectedCriteriaApiV1UpdateQueryTypeGuard } from '../type-guards/api/v1/SelectedCriteriaApiV1UpdateQueryTypeGuard';
 import { selectedCriteriaInjectionTypes } from './selectedCriteriaInjectionTypes';
 
 export class SelectedCriteriaContainerModule extends inversify.ContainerModule {
@@ -25,6 +26,9 @@ export class SelectedCriteriaContainerModule extends inversify.ContainerModule {
       bind(selectedCriteriaInjectionTypes.MeSelectedCriteriasRouter).to(
         MeSelectedCriteriasRouter,
       );
+      bind(
+        selectedCriteriaInjectionTypes.SelectedCriteriaApiV1UpdateQueryTypeGuard,
+      ).to(SelectedCriteriaApiV1UpdateQueryTypeGuard);
       bind(
         selectedCriteriaInjectionTypes.SelectedCriteriaMongoDocumentToSelectedCriteriaTransformer,
       ).to(SelectedCriteriaMongoDocumentToSelectedCriteriaTransformer);

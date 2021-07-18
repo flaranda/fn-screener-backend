@@ -1,3 +1,4 @@
+import { AjvContainerModule } from '../../ajv/inversify/AjvContainerModule';
 import { CriteriaContainerModule } from '../../criteria/inversify/CriteriaContainerModule';
 import { EnvVariablesLoaderContainerModule } from '../../env-variables-loader/inversify/EnvVariablesLoaderContainerModule';
 import { MongoContainerModule } from '../../mongo/inversify/MongoContainerModule';
@@ -9,6 +10,7 @@ import { UserContainerModule } from '../../user/inversify/UserContainerModule';
 import { ContainerModuleConstructor } from '../models/ContainerModuleConstructor';
 
 export const containerModuleConstructors: ContainerModuleConstructor[] = [
+  AjvContainerModule,
   CriteriaContainerModule,
   EnvVariablesLoaderContainerModule,
   MongoContainerModule,
