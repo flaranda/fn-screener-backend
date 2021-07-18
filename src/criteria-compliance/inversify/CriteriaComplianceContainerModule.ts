@@ -4,6 +4,7 @@ import { FindManyCriteriaCompliancesInteractor } from '../interactors/FindManyCr
 import { FindOneCriteriaComplianceInteractor } from '../interactors/FindOneCriteriaComplianceInteractor';
 import { UpdateCriteriaCompliancesInteractor } from '../interactors/UpdateCriteriaComplianceInteractor';
 import { CriteriaComplianceMongoSchemaContainer } from '../models/mongo/CriteriaComplianceMongoSchemaContainer';
+import { PatchV1CriteriaCompliancesRequestParser } from '../parsers/api/v1/PatchV1CriteriaCompliancesRequestParser';
 import { CriteriaComplianceMongoFindManyRepository } from '../repositories/mongo/CriteriaComplianceMongoFindManyRepository';
 import { CriteriaComplianceMongoFindOneRepository } from '../repositories/mongo/CriteriaComplianceMongoFindOneRepository';
 import { CriteriaComplianceMongoUpdateRepository } from '../repositories/mongo/CriteriaComplianceMongoUpdateRepository';
@@ -48,6 +49,9 @@ export class CriteriaComplianceContainerModule extends inversify.ContainerModule
       bind(
         criteriaComplianceInjectionTypes.FindOneCriteriaComplianceInteractor,
       ).to(FindOneCriteriaComplianceInteractor);
+      bind(
+        criteriaComplianceInjectionTypes.PatchV1CriteriaCompliancesRequestParser,
+      ).to(PatchV1CriteriaCompliancesRequestParser);
       bind(
         criteriaComplianceInjectionTypes.UpdateCriteriaCompliancesInteractor,
       ).to(UpdateCriteriaCompliancesInteractor);
