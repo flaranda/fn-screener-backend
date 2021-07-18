@@ -5,6 +5,7 @@ import { hasValue } from '../../common/helpers/hasValue';
 import { IDatasource } from '../../common/interfaces/IDatasource';
 import { EntityMongo } from '../../common/models/mongo/EntityMongo';
 import { EntityMongoSchemaContainer } from '../../common/models/mongo/EntityMongoSchemaContainer';
+import { criteriaComplianceInjectionTypes } from '../../criteria-compliance/inversify/criteriaComplianceInjectionTypes';
 import { criteriaInjectionTypes } from '../../criteria/inversify/criteriaInjectionTypes';
 import { CriteriaMongo } from '../../criteria/models/mongo/CriteriaMongo';
 import { selectedCriteriaInjectionTypes } from '../../selected-criteria/inversify/selectedCriteriaInjectionTypes';
@@ -25,14 +26,18 @@ export class MongoDatasource implements IDatasource {
     private readonly mongoConfig: MongoConfig,
     @inversify.inject(criteriaInjectionTypes.CriteriaMongoSchemaContainer)
     private readonly criteriaMongoSchemaContainer: EntityMongoSchemaContainer<CriteriaMongo>,
-    @inversify.inject(userInjectionTypes.UserMongoSchemaContainer)
-    private readonly userMongoSchemaContainer: EntityMongoSchemaContainer<UserMongo>,
+    @inversify.inject(
+      criteriaComplianceInjectionTypes.CriteriaComplianceMongoSchemaContainer,
+    )
+    private readonly criteriaComplianceMongoSchemaContainer: EntityMongoSchemaContainer<StartupMongo>,
     @inversify.inject(
       selectedCriteriaInjectionTypes.SelectedCriteriaMongoSchemaContainer,
     )
     private readonly selectedCriteriaMongoSchemaContainer: EntityMongoSchemaContainer<SelectedCriteriaMongo>,
     @inversify.inject(startupInjectionTypes.StartupMongoSchemaContainer)
     private readonly startupMongoSchemaContainer: EntityMongoSchemaContainer<StartupMongo>,
+    @inversify.inject(userInjectionTypes.UserMongoSchemaContainer)
+    private readonly userMongoSchemaContainer: EntityMongoSchemaContainer<UserMongo>,
   ) {}
 
   public get connection(): mongoose.Connection {
@@ -90,6 +95,7 @@ export class MongoDatasource implements IDatasource {
   private getSchemaContainers(): EntityMongoSchemaContainer<EntityMongo>[] {
     const schemaContainers: EntityMongoSchemaContainer<EntityMongo>[] = [
       this.criteriaMongoSchemaContainer,
+      this.criteriaComplianceMongoSchemaContainer,
       this.selectedCriteriaMongoSchemaContainer,
       this.startupMongoSchemaContainer,
       this.userMongoSchemaContainer,
