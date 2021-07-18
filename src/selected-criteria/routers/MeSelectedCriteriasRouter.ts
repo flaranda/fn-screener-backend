@@ -31,7 +31,7 @@ export class MeSelectedCriteriasRouter extends ExpressRouter {
 
   protected initialize(): void {
     this.expressRouter.param(
-      'selectedCriteriaId',
+      'selectedCriteriaUuid',
       this.selectedCriteriaRequestParamHandler.handler,
     );
 
@@ -43,7 +43,7 @@ export class MeSelectedCriteriasRouter extends ExpressRouter {
       ]);
 
     this.expressRouter
-      .route('/:selectedCriteriaId')
+      .route('/:selectedCriteriaUuid')
       .patch([
         this.userMiddleware.handler,
         this.putUsersMeSelectedCriteriasRequestHandler.handler,

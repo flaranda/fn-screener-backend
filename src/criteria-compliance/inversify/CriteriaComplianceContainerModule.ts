@@ -10,6 +10,7 @@ import { CriteriaComplianceMongoFindOneRepository } from '../repositories/mongo/
 import { CriteriaComplianceMongoUpdateRepository } from '../repositories/mongo/CriteriaComplianceMongoUpdateRepository';
 import { CriteriaComplianceRequestParamHandler } from '../request-handlers/CriteriaComplianceRequestParamHandler';
 import { CriteriaComplianceMongoSeeder } from '../seeder/mongo/CriteriaComplianceMongoSeeder';
+import { CriteriaComplianceToCriteriaComplianceApiV1Transformer } from '../transformers/api/v1/CriteriaComplianceToCriteriaComplianceApiV1Transformer';
 import { PatchV1CriteriaCompliancesRequestToCriteriaComplianceUpdateQueryTransformer } from '../transformers/api/v1/PatchV1CriteriaCompliancesRequestToCriteriaComplianceUpdateQueryTransformer';
 import { CriteriaComplianceMongoDocumentToCriteriaComplianceTransformer } from '../transformers/mongo/CriteriaComplianceMongoDocumentToCriteriaComplianceTransformer';
 import { CriteriaComplianceApiV1UpdateQueryTypeGuard } from '../type-guards/api/v1/CriteriaComplianceApiV1UpdateQueryTypeGuard';
@@ -45,6 +46,9 @@ export class CriteriaComplianceContainerModule extends inversify.ContainerModule
         criteriaComplianceInjectionTypes.CriteriaComplianceRequestParamHandler,
       ).to(CriteriaComplianceRequestParamHandler);
       bind(
+        criteriaComplianceInjectionTypes.CriteriaComplianceToCriteriaComplianceApiV1Transformer,
+      ).to(CriteriaComplianceToCriteriaComplianceApiV1Transformer);
+      bind(
         criteriaComplianceInjectionTypes.FindManyCriteriaCompliancesInteractor,
       ).to(FindManyCriteriaCompliancesInteractor);
       bind(
@@ -59,7 +63,7 @@ export class CriteriaComplianceContainerModule extends inversify.ContainerModule
         PatchV1CriteriaCompliancesRequestToCriteriaComplianceUpdateQueryTransformer,
       );
       bind(
-        criteriaComplianceInjectionTypes.UpdateCriteriaCompliancesInteractor,
+        criteriaComplianceInjectionTypes.UpdateCriteriaComplianceInteractor,
       ).to(UpdateCriteriaCompliancesInteractor);
     };
 

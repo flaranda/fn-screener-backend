@@ -21,6 +21,9 @@ export const criteriaComplianceInjectionTypes = {
   CriteriaComplianceRequestParamHandler: Symbol(
     'CriteriaComplianceRequestParamHandler',
   ),
+  CriteriaComplianceToCriteriaComplianceApiV1Transformer: Symbol(
+    'CriteriaComplianceToCriteriaComplianceApiV1Transformer',
+  ),
   FindManyCriteriaCompliancesInteractor: Symbol(
     'FindManyCriteriaCompliancesInteractor',
   ),
@@ -34,7 +37,7 @@ export const criteriaComplianceInjectionTypes = {
     Symbol(
       'PatchV1CriteriaCompliancesRequestToCriteriaComplianceUpdateQueryTransformer',
     ),
-  UpdateCriteriaCompliancesInteractor: Symbol(
-    'UpdateCriteriaCompliancesInteractor',
+  UpdateCriteriaComplianceInteractor: Symbol(
+    'UpdateCriteriaComplianceInteractor',
   ),
 };

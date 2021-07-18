@@ -22,7 +22,7 @@ export class PatchUsersMeSelectedCriteriasRequestHandler extends ApiExpressReque
     @inversify.inject(
       selectedCriteriaInjectionTypes.PatchV1SelectedCriteriasRequestParser,
     )
-    private readonly putV1SelectedCriteriasRequestParser: IRequestParser<SelectedCriteriaApiV1UpdateQuery>,
+    private readonly patchV1SelectedCriteriasRequestParser: IRequestParser<SelectedCriteriaApiV1UpdateQuery>,
     @inversify.inject(
       selectedCriteriaInjectionTypes.UpdateSelectedCriteriaInteractor,
     )
@@ -66,7 +66,7 @@ export class PatchUsersMeSelectedCriteriasRequestHandler extends ApiExpressReque
     request: RequestWithContext,
   ): Promise<SelectedCriteriaUpdateQuery> {
     const selectCriteriaApiV1UpdateQuery: SelectedCriteriaApiV1UpdateQuery =
-      await this.putV1SelectedCriteriasRequestParser.parse(request);
+      await this.patchV1SelectedCriteriasRequestParser.parse(request);
 
     const requestContext: RequestContext = getRequestContext(request);
 
