@@ -7,7 +7,7 @@ import { SelectedCriteria } from '../models/domain/SelectedCriteria';
 import { SelectedCriteriaFindQuery } from '../models/domain/SelectedCriteriaFindQuery';
 
 @inversify.injectable()
-export class FindOneSelectedCriteriasInteractor extends FindOneEntityInteractor<
+export class FindOneSelectedCriteriaInteractor extends FindOneEntityInteractor<
   SelectedCriteriaFindQuery,
   SelectedCriteria
 > {

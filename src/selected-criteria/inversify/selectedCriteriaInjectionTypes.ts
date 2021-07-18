@@ -2,8 +2,8 @@ export const selectedCriteriaInjectionTypes = {
   FindManySelectedCriteriasInteractor: Symbol(
     'FindManySelectedCriteriasInteractor',
   ),
-  FindOneSelectedCriteriasInteractor: Symbol(
-    'FindOneSelectedCriteriasInteractor',
+  FindOneSelectedCriteriaInteractor: Symbol(
+    'FindOneSelectedCriteriaInteractor',
   ),
   GetUsersMeSelectedCriteriasExpressRequestHandler: Symbol(
     'GetUsersMeSelectedCriteriasExpressRequestHandler',
@@ -40,7 +40,5 @@ export const selectedCriteriaInjectionTypes = {
   SelectedCriteriaToSelectedCriteriaApiV1Transformer: Symbol(
     'SelectedCriteriaToSelectedCriteriaApiV1Transformer',
   ),
-  UpdateSelectedCriteriasInteractor: Symbol(
-    'UpdateSelectedCriteriasInteractor',
-  ),
+  UpdateSelectedCriteriaInteractor: Symbol('UpdateSelectedCriteriaInteractor'),
 };

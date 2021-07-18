@@ -14,9 +14,9 @@ import { SelectedCriteriaFindQuery } from '../models/domain/SelectedCriteriaFind
 export class SelectedCriteriaRequestParamHandler extends ExpressRequestParamHandler {
   constructor(
     @inversify.inject(
-      selectedCriteriaInjectionTypes.FindOneSelectedCriteriasInteractor,
+      selectedCriteriaInjectionTypes.FindOneSelectedCriteriaInteractor,
     )
-    private readonly findOneSelectedCriteriasInteractor: IInteractor<
+    private readonly findOneSelectedCriteriaInteractor: IInteractor<
       SelectedCriteriaFindQuery,
       SelectedCriteria
     >,
@@ -35,7 +35,7 @@ export class SelectedCriteriaRequestParamHandler extends ExpressRequestParamHand
     };
 
     const selectedCriteria: SelectedCriteria =
-      await this.findOneSelectedCriteriasInteractor.interact(
+      await this.findOneSelectedCriteriaInteractor.interact(
         selectedCriteriaFindQuery,
       );
 

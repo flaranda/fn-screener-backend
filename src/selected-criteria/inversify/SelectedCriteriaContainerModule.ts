@@ -1,8 +1,8 @@
 import * as inversify from 'inversify';
 
 import { FindManySelectedCriteriasInteractor } from '../interactors/FindManySelectedCriteriasInteractor';
-import { FindOneSelectedCriteriasInteractor } from '../interactors/FindOneSelectedCriteriasInteractor';
-import { UpdateSelectedCriteriasInteractor } from '../interactors/UpdateSelectedCriteriaInteractor';
+import { FindOneSelectedCriteriaInteractor } from '../interactors/FindOneSelectedCriteriaInteractor';
+import { UpdateSelectedCriteriaInteractor } from '../interactors/UpdateSelectedCriteriaInteractor';
 import { SelectedCriteriaMongoSchemaContainer } from '../models/mongo/SelectedCriteriaMongoSchemaContainer';
 import { PatchV1SelectedCriteriasRequestParser } from '../parsers/api/v1/PatchV1SelectedCriteriasRequestParser';
 import { SelectedCriteriaMongoFindManyRepository } from '../repositories/mongo/SelectedCriteriaMongoFindManyRepository';
@@ -26,9 +26,9 @@ export class SelectedCriteriaContainerModule extends inversify.ContainerModule {
       bind(
         selectedCriteriaInjectionTypes.FindManySelectedCriteriasInteractor,
       ).to(FindManySelectedCriteriasInteractor);
-      bind(
-        selectedCriteriaInjectionTypes.FindOneSelectedCriteriasInteractor,
-      ).to(FindOneSelectedCriteriasInteractor);
+      bind(selectedCriteriaInjectionTypes.FindOneSelectedCriteriaInteractor).to(
+        FindOneSelectedCriteriaInteractor,
+      );
       bind(
         selectedCriteriaInjectionTypes.GetUsersMeSelectedCriteriasExpressRequestHandler,
       ).to(GetUsersMeSelectedCriteriasExpressRequestHandler);
@@ -68,8 +68,8 @@ export class SelectedCriteriaContainerModule extends inversify.ContainerModule {
       bind(
         selectedCriteriaInjectionTypes.SelectedCriteriaToSelectedCriteriaApiV1Transformer,
       ).to(SelectedCriteriaToSelectedCriteriaApiV1Transformer);
-      bind(selectedCriteriaInjectionTypes.UpdateSelectedCriteriasInteractor).to(
-        UpdateSelectedCriteriasInteractor,
+      bind(selectedCriteriaInjectionTypes.UpdateSelectedCriteriaInteractor).to(
+        UpdateSelectedCriteriaInteractor,
       );
     };
 

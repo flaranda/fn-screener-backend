@@ -7,7 +7,7 @@ import { SelectedCriteria } from '../models/domain/SelectedCriteria';
 import { SelectedCriteriaUpdateQuery } from '../models/domain/SelectedCriteriaUpdateQuery';
 
 @inversify.injectable()
-export class UpdateSelectedCriteriasInteractor extends UpdateEntityInteractor<
+export class UpdateSelectedCriteriaInteractor extends UpdateEntityInteractor<
   SelectedCriteriaUpdateQuery,
   SelectedCriteria
 > {
@@ -15,11 +15,11 @@ export class UpdateSelectedCriteriasInteractor extends UpdateEntityInteractor<
     @inversify.inject(
       selectedCriteriaInjectionTypes.SelectedCriteriaMongoUpdateRepository,
     )
-    criteriaUpdateRepository: IUpdateRepository<
+    selectedCriteriaUpdateRepository: IUpdateRepository<
       SelectedCriteriaUpdateQuery,
       SelectedCriteria
     >,
   ) {
-    super(criteriaUpdateRepository);
+    super(selectedCriteriaUpdateRepository);
   }
 }
