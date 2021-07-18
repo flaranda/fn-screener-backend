@@ -3,7 +3,7 @@ get:
     - Criteria
   responses:
     200:
-      description: Requested Criteria list
+      description: Criteria list
       content:
         application/json:
           schema:

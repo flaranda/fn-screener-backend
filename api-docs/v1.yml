@@ -14,12 +14,17 @@ servers:
 
 tags:
   - name: Criteria
+  - name: SelectedCriteria
 
 components:
   schemas:
     Criteria:
       $ref: './v1/components/schemas/criteria/Criteria.yml#/Criteria'
+    SelectedCriteria:
+      $ref: './v1/components/schemas/selected-criteria/SelectedCriteria.yml#/SelectedCriteria'
 
 paths:
   /criterias/:
     $ref: './v1/paths/criterias.yml'
+  /users/me/selected-criterias/:
+    $ref: './v1/paths/users_me_selectedCriterias.yml'

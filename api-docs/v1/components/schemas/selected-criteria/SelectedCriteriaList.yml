@@ -1,0 +1,4 @@
+SelectedCriteriaList:
+  type: array
+  items:
+    $ref: './SelectedCriteria.yml#/SelectedCriteria'

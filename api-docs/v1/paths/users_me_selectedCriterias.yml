@@ -1,0 +1,10 @@
+get:
+  tags:
+    - SelectedCriteria
+  responses:
+    200:
+      description: User's selected criteria list
+      content:
+        application/json:
+          schema:
+            $ref: '../components/schemas/selected-criteria/SelectedCriteriaList.yml#/SelectedCriteriaList'

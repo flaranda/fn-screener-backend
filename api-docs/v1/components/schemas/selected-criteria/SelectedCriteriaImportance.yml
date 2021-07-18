@@ -1,0 +1,8 @@
+SelectedCriteriaImportance:
+  type: string
+  description: The importance a user gives to a criteria acomplishment
+  enum:
+    - must_have
+    - nice_to_have
+    - super_nice_to_have
+  example: must_have
