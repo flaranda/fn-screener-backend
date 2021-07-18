@@ -1,5 +1,6 @@
 export enum EntityMongoModelName {
   Criteria = 'Criteria',
-  User = 'User',
   SelectedCriteria = 'SelectedCriteria',
+  Startup = 'Startup',
+  User = 'User',
 }

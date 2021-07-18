@@ -6,6 +6,7 @@ import { PingContainerModule } from '../../ping/inversify/PingContainerModule';
 import { SeederContainerModule } from '../../seeder/inversify/SeederContainerModule';
 import { SelectedCriteriaContainerModule } from '../../selected-criteria/inversify/SelectedCriteriaContainerModule';
 import { ServerContainerModule } from '../../server/inversify/ServerContainerModule';
+import { StartupContainerModule } from '../../startup/inversify/StartupContainerModule';
 import { UserContainerModule } from '../../user/inversify/UserContainerModule';
 import { ContainerModuleConstructor } from '../models/ContainerModuleConstructor';
 
@@ -18,5 +19,6 @@ export const containerModuleConstructors: ContainerModuleConstructor[] = [
   SeederContainerModule,
   SelectedCriteriaContainerModule,
   ServerContainerModule,
+  StartupContainerModule,
   UserContainerModule,
 ];

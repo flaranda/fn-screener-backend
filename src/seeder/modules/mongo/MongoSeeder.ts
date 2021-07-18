@@ -3,6 +3,7 @@ import * as inversify from 'inversify';
 import { ISeeder } from '../../../common/interfaces/ISeeder';
 import { criteriaInjectionTypes } from '../../../criteria/inversify/criteriaInjectionTypes';
 import { selectedCriteriaInjectionTypes } from '../../../selected-criteria/inversify/selectedCriteriaInjectionTypes';
+import { startupInjectionTypes } from '../../../startup/inversify/startupInjectionTypes';
 import { userInjectionTypes } from '../../../user/inversify/userInjectionTypes';
 
 @inversify.injectable()
@@ -16,6 +17,8 @@ export class MongoSeeder implements ISeeder {
       selectedCriteriaInjectionTypes.SelectedCriteriaMongoSeeder,
     )
     private readonly selectedCriteriaMongoSeeder: ISeeder,
+    @inversify.inject(startupInjectionTypes.StartupMongoSeeder)
+    private readonly startupMongoSeeder: ISeeder,
   ) {}
 
   public async seed(): Promise<void> {
@@ -29,6 +32,9 @@ export class MongoSeeder implements ISeeder {
 
     console.log('Seeding SelectedCriteria MongoDb');
     await this.selectedCriteriaMongoSeeder.seed();
+
+    console.log('Seeding Startup MongoDb');
+    await this.startupMongoSeeder.seed();
 
     console.log('Finished seeding MongoDb');
   }
