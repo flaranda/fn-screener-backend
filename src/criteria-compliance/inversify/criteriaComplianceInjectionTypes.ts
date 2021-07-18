@@ -5,6 +5,9 @@ export const criteriaComplianceInjectionTypes = {
   CriteriaComplianceMongoFindManyRepository: Symbol(
     'CriteriaComplianceMongoFindManyRepository',
   ),
+  CriteriaComplianceMongoFindOneRepository: Symbol(
+    'CriteriaComplianceMongoFindOneRepository',
+  ),
   CriteriaComplianceMongoSchemaContainer: Symbol(
     'CriteriaComplianceMongoSchemaContainer',
   ),

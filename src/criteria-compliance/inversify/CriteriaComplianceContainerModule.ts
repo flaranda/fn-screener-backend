@@ -2,6 +2,7 @@ import * as inversify from 'inversify';
 
 import { CriteriaComplianceMongoSchemaContainer } from '../models/mongo/CriteriaComplianceMongoSchemaContainer';
 import { CriteriaComplianceMongoFindManyRepository } from '../repositories/mongo/CriteriaComplianceMongoFindManyRepository';
+import { CriteriaComplianceMongoFindOneRepository } from '../repositories/mongo/CriteriaComplianceMongoFindOneRepository';
 import { CriteriaComplianceMongoSeeder } from '../seeder/mongo/CriteriaComplianceMongoSeeder';
 import { CriteriaComplianceMongoDocumentToCriteriaComplianceTransformer } from '../transformers/mongo/CriteriaComplianceMongoDocumentToCriteriaComplianceTransformer';
 import { criteriaComplianceInjectionTypes } from './criteriaComplianceInjectionTypes';
@@ -17,6 +18,9 @@ export class CriteriaComplianceContainerModule extends inversify.ContainerModule
       bind(
         criteriaComplianceInjectionTypes.CriteriaComplianceMongoFindManyRepository,
       ).to(CriteriaComplianceMongoFindManyRepository);
+      bind(
+        criteriaComplianceInjectionTypes.CriteriaComplianceMongoFindOneRepository,
+      ).to(CriteriaComplianceMongoFindOneRepository);
       bind(
         criteriaComplianceInjectionTypes.CriteriaComplianceMongoSchemaContainer,
       ).to(CriteriaComplianceMongoSchemaContainer);
