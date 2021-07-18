@@ -15,4 +15,7 @@ export const criteriaComplianceInjectionTypes = {
   CriteriaComplianceMongoUpdateRepository: Symbol(
     'CriteriaComplianceMongoUpdateRepository',
   ),
+  FindManyCriteriaCompliancesInteractor: Symbol(
+    'FindManyCriteriaCompliancesInteractor',
+  ),
 };
