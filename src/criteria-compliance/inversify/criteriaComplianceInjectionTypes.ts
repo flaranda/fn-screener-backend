@@ -21,6 +21,7 @@ export const criteriaComplianceInjectionTypes = {
   CriteriaComplianceRequestParamHandler: Symbol(
     'CriteriaComplianceRequestParamHandler',
   ),
+  CriteriaCompliancesRouter: Symbol('CriteriaCompliancesRouter'),
   CriteriaComplianceToCriteriaComplianceApiV1Transformer: Symbol(
     'CriteriaComplianceToCriteriaComplianceApiV1Transformer',
   ),
