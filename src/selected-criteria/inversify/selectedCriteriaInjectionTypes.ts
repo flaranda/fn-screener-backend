@@ -9,6 +9,10 @@ export const selectedCriteriaInjectionTypes = {
   PutV1SelectedCriteriasRequestParser: Symbol(
     'PutV1SelectedCriteriasRequestParser',
   ),
+  SelectedCriteriaApiV1UpdateQueryToSelectedCriteriaUpdateQueryTransformer:
+    Symbol(
+      'SelectedCriteriaApiV1UpdateQueryToSelectedCriteriaUpdateQueryTransformer',
+    ),
   SelectedCriteriaApiV1UpdateQueryTypeGuard: Symbol(
     'SelectedCriteriaApiV1UpdateQueryTypeGuard',
   ),
@@ -27,5 +31,8 @@ export const selectedCriteriaInjectionTypes = {
   ),
   SelectedCriteriaToSelectedCriteriaApiV1Transformer: Symbol(
     'SelectedCriteriaToSelectedCriteriaApiV1Transformer',
+  ),
+  UpdateSelectedCriteriasInteractor: Symbol(
+    'UpdateSelectedCriteriasInteractor',
   ),
 };
