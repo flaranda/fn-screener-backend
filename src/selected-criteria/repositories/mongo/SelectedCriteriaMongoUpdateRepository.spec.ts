@@ -75,7 +75,7 @@ describe('SelectedCriteriaMongoUpdateRepository', () => {
           expect(mongooseModel.findOneAndUpdate).toHaveBeenCalledTimes(1);
           expect(mongooseModel.findOneAndUpdate).toHaveBeenCalledWith(
             expect.objectContaining({
-              uuid: SelectedCriteriaUpdateQueryFixtures.withMandatory.uuid,
+              uuid: SelectedCriteriaUpdateQueryFixtures.withImportance.uuid,
             }),
             expect.objectContaining({
               importance:

@@ -12,4 +12,7 @@ export const criteriaComplianceInjectionTypes = {
     'CriteriaComplianceMongoSchemaContainer',
   ),
   CriteriaComplianceMongoSeeder: Symbol('CriteriaComplianceMongoSeeder'),
+  CriteriaComplianceMongoUpdateRepository: Symbol(
+    'CriteriaComplianceMongoUpdateRepository',
+  ),
 };

@@ -3,6 +3,7 @@ import * as inversify from 'inversify';
 import { CriteriaComplianceMongoSchemaContainer } from '../models/mongo/CriteriaComplianceMongoSchemaContainer';
 import { CriteriaComplianceMongoFindManyRepository } from '../repositories/mongo/CriteriaComplianceMongoFindManyRepository';
 import { CriteriaComplianceMongoFindOneRepository } from '../repositories/mongo/CriteriaComplianceMongoFindOneRepository';
+import { CriteriaComplianceMongoUpdateRepository } from '../repositories/mongo/CriteriaComplianceMongoUpdateRepository';
 import { CriteriaComplianceMongoSeeder } from '../seeder/mongo/CriteriaComplianceMongoSeeder';
 import { CriteriaComplianceMongoDocumentToCriteriaComplianceTransformer } from '../transformers/mongo/CriteriaComplianceMongoDocumentToCriteriaComplianceTransformer';
 import { criteriaComplianceInjectionTypes } from './criteriaComplianceInjectionTypes';
@@ -27,6 +28,9 @@ export class CriteriaComplianceContainerModule extends inversify.ContainerModule
       bind(criteriaComplianceInjectionTypes.CriteriaComplianceMongoSeeder).to(
         CriteriaComplianceMongoSeeder,
       );
+      bind(
+        criteriaComplianceInjectionTypes.CriteriaComplianceMongoUpdateRepository,
+      ).to(CriteriaComplianceMongoUpdateRepository);
     };
 
     super(registry);
