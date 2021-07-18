@@ -1,4 +1,5 @@
 import { AjvContainerModule } from '../../ajv/inversify/AjvContainerModule';
+import { CriteriaComplianceContainerModule } from '../../criteria-compliance/inversify/CriteriaComplianceContainerModule';
 import { CriteriaContainerModule } from '../../criteria/inversify/CriteriaContainerModule';
 import { EnvVariablesLoaderContainerModule } from '../../env-variables-loader/inversify/EnvVariablesLoaderContainerModule';
 import { MongoContainerModule } from '../../mongo/inversify/MongoContainerModule';
@@ -13,6 +14,7 @@ import { ContainerModuleConstructor } from '../models/ContainerModuleConstructor
 export const containerModuleConstructors: ContainerModuleConstructor[] = [
   AjvContainerModule,
   CriteriaContainerModule,
+  CriteriaComplianceContainerModule,
   EnvVariablesLoaderContainerModule,
   MongoContainerModule,
   PingContainerModule,

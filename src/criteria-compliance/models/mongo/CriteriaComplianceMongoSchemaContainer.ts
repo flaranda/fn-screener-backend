@@ -8,7 +8,8 @@ import { CriteriaComplianceMongo } from './CriteriaComplianceMongo';
 @inversify.injectable()
 export class CriteriaComplianceMongoSchemaContainer extends EntityMongoSchemaContainer<CriteriaComplianceMongo> {
   constructor() {
-    const modelName: EntityMongoModelName = EntityMongoModelName.Criteria;
+    const modelName: EntityMongoModelName =
+      EntityMongoModelName.CriteriaCompliance;
 
     const schemaDefinition: mongoose.SchemaDefinition<CriteriaComplianceMongo> =
       {
