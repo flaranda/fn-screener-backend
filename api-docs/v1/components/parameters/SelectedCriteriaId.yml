@@ -1,0 +1,9 @@
+SelectedCriteriaId:
+  name: selectedCriteriaId
+  in: path
+  description: Select Criteria identifier
+  required: true
+  schema:
+    type: string
+    format: uuid
+    example: ca062b0f-ff9f-41da-a223-05855ce0d1cd

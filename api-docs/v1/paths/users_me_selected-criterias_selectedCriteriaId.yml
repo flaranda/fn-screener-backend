@@ -1,0 +1,18 @@
+patch:
+  tags:
+    - SelectedCriteria
+  parameters:
+    - $ref: '../components/parameters/SelectedCriteriaId.yml#/SelectedCriteriaId'
+  requestBody:
+    description: Endpoint to update a discovery topic
+    content:
+      application/json:
+        schema:
+          $ref: '../components/schemas/selected-criteria/SelectedCriteriaUpdateQuery.yml#/SelectedCriteriaUpdateQuery'
+  responses:
+    200:
+      description: Updated selected criteria
+      content:
+        application/json:
+          schema:
+            $ref: '../components/schemas/selected-criteria/SelectedCriteria.yml#/SelectedCriteria'

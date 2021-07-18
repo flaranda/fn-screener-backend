@@ -1,0 +1,6 @@
+SelectedCriteriaUpdateQuery:
+  type: 'object'
+  properties:
+    importance:
+      $ref: './SelectedCriteriaImportance.yml#/SelectedCriteriaImportance'
+  additionalProperties: false
