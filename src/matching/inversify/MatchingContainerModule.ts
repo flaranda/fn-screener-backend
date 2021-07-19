@@ -50,6 +50,9 @@ export class MatchingContainerModule extends inversify.ContainerModule {
       bind(matchingInjectionTypes.MatchingToMatchingApiV1Transformer).to(
         MatchingToMatchingApiV1Transformer,
       );
+      bind(matchingInjectionTypes.PatchV1MatchingsMatchingUuidRequestParser).to(
+        PatchV1MatchingsMatchingUuidRequestParser,
+      );
       bind(matchingInjectionTypes.UpdateMatchingInteractor).to(
         UpdateMatchingInteractor,
       );

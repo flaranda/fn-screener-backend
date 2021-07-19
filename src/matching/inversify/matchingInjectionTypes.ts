@@ -18,5 +18,8 @@ export const matchingInjectionTypes = {
   MatchingToMatchingApiV1Transformer: Symbol(
     'MatchingToMatchingApiV1Transformer',
   ),
+  PatchV1MatchingsMatchingUuidRequestParser: Symbol(
+    'PatchV1MatchingsMatchingUuidRequestParser',
+  ),
   UpdateMatchingInteractor: Symbol('UpdateMatchingInteractor'),
 };
