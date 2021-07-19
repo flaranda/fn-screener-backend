@@ -1,5 +1,7 @@
 import * as inversify from 'inversify';
 
+import { FindManyCriteriaCompliancesInteractor } from '../../criteria-compliance/interactors/FindManyCriteriaCompliancesInteractor';
+import { FindOneMatchingInteractor } from '../interactors/FindOneMatchingInteractor';
 import { UpdateMatchingInteractor } from '../interactors/UpdateMatchingInteractor';
 import { MatchingMongoSchemaContainer } from '../models/mongo/MatchingMongoSchemaContainer';
 import { MatchingMongoFindManyRepository } from '../repositories/mongo/MatchingMongoFindManyRepository';
@@ -14,6 +16,12 @@ export class MatchingContainerModule extends inversify.ContainerModule {
     const registry: inversify.interfaces.ContainerModuleCallBack = (
       bind: inversify.interfaces.Bind,
     ): void => {
+      bind(matchingInjectionTypes.FindManyMatchingsInteractor).to(
+        FindManyCriteriaCompliancesInteractor,
+      );
+      bind(matchingInjectionTypes.FindOneMatchingInteractor).to(
+        FindOneMatchingInteractor,
+      );
       bind(
         matchingInjectionTypes.MatchingMongoDocumentToMatchingTransformer,
       ).to(MatchingMongoDocumentToMatchingTransformer);
