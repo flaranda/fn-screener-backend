@@ -1,0 +1,161 @@
+{
+	"info": {
+		"_postman_id": "6f8903b5-0e00-4811-8f3c-a76991ac7fb5",
+		"name": "fn-screener-backend",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get criteria list",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/v1/criterias",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"v1",
+						"criterias"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get user's selected criteria list",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/v1/users/me/selected-criterias",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"v1",
+						"users",
+						"me",
+						"selected-criterias"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get user's matchings list",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/v1/users/me/matchings",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"v1",
+						"users",
+						"me",
+						"matchings"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Modify user's selected criteria importance",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"importance\": \"must_have\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/v1/users/me/selected-criterias/60ed9c4e-c093-4ead-94e0-dec9aae9b599",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"v1",
+						"users",
+						"me",
+						"selected-criterias",
+						"60ed9c4e-c093-4ead-94e0-dec9aae9b599"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Modify user's matching status",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"status\": \"pass\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/v1/users/me/matchings/537e5131-4e3e-4a69-b534-a03232d75369",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"v1",
+						"users",
+						"me",
+						"matchings",
+						"537e5131-4e3e-4a69-b534-a03232d75369"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Modify criteria compliance answer",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"answer\": \"yes\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/v1/criteria-compliances/22878c87-fe6a-4943-bad7-bc1d5c3cbd16",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"v1",
+						"criteria-compliances",
+						"22878c87-fe6a-4943-bad7-bc1d5c3cbd16"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
