@@ -9,6 +9,7 @@ import { MatchingMongoFindOneRepository } from '../repositories/mongo/MatchingMo
 import { MatchingMongoUpdateRepository } from '../repositories/mongo/MatchingMongoUpdateRepository';
 import { MatchingMongoSeeder } from '../seeders/mongo/MatchingMongoSeeder';
 import { MatchingMongoDocumentToMatchingTransformer } from '../transformers/mongo/MatchingMongoDocumentToMatchingTransformer';
+import { MatchingApiV1UpdateQueryTypeGuard } from '../type-guards/api/v1/MatchingApiV1UpdateQueryTypeGuard';
 import { matchingInjectionTypes } from './matchingInjectionTypes';
 
 export class MatchingContainerModule extends inversify.ContainerModule {
@@ -21,6 +22,9 @@ export class MatchingContainerModule extends inversify.ContainerModule {
       );
       bind(matchingInjectionTypes.FindOneMatchingInteractor).to(
         FindOneMatchingInteractor,
+      );
+      bind(matchingInjectionTypes.MatchingApiV1UpdateQueryTypeGuard).to(
+        MatchingApiV1UpdateQueryTypeGuard,
       );
       bind(
         matchingInjectionTypes.MatchingMongoDocumentToMatchingTransformer,
