@@ -26,5 +26,8 @@ export const matchingInjectionTypes = {
   PatchV1MatchingsMatchingUuidRequestParser: Symbol(
     'PatchV1MatchingsMatchingUuidRequestParser',
   ),
+  PatchV1MatchingsMatchingUuidRequestToMatchingUpdateQueryTransformer: Symbol(
+    'PatchV1MatchingsMatchingUuidRequestToMatchingUpdateQueryTransformer',
+  ),
   UpdateMatchingInteractor: Symbol('UpdateMatchingInteractor'),
 };

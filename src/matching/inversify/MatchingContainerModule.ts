@@ -1,6 +1,5 @@
 import * as inversify from 'inversify';
 
-import { FindManyCriteriaCompliancesInteractor } from '../../criteria-compliance/interactors/FindManyCriteriaCompliancesInteractor';
 import { FindManyMatchingsInteractor } from '../interactors/FindManyMatchingsInteractor';
 import { FindOneMatchingInteractor } from '../interactors/FindOneMatchingInteractor';
 import { UpdateMatchingInteractor } from '../interactors/UpdateMatchingInteractor';
@@ -15,6 +14,7 @@ import { MeMatchingsRouter } from '../routers/MeMatchingsRouter';
 import { MatchingMongoSeeder } from '../seeders/mongo/MatchingMongoSeeder';
 import { GetV1MatchingsRequestToMatchingFindQueryTransformer } from '../transformers/api/v1/GetV1MatchingsRequestToMatchingFindQueryTransformer';
 import { MatchingToMatchingApiV1Transformer } from '../transformers/api/v1/MatchingToMatchingApiV1Transformer';
+import { PatchV1MatchingsMatchingUuidRequestToMatchingUpdateQueryTransformer } from '../transformers/api/v1/PatchV1MatchingsMatchingUuidRequestToMatchingUpdateQueryTransformer';
 import { MatchingMongoDocumentToMatchingTransformer } from '../transformers/mongo/MatchingMongoDocumentToMatchingTransformer';
 import { MatchingApiV1UpdateQueryTypeGuard } from '../type-guards/api/v1/MatchingApiV1UpdateQueryTypeGuard';
 import { matchingInjectionTypes } from './matchingInjectionTypes';
@@ -65,6 +65,9 @@ export class MatchingContainerModule extends inversify.ContainerModule {
       bind(matchingInjectionTypes.PatchV1MatchingsMatchingUuidRequestParser).to(
         PatchV1MatchingsMatchingUuidRequestParser,
       );
+      bind(
+        matchingInjectionTypes.PatchV1MatchingsMatchingUuidRequestToMatchingUpdateQueryTransformer,
+      ).to(PatchV1MatchingsMatchingUuidRequestToMatchingUpdateQueryTransformer);
       bind(matchingInjectionTypes.UpdateMatchingInteractor).to(
         UpdateMatchingInteractor,
       );
