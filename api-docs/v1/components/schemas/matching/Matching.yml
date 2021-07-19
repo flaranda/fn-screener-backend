@@ -1,0 +1,8 @@
+Matching:
+  type: object
+  properties:
+    status:
+      $ref: './MatchingStatus.yml#/MatchingStatus'
+  required:
+    - status
+  additionalProperties: false

@@ -1,0 +1,6 @@
+MatchingUpdateQuery:
+  type: object
+  properties:
+    status:
+      $ref: './MatchingStatus.yml#/MatchingStatus'
+  additionalProperties: false

@@ -1,0 +1,9 @@
+MatchingUuid:
+  name: matchingUuid
+  in: path
+  description: Matching identifier
+  required: true
+  schema:
+    type: string
+    format: uuid
+    example: f86aa2cd-d27d-48d9-9cd6-2febb214e6ea

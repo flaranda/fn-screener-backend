@@ -3,7 +3,7 @@ get:
     - Criteria
   responses:
     200:
-      description: Criteria list
+      description: Endpoint to get a list of criteria
       content:
         application/json:
           schema:

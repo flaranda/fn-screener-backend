@@ -15,6 +15,7 @@ servers:
 tags:
   - name: Criteria
   - name: CriteriaCompliance
+  - name: Matching
   - name: SelectedCriteria
 
 components:
@@ -25,6 +26,10 @@ components:
       $ref: './v1/components/schemas/criteria/CriteriaCompliance.yml#/CriteriaCompliance'
     CriteriaComplianceUpdateQuery:
       $ref: './v1/components/schemas/criteria/CriteriaComplianceUpdateQuery.yml#/CriteriaComplianceUpdateQuery'
+    Matching:
+      $ref: './v1/components/schemas/matching/Matching.yml#/Matching'
+    MatchingUpdateQuery:
+      $ref: './v1/components/schemas/matching/MatchingUpdateQuery.yml#/MatchingUpdateQuery'
     SelectedCriteria:
       $ref: './v1/components/schemas/selected-criteria/SelectedCriteria.yml#/SelectedCriteria'
     SelectedCriteriaUpdateQuery:
@@ -35,6 +40,10 @@ paths:
     $ref: './v1/paths/criterias.yml'
   /criteria-compliances/{criteriaComplianceUuid}/:
     $ref: './v1/paths/criteria-compliances_criteriaComplianceUuid.yml'
+  /users/me/matchings/:
+    $ref: './v1/paths/users_me_matchings.yml'
+  /users/me/matchings/{matchingUuid}/:
+    $ref: './v1/paths/users_me_matchings_matchingUuid.yml'
   /users/me/selected-criterias/:
     $ref: './v1/paths/users_me_selected-criterias.yml'
   /users/me/selected-criterias/{selectedCriteriaUuid}/:
@@ -43,5 +52,7 @@ paths:
 parameters:
   CriteriaComplianceUuid:
     $ref: './v1/components/parameters/CriteriaComplianceUuid.yml#/CriteriaComplianceUuid'
+  MatchingUuid:
+    $ref: './v1/components/parameters/MatchingUuid.yml#/MatchingUuid'
   SelectedCriteriaUuid:
     $ref: './v1/components/parameters/SelectedCriteriaUuid.yml#/SelectedCriteriaUuid'

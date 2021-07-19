@@ -1,0 +1,4 @@
+MatchingList:
+  type: array
+  items:
+    $ref: './Matching.yml#/Matching'

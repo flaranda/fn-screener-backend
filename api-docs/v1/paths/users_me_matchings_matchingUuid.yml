@@ -1,0 +1,18 @@
+patch:
+  tags:
+    - Matching
+  parameters:
+    - $ref: '../components/parameters/MatchingUuid.yml#/MatchingUuid'
+  requestBody:
+    description: Endpoint to update a matching between a user and a startup
+    content:
+      application/json:
+        schema:
+          $ref: '../components/schemas/matching/MatchingUpdateQuery.yml#/MatchingUpdateQuery'
+  responses:
+    200:
+      description: Updated matching
+      content:
+        application/json:
+          schema:
+            $ref: '../components/schemas/matching/Matching.yml#/Matching'

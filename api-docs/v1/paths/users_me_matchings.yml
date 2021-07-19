@@ -1,10 +1,10 @@
 get:
   tags:
-    - SelectedCriteria
+    - Matching
   responses:
     200:
       description: Endpoint to get a user's selected criteria list
       content:
         application/json:
           schema:
-            $ref: '../components/schemas/selected-criteria/SelectedCriteriaList.yml#/SelectedCriteriaList'
+            $ref: '../components/schemas/matching/MatchingList.yml#/MatchingList'
