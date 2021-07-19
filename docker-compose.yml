@@ -13,7 +13,7 @@ services:
       - 27017:27017
 
   swagger:
-    container_name: fn-screener-backend_mongo_swagger
+    container_name: fn-screener-backend_swagger
     image: swaggerapi/swagger-ui:v3.38.0
     environment:
       CONFIG_URL: swagger-ui.config.json

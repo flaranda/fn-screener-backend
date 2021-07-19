@@ -1,3 +1,5 @@
+import * as inversify from 'inversify';
+
 import { getRequestContext } from '../../../../common/helpers/getRequestContext';
 import { hasValue } from '../../../../common/helpers/hasValue';
 import { ITransformer } from '../../../../common/interfaces/ITransformer';
@@ -6,6 +8,7 @@ import { RequestWithContext } from '../../../../server/models/RequestWithContext
 import { User } from '../../../../user/models/domain/User';
 import { MatchingFindQuery } from '../../../models/domain/MatchingFindQuery';
 
+@inversify.injectable()
 export class GetV1MatchingsRequestToMatchingFindQueryTransformer
   implements ITransformer<RequestWithContext, MatchingFindQuery>
 {

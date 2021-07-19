@@ -15,11 +15,11 @@ export class FindManySelectedCriteriasInteractor extends FindManyEntitiesInterac
     @inversify.inject(
       selectedCriteriaInjectionTypes.SelectedCriteriaMongoFindManyRepository,
     )
-    criteriaFindManyRepository: IFindManyRepository<
+    selectedCriteriaFindManyRepository: IFindManyRepository<
       SelectedCriteriaFindQuery,
       SelectedCriteria
     >,
   ) {
-    super(criteriaFindManyRepository);
+    super(selectedCriteriaFindManyRepository);
   }
 }

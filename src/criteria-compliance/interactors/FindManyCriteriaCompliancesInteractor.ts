@@ -15,11 +15,11 @@ export class FindManyCriteriaCompliancesInteractor extends FindManyEntitiesInter
     @inversify.inject(
       criteriaComplianceInjectionTypes.CriteriaComplianceMongoFindManyRepository,
     )
-    criteriaFindManyRepository: IFindManyRepository<
+    criteriaComplianceFindManyRepository: IFindManyRepository<
       CriteriaComplianceFindQuery,
       CriteriaCompliance
     >,
   ) {
-    super(criteriaFindManyRepository);
+    super(criteriaComplianceFindManyRepository);
   }
 }

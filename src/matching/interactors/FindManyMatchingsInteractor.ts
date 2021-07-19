@@ -13,11 +13,11 @@ export class FindManyMatchingsInteractor extends FindManyEntitiesInteractor<
 > {
   constructor(
     @inversify.inject(matchingInjectionTypes.MatchingMongoFindManyRepository)
-    criteriaFindManyRepository: IFindManyRepository<
+    matchingFindManyRepository: IFindManyRepository<
       MatchingFindQuery,
       Matching
     >,
   ) {
-    super(criteriaFindManyRepository);
+    super(matchingFindManyRepository);
   }
 }

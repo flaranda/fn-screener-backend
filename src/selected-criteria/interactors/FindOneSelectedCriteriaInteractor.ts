@@ -15,11 +15,11 @@ export class FindOneSelectedCriteriaInteractor extends FindOneEntityInteractor<
     @inversify.inject(
       selectedCriteriaInjectionTypes.SelectedCriteriaMongoFindOneRepository,
     )
-    criteriaFindOneRepository: IFindOneRepository<
+    selectedCriteriaFindOneRepository: IFindOneRepository<
       SelectedCriteriaFindQuery,
       SelectedCriteria
     >,
   ) {
-    super(criteriaFindOneRepository);
+    super(selectedCriteriaFindOneRepository);
   }
 }

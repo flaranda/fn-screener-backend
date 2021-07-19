@@ -13,8 +13,8 @@ export class FindOneMatchingInteractor extends FindOneEntityInteractor<
 > {
   constructor(
     @inversify.inject(matchingInjectionTypes.MatchingMongoFindOneRepository)
-    criteriaFindOneRepository: IFindOneRepository<MatchingFindQuery, Matching>,
+    matchingFindOneRepository: IFindOneRepository<MatchingFindQuery, Matching>,
   ) {
-    super(criteriaFindOneRepository);
+    super(matchingFindOneRepository);
   }
 }

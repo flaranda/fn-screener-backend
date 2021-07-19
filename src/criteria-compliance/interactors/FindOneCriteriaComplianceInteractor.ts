@@ -15,11 +15,11 @@ export class FindOneCriteriaComplianceInteractor extends FindOneEntityInteractor
     @inversify.inject(
       criteriaComplianceInjectionTypes.CriteriaComplianceMongoFindOneRepository,
     )
-    criteriaFindOneRepository: IFindOneRepository<
+    criteriaComplianceFindOneRepository: IFindOneRepository<
       CriteriaComplianceFindQuery,
       CriteriaCompliance
     >,
   ) {
-    super(criteriaFindOneRepository);
+    super(criteriaComplianceFindOneRepository);
   }
 }

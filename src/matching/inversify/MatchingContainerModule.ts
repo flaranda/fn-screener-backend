@@ -1,6 +1,7 @@
 import * as inversify from 'inversify';
 
 import { FindManyCriteriaCompliancesInteractor } from '../../criteria-compliance/interactors/FindManyCriteriaCompliancesInteractor';
+import { FindManyMatchingsInteractor } from '../interactors/FindManyMatchingsInteractor';
 import { FindOneMatchingInteractor } from '../interactors/FindOneMatchingInteractor';
 import { UpdateMatchingInteractor } from '../interactors/UpdateMatchingInteractor';
 import { MatchingMongoSchemaContainer } from '../models/mongo/MatchingMongoSchemaContainer';
@@ -24,7 +25,7 @@ export class MatchingContainerModule extends inversify.ContainerModule {
       bind: inversify.interfaces.Bind,
     ): void => {
       bind(matchingInjectionTypes.FindManyMatchingsInteractor).to(
-        FindManyCriteriaCompliancesInteractor,
+        FindManyMatchingsInteractor,
       );
       bind(matchingInjectionTypes.FindOneMatchingInteractor).to(
         FindOneMatchingInteractor,
