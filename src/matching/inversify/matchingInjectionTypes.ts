@@ -1,4 +1,5 @@
 export const matchingInjectionTypes = {
+  FindManyMatchingsInteractor: Symbol('FindManyMatchingsInteractor'),
   MatchingMongoDocumentToMatchingTransformer: Symbol(
     'MatchingMongoDocumentToMatchingTransformer',
   ),
