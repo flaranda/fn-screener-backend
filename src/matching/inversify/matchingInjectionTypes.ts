@@ -12,5 +12,8 @@ export const matchingInjectionTypes = {
   MatchingMongoSchemaContainer: Symbol('MatchingMongoSchemaContainer'),
   MatchingMongoSeeder: Symbol('MatchingMongoSeeder'),
   MatchingMongoUpdateRepository: Symbol('MatchingMongoUpdateRepository'),
+  MatchingToMatchingApiV1Transformer: Symbol(
+    'MatchingToMatchingApiV1Transformer',
+  ),
   UpdateMatchingInteractor: Symbol('UpdateMatchingInteractor'),
 };

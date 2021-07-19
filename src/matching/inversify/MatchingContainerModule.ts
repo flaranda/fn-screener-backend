@@ -42,6 +42,9 @@ export class MatchingContainerModule extends inversify.ContainerModule {
       bind(matchingInjectionTypes.MatchingMongoUpdateRepository).to(
         MatchingMongoUpdateRepository,
       );
+      bind(matchingInjectionTypes.MatchingToMatchingApiV1Transformer).to(
+        MatchingToMatchingApiV1Transformer,
+      );
       bind(matchingInjectionTypes.UpdateMatchingInteractor).to(
         UpdateMatchingInteractor,
       );
