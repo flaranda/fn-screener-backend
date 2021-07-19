@@ -2,7 +2,7 @@ import * as inversify from 'inversify';
 
 import { FindManyCriteriaCompliancesInteractor } from '../interactors/FindManyCriteriaCompliancesInteractor';
 import { FindOneCriteriaComplianceInteractor } from '../interactors/FindOneCriteriaComplianceInteractor';
-import { UpdateCriteriaCompliancesInteractor } from '../interactors/UpdateCriteriaComplianceInteractor';
+import { UpdateCriteriaComplianceInteractor } from '../interactors/UpdateCriteriaComplianceInteractor';
 import { CriteriaComplianceMongoSchemaContainer } from '../models/mongo/CriteriaComplianceMongoSchemaContainer';
 import { PatchV1CriteriaCompliancesRequestParser } from '../parsers/api/v1/PatchV1CriteriaCompliancesRequestParser';
 import { CriteriaComplianceMongoFindManyRepository } from '../repositories/mongo/CriteriaComplianceMongoFindManyRepository';
@@ -72,7 +72,7 @@ export class CriteriaComplianceContainerModule extends inversify.ContainerModule
       );
       bind(
         criteriaComplianceInjectionTypes.UpdateCriteriaComplianceInteractor,
-      ).to(UpdateCriteriaCompliancesInteractor);
+      ).to(UpdateCriteriaComplianceInteractor);
     };
 
     super(registry);

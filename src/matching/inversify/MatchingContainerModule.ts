@@ -2,6 +2,8 @@ import * as inversify from 'inversify';
 
 import { MatchingMongoSchemaContainer } from '../models/mongo/MatchingMongoSchemaContainer';
 import { MatchingMongoFindManyRepository } from '../repositories/mongo/MatchingMongoFindManyRepository';
+import { MatchingMongoFindOneRepository } from '../repositories/mongo/MatchingMongoFindOneRepository';
+import { MatchingMongoUpdateRepository } from '../repositories/mongo/MatchingMongoUpdateRepository';
 import { MatchingMongoSeeder } from '../seeders/mongo/MatchingMongoSeeder';
 import { MatchingMongoDocumentToMatchingTransformer } from '../transformers/mongo/MatchingMongoDocumentToMatchingTransformer';
 import { matchingInjectionTypes } from './matchingInjectionTypes';
@@ -17,10 +19,16 @@ export class MatchingContainerModule extends inversify.ContainerModule {
       bind(matchingInjectionTypes.MatchingMongoFindManyRepository).to(
         MatchingMongoFindManyRepository,
       );
+      bind(matchingInjectionTypes.MatchingMongoFindOneRepository).to(
+        MatchingMongoFindOneRepository,
+      );
       bind(matchingInjectionTypes.MatchingMongoSchemaContainer).to(
         MatchingMongoSchemaContainer,
       );
       bind(matchingInjectionTypes.MatchingMongoSeeder).to(MatchingMongoSeeder);
+      bind(matchingInjectionTypes.MatchingMongoUpdateRepository).to(
+        MatchingMongoUpdateRepository,
+      );
     };
 
     super(registry);

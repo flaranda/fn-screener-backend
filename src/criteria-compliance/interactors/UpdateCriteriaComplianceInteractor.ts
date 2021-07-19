@@ -7,7 +7,7 @@ import { CriteriaCompliance } from '../models/domain/CriteriaCompliance';
 import { CriteriaComplianceUpdateQuery } from '../models/domain/CriteriaComplianceUpdateQuery';
 
 @inversify.injectable()
-export class UpdateCriteriaCompliancesInteractor extends UpdateEntityInteractor<
+export class UpdateCriteriaComplianceInteractor extends UpdateEntityInteractor<
   CriteriaComplianceUpdateQuery,
   CriteriaCompliance
 > {
