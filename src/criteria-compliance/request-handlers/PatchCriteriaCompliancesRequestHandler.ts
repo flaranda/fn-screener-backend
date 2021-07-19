@@ -11,12 +11,12 @@ import { CriteriaCompliance } from '../models/domain/CriteriaCompliance';
 import { CriteriaComplianceUpdateQuery } from '../models/domain/CriteriaComplianceUpdateQuery';
 
 @inversify.injectable()
-export class PatchCriteriaCompliancesRequestHandler extends ApiExpressRequestHandler {
+export class PatchCriteriaCompliancesCriteriaComplianceUuidRequestHandler extends ApiExpressRequestHandler {
   constructor(
     @inversify.inject(
       criteriaComplianceInjectionTypes.PatchV1CriteriaCompliancesCriteriaComplianceUuidRequestToCriteriaComplianceUpdateQueryTransformer,
     )
-    private readonly patchV1CriteriaCompliancesRequestToCriteriaComplianceUpdateQueryTransformer: ITransformer<
+    private readonly patchV1CriteriaCompliancesCriteriaComplianceUuidRequestToCriteriaComplianceUpdateQueryTransformer: ITransformer<
       RequestWithContext,
       CriteriaComplianceUpdateQuery
     >,
@@ -44,7 +44,7 @@ export class PatchCriteriaCompliancesRequestHandler extends ApiExpressRequestHan
     _next: express.NextFunction,
   ): Promise<void> {
     const criteriaComplianceUpdateQuery: CriteriaComplianceUpdateQuery =
-      await this.patchV1CriteriaCompliancesRequestToCriteriaComplianceUpdateQueryTransformer.transform(
+      await this.patchV1CriteriaCompliancesCriteriaComplianceUuidRequestToCriteriaComplianceUpdateQueryTransformer.transform(
         request,
       );
 

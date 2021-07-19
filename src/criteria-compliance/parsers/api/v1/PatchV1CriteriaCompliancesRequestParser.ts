@@ -8,7 +8,7 @@ import { criteriaComplianceInjectionTypes } from '../../../inversify/criteriaCom
 import { CriteriaComplianceApiV1UpdateQuery } from '../../../models/api/v1/CriteriaComplianceApiV1UpdateQuery';
 
 @inversify.injectable()
-export class PatchV1CriteriaCompliancesRequestParser
+export class PatchV1CriteriaCompliancesCriteriaComplianceUuidRequestParser
   implements IRequestParser<CriteriaComplianceApiV1UpdateQuery>
 {
   constructor(

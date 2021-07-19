@@ -23,6 +23,9 @@ export const matchingInjectionTypes = {
   ),
   MatchingUuidRequestParamHandler: Symbol('MatchingUuidRequestParamHandler'),
   MeMatchingsRouter: Symbol('MeMatchingsRouter'),
+  PatchMatchingsMatchingUuidRequestHandler: Symbol(
+    'PatchMatchingsMatchingUuidRequestHandler',
+  ),
   PatchV1MatchingsMatchingUuidRequestParser: Symbol(
     'PatchV1MatchingsMatchingUuidRequestParser',
   ),

@@ -17,9 +17,9 @@ export class PatchV1CriteriaCompliancesCriteriaComplianceUuidRequestToCriteriaCo
 {
   constructor(
     @inversify.inject(
-      criteriaComplianceInjectionTypes.PatchV1CriteriaCompliancesRequestParser,
+      criteriaComplianceInjectionTypes.PatchV1CriteriaCompliancesCriteriaComplianceUuidRequestParser,
     )
-    private readonly patchV1CriteriaCompliancesRequestParser: IRequestParser<CriteriaComplianceApiV1UpdateQuery>,
+    private readonly patchV1CriteriaCompliancesCriteriaComplianceUuidRequestParser: IRequestParser<CriteriaComplianceApiV1UpdateQuery>,
   ) {}
 
   public async transform(
@@ -34,7 +34,9 @@ export class PatchV1CriteriaCompliancesCriteriaComplianceUuidRequestToCriteriaCo
 
     if (hasValue(criteriaCompliance)) {
       const criteriaComplianceApiV1UpdateQuery: CriteriaComplianceApiV1UpdateQuery =
-        await this.patchV1CriteriaCompliancesRequestParser.parse(request);
+        await this.patchV1CriteriaCompliancesCriteriaComplianceUuidRequestParser.parse(
+          request,
+        );
 
       criteriaComplianceUpdateQuery = {
         uuid: criteriaCompliance.uuid,

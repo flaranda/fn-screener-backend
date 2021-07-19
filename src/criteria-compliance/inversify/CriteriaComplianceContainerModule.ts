@@ -4,12 +4,12 @@ import { FindManyCriteriaCompliancesInteractor } from '../interactors/FindManyCr
 import { FindOneCriteriaComplianceInteractor } from '../interactors/FindOneCriteriaComplianceInteractor';
 import { UpdateCriteriaComplianceInteractor } from '../interactors/UpdateCriteriaComplianceInteractor';
 import { CriteriaComplianceMongoSchemaContainer } from '../models/mongo/CriteriaComplianceMongoSchemaContainer';
-import { PatchV1CriteriaCompliancesRequestParser } from '../parsers/api/v1/PatchV1CriteriaCompliancesRequestParser';
+import { PatchV1CriteriaCompliancesCriteriaComplianceUuidRequestParser } from '../parsers/api/v1/PatchV1CriteriaCompliancesRequestParser';
 import { CriteriaComplianceMongoFindManyRepository } from '../repositories/mongo/CriteriaComplianceMongoFindManyRepository';
 import { CriteriaComplianceMongoFindOneRepository } from '../repositories/mongo/CriteriaComplianceMongoFindOneRepository';
 import { CriteriaComplianceMongoUpdateRepository } from '../repositories/mongo/CriteriaComplianceMongoUpdateRepository';
 import { CriteriaComplianceRequestParamHandler } from '../request-handlers/CriteriaComplianceRequestParamHandler';
-import { PatchCriteriaCompliancesRequestHandler } from '../request-handlers/PatchCriteriaCompliancesRequestHandler';
+import { PatchCriteriaCompliancesCriteriaComplianceUuidRequestHandler } from '../request-handlers/PatchCriteriaCompliancesRequestHandler';
 import { CriteriaCompliancesRouter } from '../routers/CriteriaCompliancesRouter';
 import { CriteriaComplianceMongoSeeder } from '../seeder/mongo/CriteriaComplianceMongoSeeder';
 import { CriteriaComplianceToCriteriaComplianceApiV1Transformer } from '../transformers/api/v1/CriteriaComplianceToCriteriaComplianceApiV1Transformer';
@@ -60,16 +60,16 @@ export class CriteriaComplianceContainerModule extends inversify.ContainerModule
         criteriaComplianceInjectionTypes.FindOneCriteriaComplianceInteractor,
       ).to(FindOneCriteriaComplianceInteractor);
       bind(
-        criteriaComplianceInjectionTypes.PatchCriteriaCompliancesRequestHandler,
-      ).to(PatchCriteriaCompliancesRequestHandler);
+        criteriaComplianceInjectionTypes.PatchCriteriaCompliancesCriteriaComplianceUuidRequestHandler,
+      ).to(PatchCriteriaCompliancesCriteriaComplianceUuidRequestHandler);
+      bind(
+        criteriaComplianceInjectionTypes.PatchV1CriteriaCompliancesCriteriaComplianceUuidRequestParser,
+      ).to(PatchV1CriteriaCompliancesCriteriaComplianceUuidRequestParser);
       bind(
         criteriaComplianceInjectionTypes.PatchV1CriteriaCompliancesCriteriaComplianceUuidRequestToCriteriaComplianceUpdateQueryTransformer,
       ).to(
         PatchV1CriteriaCompliancesCriteriaComplianceUuidRequestToCriteriaComplianceUpdateQueryTransformer,
       );
-      bind(
-        criteriaComplianceInjectionTypes.PatchV1CriteriaCompliancesRequestParser,
-      ).to(PatchV1CriteriaCompliancesRequestParser);
       bind(
         criteriaComplianceInjectionTypes.UpdateCriteriaComplianceInteractor,
       ).to(UpdateCriteriaComplianceInteractor);

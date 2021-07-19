@@ -12,7 +12,7 @@ export class CriteriaCompliancesRouter extends ExpressRouter {
     )
     private readonly criteriaComplianceRequestParamHandler: ExpressRequestHandler,
     @inversify.inject(
-      criteriaComplianceInjectionTypes.PatchCriteriaCompliancesRequestHandler,
+      criteriaComplianceInjectionTypes.PatchCriteriaCompliancesCriteriaComplianceUuidRequestHandler,
     )
     private readonly patchCriteriaCompliancesRequestHandler: ExpressRequestHandler,
   ) {

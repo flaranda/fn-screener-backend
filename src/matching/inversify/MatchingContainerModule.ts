@@ -10,6 +10,7 @@ import { MatchingMongoFindOneRepository } from '../repositories/mongo/MatchingMo
 import { MatchingMongoUpdateRepository } from '../repositories/mongo/MatchingMongoUpdateRepository';
 import { GetUsersMeMatchingsRequestHandler } from '../request-handlers/GetUsersMeMatchingsRequestHandler';
 import { MatchingUuidRequestParamHandler } from '../request-handlers/MatchingUuidRequestParamHandler';
+import { PatchMatchingsMatchingUuidRequestHandler } from '../request-handlers/PatchUsersMeMatchingsMatchingUuidRequestHandler';
 import { MeMatchingsRouter } from '../routers/MeMatchingsRouter';
 import { MatchingMongoSeeder } from '../seeders/mongo/MatchingMongoSeeder';
 import { GetV1MatchingsRequestToMatchingFindQueryTransformer } from '../transformers/api/v1/GetV1MatchingsRequestToMatchingFindQueryTransformer';
@@ -62,6 +63,9 @@ export class MatchingContainerModule extends inversify.ContainerModule {
         MatchingUuidRequestParamHandler,
       );
       bind(matchingInjectionTypes.MeMatchingsRouter).to(MeMatchingsRouter);
+      bind(matchingInjectionTypes.PatchMatchingsMatchingUuidRequestHandler).to(
+        PatchMatchingsMatchingUuidRequestHandler,
+      );
       bind(matchingInjectionTypes.PatchV1MatchingsMatchingUuidRequestParser).to(
         PatchV1MatchingsMatchingUuidRequestParser,
       );

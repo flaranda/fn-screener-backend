@@ -15,6 +15,10 @@ export class MeMatchingsRouter extends ExpressRouter {
     private readonly getUsersMeMatchingsRequestHandler: ExpressRequestHandler,
     @inversify.inject(matchingInjectionTypes.MatchingUuidRequestParamHandler)
     private readonly matchingRequestParamHandler: ExpressRequestParamHandler,
+    @inversify.inject(
+      matchingInjectionTypes.PatchMatchingsMatchingUuidRequestHandler,
+    )
+    private readonly patchMatchingsMatchingUuidRequestHandler: ExpressRequestHandler,
   ) {
     super();
 
@@ -32,6 +36,13 @@ export class MeMatchingsRouter extends ExpressRouter {
       .get([
         this.userMiddleware.handler,
         this.getUsersMeMatchingsRequestHandler.handler,
+      ]);
+
+    this.expressRouter
+      .route('/:matchingUuid')
+      .get([
+        this.userMiddleware.handler,
+        this.patchMatchingsMatchingUuidRequestHandler.handler,
       ]);
   }
 }
