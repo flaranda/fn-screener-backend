@@ -22,7 +22,7 @@ export class MeSelectedCriteriasRouter extends ExpressRouter {
     @inversify.inject(
       selectedCriteriaInjectionTypes.PatchUsersMeSelectedCriteriasRequestHandler,
     )
-    private readonly putUsersMeSelectedCriteriasRequestHandler: ExpressRequestHandler,
+    private readonly patchUsersMeSelectedCriteriasRequestHandler: ExpressRequestHandler,
   ) {
     super();
 
@@ -46,7 +46,7 @@ export class MeSelectedCriteriasRouter extends ExpressRouter {
       .route('/:selectedCriteriaUuid')
       .patch([
         this.userMiddleware.handler,
-        this.putUsersMeSelectedCriteriasRequestHandler.handler,
+        this.patchUsersMeSelectedCriteriasRequestHandler.handler,
       ]);
   }
 }

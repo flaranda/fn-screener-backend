@@ -14,7 +14,7 @@ import { CriteriaComplianceUpdateQuery } from '../models/domain/CriteriaComplian
 export class PatchCriteriaCompliancesRequestHandler extends ApiExpressRequestHandler {
   constructor(
     @inversify.inject(
-      criteriaComplianceInjectionTypes.PatchV1CriteriaCompliancesRequestToCriteriaComplianceUpdateQueryTransformer,
+      criteriaComplianceInjectionTypes.PatchV1CriteriaCompliancesCriteriaComplianceUuidRequestToCriteriaComplianceUpdateQueryTransformer,
     )
     private readonly patchV1CriteriaCompliancesRequestToCriteriaComplianceUpdateQueryTransformer: ITransformer<
       RequestWithContext,

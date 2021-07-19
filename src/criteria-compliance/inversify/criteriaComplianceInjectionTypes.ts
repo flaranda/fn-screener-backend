@@ -34,13 +34,13 @@ export const criteriaComplianceInjectionTypes = {
   PatchCriteriaCompliancesRequestHandler: Symbol(
     'PatchCriteriaCompliancesRequestHandler',
   ),
+  PatchV1CriteriaCompliancesCriteriaComplianceUuidRequestToCriteriaComplianceUpdateQueryTransformer:
+    Symbol(
+      'PatchV1CriteriaCompliancesCriteriaComplianceUuidRequestToCriteriaComplianceUpdateQueryTransformer',
+    ),
   PatchV1CriteriaCompliancesRequestParser: Symbol(
     'PatchV1CriteriaCompliancesRequestParser',
   ),
-  PatchV1CriteriaCompliancesRequestToCriteriaComplianceUpdateQueryTransformer:
-    Symbol(
-      'PatchV1CriteriaCompliancesRequestToCriteriaComplianceUpdateQueryTransformer',
-    ),
   UpdateCriteriaComplianceInteractor: Symbol(
     'UpdateCriteriaComplianceInteractor',
   ),

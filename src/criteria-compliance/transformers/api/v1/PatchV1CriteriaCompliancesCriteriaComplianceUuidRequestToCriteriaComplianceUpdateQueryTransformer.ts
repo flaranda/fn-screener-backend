@@ -12,7 +12,7 @@ import { CriteriaCompliance } from '../../../models/domain/CriteriaCompliance';
 import { CriteriaComplianceUpdateQuery } from '../../../models/domain/CriteriaComplianceUpdateQuery';
 
 @inversify.injectable()
-export class PatchV1CriteriaCompliancesRequestToCriteriaComplianceUpdateQueryTransformer
+export class PatchV1CriteriaCompliancesCriteriaComplianceUuidRequestToCriteriaComplianceUpdateQueryTransformer
   implements ITransformer<RequestWithContext, CriteriaComplianceUpdateQuery>
 {
   constructor(
@@ -21,6 +21,7 @@ export class PatchV1CriteriaCompliancesRequestToCriteriaComplianceUpdateQueryTra
     )
     private readonly patchV1CriteriaCompliancesRequestParser: IRequestParser<CriteriaComplianceApiV1UpdateQuery>,
   ) {}
+
   public async transform(
     request: RequestWithContext,
   ): Promise<CriteriaComplianceUpdateQuery> {

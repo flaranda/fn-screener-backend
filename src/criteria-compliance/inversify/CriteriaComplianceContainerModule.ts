@@ -13,7 +13,7 @@ import { PatchCriteriaCompliancesRequestHandler } from '../request-handlers/Patc
 import { CriteriaCompliancesRouter } from '../routers/CriteriaCompliancesRouter';
 import { CriteriaComplianceMongoSeeder } from '../seeder/mongo/CriteriaComplianceMongoSeeder';
 import { CriteriaComplianceToCriteriaComplianceApiV1Transformer } from '../transformers/api/v1/CriteriaComplianceToCriteriaComplianceApiV1Transformer';
-import { PatchV1CriteriaCompliancesRequestToCriteriaComplianceUpdateQueryTransformer } from '../transformers/api/v1/PatchV1CriteriaCompliancesRequestToCriteriaComplianceUpdateQueryTransformer';
+import { PatchV1CriteriaCompliancesCriteriaComplianceUuidRequestToCriteriaComplianceUpdateQueryTransformer } from '../transformers/api/v1/PatchV1CriteriaCompliancesCriteriaComplianceUuidRequestToCriteriaComplianceUpdateQueryTransformer';
 import { CriteriaComplianceMongoDocumentToCriteriaComplianceTransformer } from '../transformers/mongo/CriteriaComplianceMongoDocumentToCriteriaComplianceTransformer';
 import { CriteriaComplianceApiV1UpdateQueryTypeGuard } from '../type-guards/api/v1/CriteriaComplianceApiV1UpdateQueryTypeGuard';
 import { criteriaComplianceInjectionTypes } from './criteriaComplianceInjectionTypes';
@@ -63,13 +63,13 @@ export class CriteriaComplianceContainerModule extends inversify.ContainerModule
         criteriaComplianceInjectionTypes.PatchCriteriaCompliancesRequestHandler,
       ).to(PatchCriteriaCompliancesRequestHandler);
       bind(
+        criteriaComplianceInjectionTypes.PatchV1CriteriaCompliancesCriteriaComplianceUuidRequestToCriteriaComplianceUpdateQueryTransformer,
+      ).to(
+        PatchV1CriteriaCompliancesCriteriaComplianceUuidRequestToCriteriaComplianceUpdateQueryTransformer,
+      );
+      bind(
         criteriaComplianceInjectionTypes.PatchV1CriteriaCompliancesRequestParser,
       ).to(PatchV1CriteriaCompliancesRequestParser);
-      bind(
-        criteriaComplianceInjectionTypes.PatchV1CriteriaCompliancesRequestToCriteriaComplianceUpdateQueryTransformer,
-      ).to(
-        PatchV1CriteriaCompliancesRequestToCriteriaComplianceUpdateQueryTransformer,
-      );
       bind(
         criteriaComplianceInjectionTypes.UpdateCriteriaComplianceInteractor,
       ).to(UpdateCriteriaComplianceInteractor);
