@@ -8,6 +8,8 @@ import { MatchingMongoFindManyRepository } from '../repositories/mongo/MatchingM
 import { MatchingMongoFindOneRepository } from '../repositories/mongo/MatchingMongoFindOneRepository';
 import { MatchingMongoUpdateRepository } from '../repositories/mongo/MatchingMongoUpdateRepository';
 import { MatchingMongoSeeder } from '../seeders/mongo/MatchingMongoSeeder';
+import { GetV1MatchingsRequestToMatchingFindQueryTransformer } from '../transformers/api/v1/GetV1MatchingsRequestToMatchingFindQueryTransformer';
+import { MatchingToMatchingApiV1Transformer } from '../transformers/api/v1/MatchingToMatchingApiV1Transformer';
 import { MatchingMongoDocumentToMatchingTransformer } from '../transformers/mongo/MatchingMongoDocumentToMatchingTransformer';
 import { MatchingApiV1UpdateQueryTypeGuard } from '../type-guards/api/v1/MatchingApiV1UpdateQueryTypeGuard';
 import { matchingInjectionTypes } from './matchingInjectionTypes';
@@ -23,6 +25,9 @@ export class MatchingContainerModule extends inversify.ContainerModule {
       bind(matchingInjectionTypes.FindOneMatchingInteractor).to(
         FindOneMatchingInteractor,
       );
+      bind(
+        matchingInjectionTypes.GetV1MatchingsRequestToMatchingFindQueryTransformer,
+      ).to(GetV1MatchingsRequestToMatchingFindQueryTransformer);
       bind(matchingInjectionTypes.MatchingApiV1UpdateQueryTypeGuard).to(
         MatchingApiV1UpdateQueryTypeGuard,
       );
