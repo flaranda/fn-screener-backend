@@ -16,15 +16,15 @@ export class CriteriaComplianceToCriteriaComplianceApiV1Transformer
   implements ITransformer<CriteriaCompliance, CriteriaComplianceApiV1>
 {
   constructor(
-    @inversify.inject(startupInjectionTypes.FindOneStartupInteractor)
-    private readonly findOneStartupInteractor: IInteractor<
-      StartupFindQuery,
-      Startup
-    >,
     @inversify.inject(criteriaInjectionTypes.FindOneCriteriaInteractor)
     private readonly findOneCriteriaInteractor: IInteractor<
       CriteriaFindQuery,
       Criteria
+    >,
+    @inversify.inject(startupInjectionTypes.FindOneStartupInteractor)
+    private readonly findOneStartupInteractor: IInteractor<
+      StartupFindQuery,
+      Startup
     >,
   ) {}
 

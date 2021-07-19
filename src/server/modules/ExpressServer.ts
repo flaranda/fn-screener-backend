@@ -34,9 +34,9 @@ export class ExpressServer implements IServer {
   }
 
   public async stop(): Promise<void> {
-    await this.mongoDatasource.disconnect();
-
     await this.stopHttpServer();
+
+    await this.mongoDatasource.disconnect();
   }
 
   private async startHttpServer(): Promise<void> {
