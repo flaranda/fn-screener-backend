@@ -40,7 +40,7 @@ export class MeMatchingsRouter extends ExpressRouter {
 
     this.expressRouter
       .route('/:matchingUuid')
-      .get([
+      .patch([
         this.userMiddleware.handler,
         this.patchMatchingsMatchingUuidRequestHandler.handler,
       ]);
