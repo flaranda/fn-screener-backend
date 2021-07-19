@@ -4,9 +4,11 @@ import { FindManyCriteriaCompliancesInteractor } from '../../criteria-compliance
 import { FindOneMatchingInteractor } from '../interactors/FindOneMatchingInteractor';
 import { UpdateMatchingInteractor } from '../interactors/UpdateMatchingInteractor';
 import { MatchingMongoSchemaContainer } from '../models/mongo/MatchingMongoSchemaContainer';
+import { PatchV1MatchingsMatchingUuidRequestParser } from '../parsers/api/v1/PatchV1MatchingsMatchingUuidRequestParser';
 import { MatchingMongoFindManyRepository } from '../repositories/mongo/MatchingMongoFindManyRepository';
 import { MatchingMongoFindOneRepository } from '../repositories/mongo/MatchingMongoFindOneRepository';
 import { MatchingMongoUpdateRepository } from '../repositories/mongo/MatchingMongoUpdateRepository';
+import { GetUsersMeMatchingsRequestHandler } from '../request-handlers/GetUsersMeMatchingsRequestHandler';
 import { MatchingMongoSeeder } from '../seeders/mongo/MatchingMongoSeeder';
 import { GetV1MatchingsRequestToMatchingFindQueryTransformer } from '../transformers/api/v1/GetV1MatchingsRequestToMatchingFindQueryTransformer';
 import { MatchingToMatchingApiV1Transformer } from '../transformers/api/v1/MatchingToMatchingApiV1Transformer';
@@ -24,6 +26,9 @@ export class MatchingContainerModule extends inversify.ContainerModule {
       );
       bind(matchingInjectionTypes.FindOneMatchingInteractor).to(
         FindOneMatchingInteractor,
+      );
+      bind(matchingInjectionTypes.GetUsersMeMatchingsRequestHandler).to(
+        GetUsersMeMatchingsRequestHandler,
       );
       bind(
         matchingInjectionTypes.GetV1MatchingsRequestToMatchingFindQueryTransformer,

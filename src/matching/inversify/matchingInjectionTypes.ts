@@ -1,6 +1,9 @@
 export const matchingInjectionTypes = {
   FindManyMatchingsInteractor: Symbol('FindManyMatchingsInteractor'),
   FindOneMatchingInteractor: Symbol('FindOneMatchingInteractor'),
+  GetUsersMeMatchingsRequestHandler: Symbol(
+    'GetUsersMeMatchingsRequestHandler',
+  ),
   GetV1MatchingsRequestToMatchingFindQueryTransformer: Symbol(
     'GetV1MatchingsRequestToMatchingFindQueryTransformer',
   ),
