@@ -1,3 +1,4 @@
+import { CriteriaComplianceAnswer } from '../../models/domain/CriteriaComplianceAnswer';
 import { CriteriaComplianceUpdateQuery } from '../../models/domain/CriteriaComplianceUpdateQuery';
 import { CriteriaComplianceFixtures } from './CriteriaComplianceFixtures';
 
@@ -10,10 +11,10 @@ export class CriteriaComplianceUpdateQueryFixtures {
     return fixture;
   }
 
-  public static get withCompliance(): CriteriaComplianceUpdateQuery {
+  public static get withAnswer(): CriteriaComplianceUpdateQuery {
     const fixture: CriteriaComplianceUpdateQuery = {
       ...this.withMandatory,
-      compliance: true,
+      answer: CriteriaComplianceAnswer.Yes,
     };
 
     return fixture;

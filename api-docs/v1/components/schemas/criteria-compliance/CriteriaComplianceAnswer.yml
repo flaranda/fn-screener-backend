@@ -1,0 +1,8 @@
+CriteriaComplianceAnswer:
+  type: string
+  description: The answer given to a criteria compliance by an startup
+  enum:
+    - no
+    - no_answer
+    - yes
+  example: yes

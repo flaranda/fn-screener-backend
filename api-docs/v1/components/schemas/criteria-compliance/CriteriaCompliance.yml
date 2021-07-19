@@ -1,10 +1,8 @@
 CriteriaCompliance:
   type: object
   properties:
-    compliance:
-      type: boolean
-      description: Wether the criteria is complied or not by the startup
-      example: true
+    answer:
+      $ref: './CriteriaComplianceAnswer.yml#/CriteriaComplianceAnswer'
     criteria_name:
       type: string
       description: Related criteria name

@@ -2,6 +2,7 @@ import * as inversify from 'inversify';
 
 import { ITransformer } from '../../../common/interfaces/ITransformer';
 import { CriteriaCompliance } from '../../models/domain/CriteriaCompliance';
+import { criteriaComplianceMongoAnswerToCriteriaComplianceAnswerMap } from '../../models/mongo/criteriaComplianceMongoAnswerToCriteriaComplianceAnswerMap';
 import { CriteriaComplianceMongoDocument } from '../../models/mongo/CriteriaComplianceMongoDocument';
 
 @inversify.injectable()
@@ -12,7 +13,10 @@ export class CriteriaComplianceMongoDocumentToCriteriaComplianceTransformer
     criteriaComplianceMongoDocument: CriteriaComplianceMongoDocument,
   ): Promise<CriteriaCompliance> {
     const criteriaCompliance: CriteriaCompliance = {
-      compliance: criteriaComplianceMongoDocument.compliance,
+      answer:
+        criteriaComplianceMongoAnswerToCriteriaComplianceAnswerMap[
+          criteriaComplianceMongoDocument.answer
+        ],
       createdAt: criteriaComplianceMongoDocument.created_at,
       criteriaUuid: criteriaComplianceMongoDocument.criteria_uuid,
       startupUuid: criteriaComplianceMongoDocument.startup_uuid,

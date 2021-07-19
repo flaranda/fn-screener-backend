@@ -28,7 +28,7 @@ export class CriteriaComplianceMongoSeeder implements ISeeder {
       const currentDate: Date = new Date();
 
       const criteriaComplianceMongoUpsertQuery: CriteriaComplianceMongo = {
-        compliance: criteriaComplianceMongoSeed.compliance,
+        answer: criteriaComplianceMongoSeed.answer,
         created_at: currentDate,
         criteria_uuid: criteriaComplianceMongoSeed.criteria_uuid,
         startup_uuid: criteriaComplianceMongoSeed.startup_uuid,

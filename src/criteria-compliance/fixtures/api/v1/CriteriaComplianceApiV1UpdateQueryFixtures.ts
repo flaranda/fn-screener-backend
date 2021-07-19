@@ -1,3 +1,4 @@
+import { CriteriaComplianceApiV1Answer } from '../../../models/api/v1/CriteriaComplianceApiV1Answer';
 import { CriteriaComplianceApiV1UpdateQuery } from '../../../models/api/v1/CriteriaComplianceApiV1UpdateQuery';
 
 export class CriteriaComplianceApiV1UpdateQueryFixtures {
@@ -10,7 +11,7 @@ export class CriteriaComplianceApiV1UpdateQueryFixtures {
   public static get withAll(): Required<CriteriaComplianceApiV1UpdateQuery> {
     const fixture: Required<CriteriaComplianceApiV1UpdateQuery> = {
       ...this.withMandatory,
-      compliance: true,
+      answer: CriteriaComplianceApiV1Answer.yes,
     };
 
     return fixture;

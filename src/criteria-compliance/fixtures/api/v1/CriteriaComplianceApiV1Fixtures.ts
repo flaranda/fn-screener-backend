@@ -1,10 +1,11 @@
 import { CriteriaApiV1Fixtures } from '../../../../criteria/fixtures/api/v1/CriteriaApiV1Fixtures';
 import { CriteriaComplianceApiV1 } from '../../../models/api/v1/CriteriaComplianceApiV1';
+import { CriteriaComplianceApiV1Answer } from '../../../models/api/v1/CriteriaComplianceApiV1Answer';
 
 export class CriteriaComplianceApiV1Fixtures {
   public static get withMandatory(): CriteriaComplianceApiV1 {
     const fixture: CriteriaComplianceApiV1 = {
-      compliance: true,
+      answer: CriteriaComplianceApiV1Answer.yes,
       criteria_name: CriteriaApiV1Fixtures.withMandatory.name,
       criteria_uuid: CriteriaApiV1Fixtures.withMandatory.uuid,
       startup_name: 'Blissey',

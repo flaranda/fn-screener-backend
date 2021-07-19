@@ -1,6 +1,6 @@
 CriteriaComplianceUpdateQuery:
   type: object
   properties:
-    compliance:
-      type: boolean
+    answer:
+      $ref: './CriteriaComplianceAnswer.yml#/CriteriaComplianceAnswer'
   additionalProperties: false

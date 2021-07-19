@@ -1,5 +1,7 @@
+import { CriteriaComplianceApiV1Answer } from './CriteriaComplianceApiV1Answer';
+
 export interface CriteriaComplianceApiV1 {
-  compliance: boolean;
+  answer: CriteriaComplianceApiV1Answer;
   criteria_name: string;
   criteria_uuid: string;
   startup_name: string;

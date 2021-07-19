@@ -7,6 +7,7 @@ import { MongoDatasource } from '../../../mongo/datasources/MongoDatasource';
 import { CriteriaComplianceFixtures } from '../../fixtures/domain/CriteriaComplianceFixtures';
 import { CriteriaComplianceUpdateQueryFixtures } from '../../fixtures/domain/CriteriaComplianceUpdateQueryFixtures';
 import { CriteriaComplianceMongoDocumentFixtures } from '../../fixtures/mongo/CriteriaComplianceMongoDocumentFixtures';
+import { CriteriaComplianceMongoFixtures } from '../../fixtures/mongo/CriteriaComplianceMongoFixtures';
 import { CriteriaCompliance } from '../../models/domain/CriteriaCompliance';
 import { CriteriaComplianceMongo } from '../../models/mongo/CriteriaComplianceMongo';
 import { CriteriaComplianceMongoUpdateRepository } from './CriteriaComplianceMongoUpdateRepository';
@@ -58,11 +59,11 @@ describe('CriteriaComplianceMongoUpdateRepository', () => {
       );
     });
 
-    describe('having an CriteriaComplianceUpdateQuery with compliance property', () => {
+    describe('having an CriteriaComplianceUpdateQuery with answer property', () => {
       describe('when called', () => {
         beforeAll(async () => {
           await criteriaComplianceMongoUpdateRepository.update(
-            CriteriaComplianceUpdateQueryFixtures.withCompliance,
+            CriteriaComplianceUpdateQueryFixtures.withAnswer,
           );
         });
 
@@ -74,11 +75,10 @@ describe('CriteriaComplianceMongoUpdateRepository', () => {
           expect(mongooseModel.findOneAndUpdate).toHaveBeenCalledTimes(1);
           expect(mongooseModel.findOneAndUpdate).toHaveBeenCalledWith(
             expect.objectContaining({
-              uuid: CriteriaComplianceUpdateQueryFixtures.withCompliance.uuid,
+              uuid: CriteriaComplianceUpdateQueryFixtures.withAnswer.uuid,
             }),
             expect.objectContaining({
-              compliance:
-                CriteriaComplianceUpdateQueryFixtures.withCompliance.compliance,
+              answer: CriteriaComplianceMongoFixtures.withMandatory.answer,
             }),
             expect.any(Object),
           );

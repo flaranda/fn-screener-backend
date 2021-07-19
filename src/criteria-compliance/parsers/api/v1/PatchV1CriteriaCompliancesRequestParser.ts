@@ -27,8 +27,8 @@ export class PatchV1CriteriaCompliancesCriteriaComplianceUuidRequestParser
       const criteriaComplianceApiV1UpdateQuery: CriteriaComplianceApiV1UpdateQuery =
         {};
 
-      if (hasValue(body.compliance)) {
-        criteriaComplianceApiV1UpdateQuery.compliance = body.compliance;
+      if (hasValue(body.answer)) {
+        criteriaComplianceApiV1UpdateQuery.answer = body.answer;
       }
 
       return criteriaComplianceApiV1UpdateQuery;

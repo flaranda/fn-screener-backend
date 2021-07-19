@@ -10,6 +10,7 @@ import { mongoInjectionTypes } from '../../../mongo/inversify/mongoInjectionType
 import { criteriaComplianceInjectionTypes } from '../../inversify/criteriaComplianceInjectionTypes';
 import { CriteriaCompliance } from '../../models/domain/CriteriaCompliance';
 import { CriteriaComplianceUpdateQuery } from '../../models/domain/CriteriaComplianceUpdateQuery';
+import { criteriaComplianceAnswerToCriteriaComplianceMongoAnswerMap } from '../../models/mongo/criteriaComplianceAnswerToCriteriaComplianceMongoAnswerMap';
 import { CriteriaComplianceMongo } from '../../models/mongo/CriteriaComplianceMongo';
 import { CriteriaComplianceMongoDocument } from '../../models/mongo/CriteriaComplianceMongoDocument';
 
@@ -44,9 +45,11 @@ export class CriteriaComplianceMongoUpdateRepository extends EntityMongoUpdateRe
   ): mongoose.UpdateQuery<CriteriaComplianceMongo> {
     const criteriaComplianceMongo: Partial<CriteriaComplianceMongo> = {};
 
-    if (hasValue(criteriaComplianceUpdateQuery.compliance)) {
-      criteriaComplianceMongo.compliance =
-        criteriaComplianceUpdateQuery.compliance;
+    if (hasValue(criteriaComplianceUpdateQuery.answer)) {
+      criteriaComplianceMongo.answer =
+        criteriaComplianceAnswerToCriteriaComplianceMongoAnswerMap[
+          criteriaComplianceUpdateQuery.answer
+        ];
     }
 
     const mongooseUpdateQuery: mongoose.UpdateQuery<CriteriaComplianceMongo> = {

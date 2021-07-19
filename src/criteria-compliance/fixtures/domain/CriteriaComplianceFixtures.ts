@@ -1,11 +1,12 @@
 import { CriteriaFixtures } from '../../../criteria/fixtures/domain/CriteriaFixtures';
 import { StartupFixtures } from '../../../startup/fixtures/domain/StartupFixtures';
 import { CriteriaCompliance } from '../../models/domain/CriteriaCompliance';
+import { CriteriaComplianceAnswer } from '../../models/domain/CriteriaComplianceAnswer';
 
 export class CriteriaComplianceFixtures {
   public static get withMandatory(): CriteriaCompliance {
     const fixture: CriteriaCompliance = {
-      compliance: true,
+      answer: CriteriaComplianceAnswer.Yes,
       createdAt: new Date('2021-07-18T00:00:00Z'),
       criteriaUuid: CriteriaFixtures.withMandatory.uuid,
       startupUuid: StartupFixtures.withMandatory.uuid,

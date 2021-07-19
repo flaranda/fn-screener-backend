@@ -13,9 +13,9 @@ export class CriteriaComplianceMongoSchemaContainer extends EntityMongoSchemaCon
 
     const schemaDefinition: mongoose.SchemaDefinition<CriteriaComplianceMongo> =
       {
-        compliance: {
+        answer: {
           required: true,
-          type: Boolean,
+          type: String,
         },
         criteria_uuid: {
           required: true,

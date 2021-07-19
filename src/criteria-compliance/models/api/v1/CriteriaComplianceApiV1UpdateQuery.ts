@@ -1,3 +1,5 @@
+import { CriteriaComplianceApiV1Answer } from './CriteriaComplianceApiV1Answer';
+
 export interface CriteriaComplianceApiV1UpdateQuery {
-  compliance?: boolean;
+  answer?: CriteriaComplianceApiV1Answer;
 }

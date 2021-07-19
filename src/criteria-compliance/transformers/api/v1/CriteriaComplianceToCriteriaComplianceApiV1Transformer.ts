@@ -8,6 +8,7 @@ import { CriteriaFindQuery } from '../../../../criteria/models/domain/CriteriaFi
 import { startupInjectionTypes } from '../../../../startup/inversify/startupInjectionTypes';
 import { Startup } from '../../../../startup/models/domain/Startup';
 import { StartupFindQuery } from '../../../../startup/models/domain/StartupFindQuery';
+import { criteriaComplianceAnswerToCriteriaComplianceApiV1AnswerMap } from '../../../models/api/v1/criteriaComplianceAnswerToCriteriaComplianceApiV1AnswerMap';
 import { CriteriaComplianceApiV1 } from '../../../models/api/v1/CriteriaComplianceApiV1';
 import { CriteriaCompliance } from '../../../models/domain/CriteriaCompliance';
 
@@ -37,7 +38,10 @@ export class CriteriaComplianceToCriteriaComplianceApiV1Transformer
     const startup: Startup = await this.transformToStartup(criteriaCompliance);
 
     const criteriaComplianceApiV1: CriteriaComplianceApiV1 = {
-      compliance: criteriaCompliance.compliance,
+      answer:
+        criteriaComplianceAnswerToCriteriaComplianceApiV1AnswerMap[
+          criteriaCompliance.answer
+        ],
       criteria_name: criteria.name,
       criteria_uuid: criteria.uuid,
       startup_name: startup.name,

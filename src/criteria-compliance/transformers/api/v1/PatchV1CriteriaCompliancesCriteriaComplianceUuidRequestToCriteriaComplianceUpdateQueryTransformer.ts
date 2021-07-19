@@ -7,6 +7,7 @@ import { ITransformer } from '../../../../common/interfaces/ITransformer';
 import { RequestContext } from '../../../../common/models/domain/RequestContext';
 import { RequestWithContext } from '../../../../server/models/RequestWithContext';
 import { criteriaComplianceInjectionTypes } from '../../../inversify/criteriaComplianceInjectionTypes';
+import { criteriaComplianceApiV1AnswerToCriteriaComplianceAnswerMap } from '../../../models/api/v1/criteriaComplianceApiV1AnswerToCriteriaComplianceAnswerMap';
 import { CriteriaComplianceApiV1UpdateQuery } from '../../../models/api/v1/CriteriaComplianceApiV1UpdateQuery';
 import { CriteriaCompliance } from '../../../models/domain/CriteriaCompliance';
 import { CriteriaComplianceUpdateQuery } from '../../../models/domain/CriteriaComplianceUpdateQuery';
@@ -42,9 +43,11 @@ export class PatchV1CriteriaCompliancesCriteriaComplianceUuidRequestToCriteriaCo
         uuid: criteriaCompliance.uuid,
       };
 
-      if (hasValue(criteriaComplianceApiV1UpdateQuery.compliance)) {
-        criteriaComplianceUpdateQuery.compliance =
-          criteriaComplianceApiV1UpdateQuery.compliance;
+      if (hasValue(criteriaComplianceApiV1UpdateQuery.answer)) {
+        criteriaComplianceUpdateQuery.answer =
+          criteriaComplianceApiV1AnswerToCriteriaComplianceAnswerMap[
+            criteriaComplianceApiV1UpdateQuery.answer
+          ];
       }
     } else {
       throw new Error('CriteriaCompliance not present in Request');
