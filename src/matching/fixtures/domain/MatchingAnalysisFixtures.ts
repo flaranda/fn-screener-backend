@@ -15,4 +15,18 @@ export class MatchingAnalysisFixtures {
 
     return fixture;
   }
+
+  public static get withFixedValues(): MatchingAnalysis {
+    const fixture: MatchingAnalysis = {
+      mustHaveCriteriaResult:
+        MatchingAnalysisCriteriaResultFixture.withAccomplishedOne,
+      niceToHaveCriteriaResult:
+        MatchingAnalysisCriteriaResultFixture.withNonAccomplishedOne,
+      score: 0.5,
+      superNiceToHaveCriteriaResult:
+        MatchingAnalysisCriteriaResultFixture.withUnansweredOne,
+    };
+
+    return fixture;
+  }
 }

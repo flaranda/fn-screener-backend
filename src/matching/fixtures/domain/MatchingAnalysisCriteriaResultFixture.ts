@@ -10,4 +10,31 @@ export class MatchingAnalysisCriteriaResultFixture {
 
     return fixture;
   }
+
+  public static get withAccomplishedOne(): MatchingAnalysisCriteriaResult {
+    const fixture: MatchingAnalysisCriteriaResult = {
+      ...this.withMandatory,
+      accomplished: 1,
+    };
+
+    return fixture;
+  }
+
+  public static get withNonAccomplishedOne(): MatchingAnalysisCriteriaResult {
+    const fixture: MatchingAnalysisCriteriaResult = {
+      ...this.withMandatory,
+      nonAccomplished: 1,
+    };
+
+    return fixture;
+  }
+
+  public static get withUnansweredOne(): MatchingAnalysisCriteriaResult {
+    const fixture: MatchingAnalysisCriteriaResult = {
+      ...this.withMandatory,
+      unanswered: 1,
+    };
+
+    return fixture;
+  }
 }

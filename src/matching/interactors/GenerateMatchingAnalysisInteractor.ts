@@ -191,7 +191,10 @@ export class GenerateMatchingAnalysisInteractor
         );
 
       const importanceSubscore: number =
-        accomplishedSelectedCriterias.length / filteredSelectedCriterias.length;
+        filteredSelectedCriterias.length > 0
+          ? accomplishedSelectedCriterias.length /
+            filteredSelectedCriterias.length
+          : 0;
 
       resolve(importanceSubscore);
     });
