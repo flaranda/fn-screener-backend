@@ -1,6 +1,6 @@
 MatchingStatus:
   type: string
-  description: The current status of a matching between a user and a startup
+  description: Current status of a matching between a user and a startup
   enum:
     - meet
     - pass

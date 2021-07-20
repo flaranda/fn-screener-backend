@@ -1,6 +1,8 @@
 Matching:
   type: object
   properties:
+    analysis:
+      $ref: './MatchingAnalysis.yml#/MatchingAnalysis'
     status:
       $ref: './MatchingStatus.yml#/MatchingStatus'
   required:

@@ -1,0 +1,20 @@
+MatchingAnalysisCriteriaResult:
+  type: object
+  properties:
+    accomplished:
+      type: number
+      description: Number of user's selected criteria the startup accomplish
+      example: 5
+    non_accomplished:
+      type: number
+      description: Number of user's selected criteria the startup does not accomplish
+      example: 2
+    unanswered:
+      type: number
+      description: Number of user's selected criteria the startup did not answer about
+      example: 1
+  required:
+    - accomplished
+    - non_accomplished
+    - unanswered
+  additionalProperties: false

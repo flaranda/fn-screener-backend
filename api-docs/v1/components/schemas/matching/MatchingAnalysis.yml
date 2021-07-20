@@ -1,0 +1,26 @@
+MatchingAnalysis:
+  type: object
+  description: Matching results after analyzing criteria compliance
+  properties:
+    must_have_criteria_result:
+      allOf:
+        - $ref: './MatchingAnalysisCriteriaResult.yml#/MatchingAnalysisCriteriaResult'
+        - description: Criteria compliance results marked as "must have" by the user
+    nice_to_have_criteria_result:
+      allOf:
+        - $ref: './MatchingAnalysisCriteriaResult.yml#/MatchingAnalysisCriteriaResult'
+        - description: Criteria compliance results marked as "nice to have" by the user
+    score:
+      type: number
+      description: Total matching score between the startup and the user based on the criteria compliance
+      example: 0.76
+    super_nice_to_have_criteria_result:
+      allOf:
+        - $ref: './MatchingAnalysisCriteriaResult.yml#/MatchingAnalysisCriteriaResult'
+        - description: Criteria compliance results marked as "super nice to have" by the user
+  required:
+    - must_have_criteria_result
+    - nice_to_have_criteria_result
+    - score
+    - super_nice_to_have_criteria_result
+  additionalProperties: false
