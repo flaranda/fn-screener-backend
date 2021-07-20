@@ -67,6 +67,25 @@
 			"response": []
 		},
 		{
+			"name": "Get startup's criteria compliances list",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/v1/criterias",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"v1",
+						"criterias"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "Modify user's selected criteria importance",
 			"request": {
 				"method": "PATCH",
