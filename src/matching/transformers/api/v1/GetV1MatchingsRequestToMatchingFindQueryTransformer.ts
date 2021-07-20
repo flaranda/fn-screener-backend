@@ -9,7 +9,7 @@ import { User } from '../../../../user/models/domain/User';
 import { MatchingFindQuery } from '../../../models/domain/MatchingFindQuery';
 
 @inversify.injectable()
-export class GetV1MatchingsRequestToMatchingFindQueryTransformer
+export class GetV1UsersMeMatchingsRequestToMatchingFindQueryTransformer
   implements ITransformer<RequestWithContext, MatchingFindQuery>
 {
   public async transform(

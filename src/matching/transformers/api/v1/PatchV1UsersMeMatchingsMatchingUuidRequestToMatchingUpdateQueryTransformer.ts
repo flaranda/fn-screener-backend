@@ -13,7 +13,7 @@ import { Matching } from '../../../models/domain/Matching';
 import { MatchingUpdateQuery } from '../../../models/domain/MatchingUpdateQuery';
 
 @inversify.injectable()
-export class PatchV1MatchingsMatchingUuidRequestToMatchingUpdateQueryTransformer
+export class PatchV1UsersMeMatchingsMatchingUuidRequestToMatchingUpdateQueryTransformer
   implements ITransformer<RequestWithContext, MatchingUpdateQuery>
 {
   constructor(
@@ -45,6 +45,11 @@ export class PatchV1MatchingsMatchingUuidRequestToMatchingUpdateQueryTransformer
           matchingApiV1StatusToMatchingStatusMap[
             matchingApiV1UpdateQuery.status
           ];
+      }
+
+      if (hasValue(matchingApiV1UpdateQuery.status_reason)) {
+        matchingUpdateQuery.statusReason =
+          matchingApiV1UpdateQuery.status_reason;
       }
     } else {
       throw new Error('Matching not present in Request');

@@ -8,7 +8,7 @@ import { selectedCriteriaInjectionTypes } from '../../../inversify/selectedCrite
 import { SelectedCriteriaApiV1UpdateQuery } from '../../../models/api/v1/SelectedCriteriaApiV1UpdateQuery';
 
 @inversify.injectable()
-export class PatchV1SelectedCriteriasRequestParser
+export class PatchV1UsersMeSelectedCriteriasSelectedCriteriaUuidRequestParser
   implements IRequestParser<SelectedCriteriaApiV1UpdateQuery>
 {
   constructor(

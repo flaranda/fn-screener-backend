@@ -1,108 +1,170 @@
 import 'reflect-metadata';
 
-import { IRequestParser } from '../../common/interfaces/IRequestParser';
-import { RequestContext } from '../../common/models/domain/RequestContext';
+jest.mock('express');
+
+import express from 'express';
+
+import { IInteractor } from '../../common/interfaces/IInteractor';
+import { ITransformer } from '../../common/interfaces/ITransformer';
+import { ApiVersion } from '../../common/models/domain/ApiVersion';
 import { requestContextSymbol } from '../../common/models/domain/requestContextSymbol';
 import { RequestWithContext } from '../../server/models/RequestWithContext';
-import { CriteriaComplianceApiV1UpdateQueryFixtures } from '../fixtures/api/v1/CriteriaComplianceApiV1UpdateQueryFixtures';
+import { UserFixtures } from '../../user/fixtures/domain/UserFixtures';
+import { CriteriaComplianceApiV1Fixtures } from '../fixtures/api/v1/CriteriaComplianceApiV1Fixtures';
 import { CriteriaComplianceFixtures } from '../fixtures/domain/CriteriaComplianceFixtures';
 import { CriteriaComplianceUpdateQueryFixtures } from '../fixtures/domain/CriteriaComplianceUpdateQueryFixtures';
-import { CriteriaComplianceApiV1UpdateQuery } from '../models/api/v1/CriteriaComplianceApiV1UpdateQuery';
-import { PatchV1CriteriaCompliancesCriteriaComplianceUuidRequestToCriteriaComplianceUpdateQueryTransformer } from '../transformers/api/v1/PatchV1CriteriaCompliancesCriteriaComplianceUuidRequestToCriteriaComplianceUpdateQueryTransformer';
+import { CriteriaComplianceApiV1 } from '../models/api/v1/CriteriaComplianceApiV1';
+import { CriteriaCompliance } from '../models/domain/CriteriaCompliance';
+import { CriteriaComplianceUpdateQuery } from '../models/domain/CriteriaComplianceUpdateQuery';
+import { PatchCriteriaCompliancesCriteriaComplianceUuidRequestHandler } from './PatchCriteriaCompliancesCriteriaComplianceUuidRequestHandler';
 
-describe('PatchV1CriteriaCompliancesCriteriaComplianceUuidRequestToCriteriaComplianceUpdateQueryTransformer', () => {
-  let patchV1CriteriaCompliancesCriteriaComplianceUuidRequestParser: jest.Mocked<
-    IRequestParser<CriteriaComplianceApiV1UpdateQuery>
+describe('PatchCriteriaCompliancesCriteriaComplianceUuidExpressRequestHandler', () => {
+  let patchV1CriteriaCompliancesCriteriaComplianceUuidRequestToCriteriaComplianceUpdateQueryTransformer: jest.Mocked<
+    ITransformer<RequestWithContext, CriteriaComplianceUpdateQuery>
+  >;
+  let updateCriteriaComplianceInteractor: jest.Mocked<
+    IInteractor<CriteriaComplianceUpdateQuery, CriteriaCompliance>
+  >;
+  let criteriaComplianceToCriteriaComplianceApiV1Transformer: jest.Mocked<
+    ITransformer<CriteriaCompliance, CriteriaComplianceApiV1>
   >;
 
-  let patchV1CriteriaCompliancesCriteriaComplianceUuidRequestToCriteriaComplianceUpdateQueryTransformer: PatchV1CriteriaCompliancesCriteriaComplianceUuidRequestToCriteriaComplianceUpdateQueryTransformer;
+  let patchCriteriaCompliancesCriteriaComplianceUuidRequestHandler: PatchCriteriaCompliancesCriteriaComplianceUuidRequestHandler;
 
   beforeAll(() => {
-    patchV1CriteriaCompliancesCriteriaComplianceUuidRequestParser = {
-      parse: jest.fn(),
-    };
+    let expressRouterMockHandler: express.RequestHandler | undefined =
+      undefined;
+
+    const expressRouterMock: jest.Mocked<express.Router> = jest
+      .fn()
+      .mockImplementation(
+        (
+          request: express.Request,
+          response: express.Response,
+          next: express.NextFunction,
+        ) => {
+          if (expressRouterMockHandler) {
+            expressRouterMockHandler(request, response, next);
+          }
+        },
+      ) as Partial<express.Router> as jest.Mocked<express.Router>;
+
+    expressRouterMock.use = jest
+      .fn()
+      .mockImplementation(
+        (handler: express.RequestHandler): express.RequestHandler => {
+          expressRouterMockHandler = handler;
+
+          return expressRouterMock;
+        },
+      );
+
+    (express.Router as jest.Mock).mockReturnValue(expressRouterMock);
 
     patchV1CriteriaCompliancesCriteriaComplianceUuidRequestToCriteriaComplianceUpdateQueryTransformer =
-      new PatchV1CriteriaCompliancesCriteriaComplianceUuidRequestToCriteriaComplianceUpdateQueryTransformer(
-        patchV1CriteriaCompliancesCriteriaComplianceUuidRequestParser,
+      {
+        transform: jest.fn(),
+      };
+
+    updateCriteriaComplianceInteractor = {
+      interact: jest.fn(),
+    };
+
+    criteriaComplianceToCriteriaComplianceApiV1Transformer = {
+      transform: jest.fn(),
+    };
+
+    patchCriteriaCompliancesCriteriaComplianceUuidRequestHandler =
+      new PatchCriteriaCompliancesCriteriaComplianceUuidRequestHandler(
+        patchV1CriteriaCompliancesCriteriaComplianceUuidRequestToCriteriaComplianceUpdateQueryTransformer,
+        updateCriteriaComplianceInteractor,
+        criteriaComplianceToCriteriaComplianceApiV1Transformer,
       );
   });
 
-  describe('.transform()', () => {
+  describe('.handler()', () => {
+    let expressResponseMock: jest.Mocked<express.Response>;
+    let expressNextFunctionMock: jest.Mocked<express.NextFunction>;
+
     beforeAll(() => {
-      patchV1CriteriaCompliancesCriteriaComplianceUuidRequestParser.parse.mockResolvedValue(
-        CriteriaComplianceApiV1UpdateQueryFixtures.withAll,
+      expressResponseMock = {
+        json: jest.fn(),
+      } as Partial<express.Response> as jest.Mocked<express.Response>;
+
+      expressNextFunctionMock = jest.fn();
+
+      patchV1CriteriaCompliancesCriteriaComplianceUuidRequestToCriteriaComplianceUpdateQueryTransformer.transform.mockResolvedValue(
+        CriteriaComplianceUpdateQueryFixtures.withMandatory,
+      );
+
+      updateCriteriaComplianceInteractor.interact.mockResolvedValue(
+        CriteriaComplianceFixtures.withMandatory,
+      );
+
+      criteriaComplianceToCriteriaComplianceApiV1Transformer.transform.mockResolvedValue(
+        CriteriaComplianceApiV1Fixtures.withMandatory,
       );
     });
 
-    describe('having a Request with criteriaCompliance', () => {
-      let requestContextFixture: RequestContext;
-      let requestFixture: RequestWithContext;
+    describe('having an ExpressRequest with ApiVersion.v1 and User', () => {
+      let expressRequestMock: RequestWithContext;
 
       beforeAll(() => {
-        requestContextFixture = {
-          criteriaCompliance: CriteriaComplianceFixtures.withMandatory,
-        };
-
-        requestFixture = {
-          [requestContextSymbol]: requestContextFixture,
+        expressRequestMock = {
+          [requestContextSymbol]: {
+            apiVersion: ApiVersion.v1,
+            user: UserFixtures.withMandatory,
+          },
         } as RequestWithContext;
       });
 
       describe('when called', () => {
-        let result: unknown;
-
         beforeAll(async () => {
-          result =
-            await patchV1CriteriaCompliancesCriteriaComplianceUuidRequestToCriteriaComplianceUpdateQueryTransformer.transform(
-              requestFixture,
-            );
+          await (patchCriteriaCompliancesCriteriaComplianceUuidRequestHandler.handler(
+            expressRequestMock,
+            expressResponseMock,
+            expressNextFunctionMock,
+          ) as unknown as Promise<void>);
         });
 
-        it('should call PatchV1CriteriaCompliancesCriteriaComplianceUuidRequestParser.parse()', () => {
+        afterAll(() => {
+          jest.clearAllMocks();
+        });
+
+        it('should call PatchV1CriteriaCompliancesCriteriaComplianceUuidRequestToCriteriaComplianceUpdateQueryTransformer.trasnform()', () => {
           expect(
-            patchV1CriteriaCompliancesCriteriaComplianceUuidRequestParser.parse,
+            patchV1CriteriaCompliancesCriteriaComplianceUuidRequestToCriteriaComplianceUpdateQueryTransformer.transform,
           ).toHaveBeenCalledTimes(1);
           expect(
-            patchV1CriteriaCompliancesCriteriaComplianceUuidRequestParser.parse,
-          ).toHaveBeenCalledWith(requestFixture);
+            patchV1CriteriaCompliancesCriteriaComplianceUuidRequestToCriteriaComplianceUpdateQueryTransformer.transform,
+          ).toHaveBeenCalledWith(expressRequestMock);
         });
 
-        it('should return a CriteriaComplianceUpdateQuery', () => {
-          expect(result).toStrictEqual(
-            CriteriaComplianceUpdateQueryFixtures.withAnswer,
+        it('should call UpdateCriteriaComplianceInteractor.interact()', () => {
+          expect(
+            updateCriteriaComplianceInteractor.interact,
+          ).toHaveBeenCalledTimes(1);
+          expect(
+            updateCriteriaComplianceInteractor.interact,
+          ).toHaveBeenCalledWith(
+            CriteriaComplianceUpdateQueryFixtures.withMandatory,
           );
         });
-      });
-    });
 
-    describe('having a Request without matching', () => {
-      let requestContextFixture: RequestContext;
-      let requestFixture: RequestWithContext;
-
-      beforeAll(() => {
-        requestContextFixture = {};
-
-        requestFixture = {
-          [requestContextSymbol]: requestContextFixture,
-        } as RequestWithContext;
-      });
-
-      describe('when called', () => {
-        let result: unknown;
-
-        beforeAll(async () => {
-          try {
-            await patchV1CriteriaCompliancesCriteriaComplianceUuidRequestToCriteriaComplianceUpdateQueryTransformer.transform(
-              requestFixture,
-            );
-          } catch (error: unknown) {
-            result = error;
-          }
+        it('should call CriteriaComplianceToCriteriaComplianceApiV1Transformer.transform()', () => {
+          expect(
+            criteriaComplianceToCriteriaComplianceApiV1Transformer.transform,
+          ).toHaveBeenCalledTimes(1);
+          expect(
+            criteriaComplianceToCriteriaComplianceApiV1Transformer.transform,
+          ).toHaveBeenCalledWith(CriteriaComplianceFixtures.withMandatory);
         });
 
-        it('should throw an Error', () => {
-          expect(result).toBeInstanceOf(Error);
+        it('should call expressResponseMock.json()', () => {
+          expect(expressResponseMock.json).toHaveBeenCalledTimes(1);
+          expect(expressResponseMock.json).toHaveBeenCalledWith(
+            CriteriaComplianceApiV1Fixtures.withMandatory,
+          );
         });
       });
     });

@@ -5,7 +5,7 @@ jest.mock('express');
 import express from 'express';
 
 import { ExpressRequestHandler } from '../../server/modules/ExpressRequestHandler';
-import { CriteriasRouter } from './CriteriasExpressRouter';
+import { CriteriasRouter } from './CriteriasRouter';
 
 describe('CriteriasRouter', () => {
   let expressRouterFixture: jest.Mocked<express.Router>;

@@ -20,7 +20,7 @@ import { SelectedCriteriaUpdateQuery } from '../models/domain/SelectedCriteriaUp
 export class PatchUsersMeSelectedCriteriasSelectedCriteriaUuidRequestHandler extends ApiExpressRequestHandler {
   constructor(
     @inversify.inject(
-      selectedCriteriaInjectionTypes.PatchV1SelectedCriteriasRequestParser,
+      selectedCriteriaInjectionTypes.PatchV1UsersMeSelectedCriteriasSelectedCriteriaUuidRequestParser,
     )
     private readonly patchV1SelectedCriteriasRequestParser: IRequestParser<SelectedCriteriaApiV1UpdateQuery>,
     @inversify.inject(

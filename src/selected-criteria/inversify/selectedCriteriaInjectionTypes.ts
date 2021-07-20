@@ -10,10 +10,10 @@ export const selectedCriteriaInjectionTypes = {
   ),
   MeSelectedCriteriasRouter: Symbol('SelectedCriteriasRouter'),
   PatchUsersMeSelectedCriteriasSelectedCriteriaUuidRequestHandler: Symbol(
-    'PatchUsersMeSelectedCriteriasRequestHandler',
+    'PatchUsersMeSelectedCriteriasSelectedCriteriaUuidRequestHandler',
   ),
-  PatchV1SelectedCriteriasRequestParser: Symbol(
-    'PatchV1SelectedCriteriasRequestParser',
+  PatchV1UsersMeSelectedCriteriasSelectedCriteriaUuidRequestParser: Symbol(
+    'PatchV1UsersMeSelectedCriteriasSelectedCriteriaUuidRequestParser',
   ),
   SelectedCriteriaApiV1UpdateQueryTypeGuard: Symbol(
     'SelectedCriteriaApiV1UpdateQueryTypeGuard',

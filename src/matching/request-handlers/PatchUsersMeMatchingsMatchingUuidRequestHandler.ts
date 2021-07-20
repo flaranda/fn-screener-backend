@@ -14,9 +14,9 @@ import { MatchingUpdateQuery } from '../models/domain/MatchingUpdateQuery';
 export class PatchUsersMeMatchingsMatchingUuidRequestHandler extends ApiExpressRequestHandler {
   constructor(
     @inversify.inject(
-      matchingInjectionTypes.PatchV1MatchingsMatchingUuidRequestToMatchingUpdateQueryTransformer,
+      matchingInjectionTypes.PatchV1UsersMeMatchingsMatchingUuidRequestToMatchingUpdateQueryTransformer,
     )
-    private readonly patchV1MatchingsMatchingUuidRequestToMatchingUpdateQueryTransformer: ITransformer<
+    private readonly patchV1UsersMeMatchingsMatchingUuidRequestToMatchingUpdateQueryTransformer: ITransformer<
       RequestWithContext,
       MatchingUpdateQuery
     >,
@@ -40,7 +40,7 @@ export class PatchUsersMeMatchingsMatchingUuidRequestHandler extends ApiExpressR
     _next: express.NextFunction,
   ): Promise<void> {
     const matchingUpdateQuery: MatchingUpdateQuery =
-      await this.patchV1MatchingsMatchingUuidRequestToMatchingUpdateQueryTransformer.transform(
+      await this.patchV1UsersMeMatchingsMatchingUuidRequestToMatchingUpdateQueryTransformer.transform(
         request,
       );
 

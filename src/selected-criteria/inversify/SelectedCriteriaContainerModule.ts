@@ -4,7 +4,7 @@ import { FindManySelectedCriteriasInteractor } from '../interactors/FindManySele
 import { FindOneSelectedCriteriaInteractor } from '../interactors/FindOneSelectedCriteriaInteractor';
 import { UpdateSelectedCriteriaInteractor } from '../interactors/UpdateSelectedCriteriaInteractor';
 import { SelectedCriteriaMongoSchemaContainer } from '../models/mongo/SelectedCriteriaMongoSchemaContainer';
-import { PatchV1SelectedCriteriasRequestParser } from '../parsers/api/v1/PatchV1SelectedCriteriasRequestParser';
+import { PatchV1UsersMeSelectedCriteriasSelectedCriteriaUuidRequestParser } from '../parsers/api/v1/PatchV1UsersMeSelectedCriteriasSelectedCriteriaUuidRequestParser';
 import { SelectedCriteriaMongoFindManyRepository } from '../repositories/mongo/SelectedCriteriaMongoFindManyRepository';
 import { SelectedCriteriaMongoFindOneRepository } from '../repositories/mongo/SelectedCriteriaMongoFindOneRepository';
 import { SelectedCriteriaMongoUpdateRepository } from '../repositories/mongo/SelectedCriteriaMongoUpdateRepository';
@@ -39,8 +39,8 @@ export class SelectedCriteriaContainerModule extends inversify.ContainerModule {
         selectedCriteriaInjectionTypes.PatchUsersMeSelectedCriteriasSelectedCriteriaUuidRequestHandler,
       ).to(PatchUsersMeSelectedCriteriasSelectedCriteriaUuidRequestHandler);
       bind(
-        selectedCriteriaInjectionTypes.PatchV1SelectedCriteriasRequestParser,
-      ).to(PatchV1SelectedCriteriasRequestParser);
+        selectedCriteriaInjectionTypes.PatchV1UsersMeSelectedCriteriasSelectedCriteriaUuidRequestParser,
+      ).to(PatchV1UsersMeSelectedCriteriasSelectedCriteriaUuidRequestParser);
       bind(
         selectedCriteriaInjectionTypes.SelectedCriteriaApiV1UpdateQueryTypeGuard,
       ).to(SelectedCriteriaApiV1UpdateQueryTypeGuard);

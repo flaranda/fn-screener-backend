@@ -1,24 +1,25 @@
 import 'reflect-metadata';
+
 import { ITypeGuard } from '../../../../common/interfaces/ITypeGuard';
 import { RequestWithContext } from '../../../../server/models/RequestWithContext';
 import { SelectedCriteriaApiV1UpdateQueryFixtures } from '../../../fixtures/api/v1/SelectedCriteriaApiV1UpdateQueryFixtures';
 import { SelectedCriteriaApiV1UpdateQuery } from '../../../models/api/v1/SelectedCriteriaApiV1UpdateQuery';
-import { PatchV1SelectedCriteriasRequestParser } from './PatchV1SelectedCriteriasRequestParser';
+import { PatchV1UsersMeSelectedCriteriasSelectedCriteriaUuidRequestParser } from './PatchV1UsersMeSelectedCriteriasSelectedCriteriaUuidRequestParser';
 
-describe('PatchV1SelectedCriteriasRequestParser', () => {
+describe('PatchV1UsersMeSelectedCriteriasSelectedCriteriaUuidRequestParser', () => {
   let selectedCriteriaApiV1UpdateQueryTypeGuard: jest.Mocked<
     ITypeGuard<SelectedCriteriaApiV1UpdateQuery>
   >;
 
-  let patchV1SelectedCriteriasRequestParser: PatchV1SelectedCriteriasRequestParser;
+  let patchV1UsersMeSelectedCriteriasSelectedCriteriaUuidRequestParser: PatchV1UsersMeSelectedCriteriasSelectedCriteriaUuidRequestParser;
 
   beforeAll(() => {
     selectedCriteriaApiV1UpdateQueryTypeGuard = {
       is: jest.fn(),
     } as unknown as jest.Mocked<ITypeGuard<SelectedCriteriaApiV1UpdateQuery>>;
 
-    patchV1SelectedCriteriasRequestParser =
-      new PatchV1SelectedCriteriasRequestParser(
+    patchV1UsersMeSelectedCriteriasSelectedCriteriaUuidRequestParser =
+      new PatchV1UsersMeSelectedCriteriasSelectedCriteriaUuidRequestParser(
         selectedCriteriaApiV1UpdateQueryTypeGuard,
       );
   });
@@ -43,9 +44,10 @@ describe('PatchV1SelectedCriteriasRequestParser', () => {
         let result: unknown;
 
         beforeAll(async () => {
-          result = await patchV1SelectedCriteriasRequestParser.parse(
-            requestFixture,
-          );
+          result =
+            await patchV1UsersMeSelectedCriteriasSelectedCriteriaUuidRequestParser.parse(
+              requestFixture,
+            );
         });
 
         it('should call SelectedCriteriaApiV1UpdateQueryTypeGuard.is()', () => {
@@ -85,7 +87,9 @@ describe('PatchV1SelectedCriteriasRequestParser', () => {
 
         beforeAll(async () => {
           try {
-            await patchV1SelectedCriteriasRequestParser.parse(requestFixture);
+            await patchV1UsersMeSelectedCriteriasSelectedCriteriaUuidRequestParser.parse(
+              requestFixture,
+            );
           } catch (err) {
             result = err;
           }

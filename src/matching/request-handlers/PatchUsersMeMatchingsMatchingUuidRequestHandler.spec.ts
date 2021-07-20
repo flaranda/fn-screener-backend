@@ -19,7 +19,7 @@ import { MatchingUpdateQuery } from '../models/domain/MatchingUpdateQuery';
 import { PatchUsersMeMatchingsMatchingUuidRequestHandler } from './PatchUsersMeMatchingsMatchingUuidRequestHandler';
 
 describe('PatchUsersMeMatchingsMatchingUuidExpressRequestHandler', () => {
-  let patchV1MatchingsMatchingUuidRequestToMatchingUpdateQueryTransformer: jest.Mocked<
+  let patchV1UsersMeMatchingsMatchingUuidRequestToMatchingUpdateQueryTransformer: jest.Mocked<
     ITransformer<RequestWithContext, MatchingUpdateQuery>
   >;
   let updateMatchingInteractor: jest.Mocked<
@@ -61,9 +61,10 @@ describe('PatchUsersMeMatchingsMatchingUuidExpressRequestHandler', () => {
 
     (express.Router as jest.Mock).mockReturnValue(expressRouterMock);
 
-    patchV1MatchingsMatchingUuidRequestToMatchingUpdateQueryTransformer = {
-      transform: jest.fn(),
-    };
+    patchV1UsersMeMatchingsMatchingUuidRequestToMatchingUpdateQueryTransformer =
+      {
+        transform: jest.fn(),
+      };
 
     updateMatchingInteractor = {
       interact: jest.fn(),
@@ -75,7 +76,7 @@ describe('PatchUsersMeMatchingsMatchingUuidExpressRequestHandler', () => {
 
     patchUsersMeMatchingsMatchingUuidRequestHandler =
       new PatchUsersMeMatchingsMatchingUuidRequestHandler(
-        patchV1MatchingsMatchingUuidRequestToMatchingUpdateQueryTransformer,
+        patchV1UsersMeMatchingsMatchingUuidRequestToMatchingUpdateQueryTransformer,
         updateMatchingInteractor,
         matchingToMatchingApiV1Transformer,
       );
@@ -92,7 +93,7 @@ describe('PatchUsersMeMatchingsMatchingUuidExpressRequestHandler', () => {
 
       expressNextFunctionMock = jest.fn();
 
-      patchV1MatchingsMatchingUuidRequestToMatchingUpdateQueryTransformer.transform.mockResolvedValue(
+      patchV1UsersMeMatchingsMatchingUuidRequestToMatchingUpdateQueryTransformer.transform.mockResolvedValue(
         MatchingUpdateQueryFixtures.withMandatory,
       );
 
@@ -132,10 +133,10 @@ describe('PatchUsersMeMatchingsMatchingUuidExpressRequestHandler', () => {
 
         it('should call PatchV1MatchingsMatchingUuidRequestToMatchingUpdateQueryTransformer.trasnform()', () => {
           expect(
-            patchV1MatchingsMatchingUuidRequestToMatchingUpdateQueryTransformer.transform,
+            patchV1UsersMeMatchingsMatchingUuidRequestToMatchingUpdateQueryTransformer.transform,
           ).toHaveBeenCalledTimes(1);
           expect(
-            patchV1MatchingsMatchingUuidRequestToMatchingUpdateQueryTransformer.transform,
+            patchV1UsersMeMatchingsMatchingUuidRequestToMatchingUpdateQueryTransformer.transform,
           ).toHaveBeenCalledWith(expressRequestMock);
         });
 

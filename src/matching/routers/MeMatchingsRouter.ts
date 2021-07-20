@@ -18,7 +18,7 @@ export class MeMatchingsRouter extends ExpressRouter {
     @inversify.inject(
       matchingInjectionTypes.PatchMatchingsMatchingUuidRequestHandler,
     )
-    private readonly patchMatchingsMatchingUuidRequestHandler: ExpressRequestHandler,
+    private readonly patchUsersMeMatchingsMatchingUuidRequestHandler: ExpressRequestHandler,
   ) {
     super();
 
@@ -42,7 +42,7 @@ export class MeMatchingsRouter extends ExpressRouter {
       .route('/:matchingUuid')
       .patch([
         this.userMiddleware.handler,
-        this.patchMatchingsMatchingUuidRequestHandler.handler,
+        this.patchUsersMeMatchingsMatchingUuidRequestHandler.handler,
       ]);
   }
 }

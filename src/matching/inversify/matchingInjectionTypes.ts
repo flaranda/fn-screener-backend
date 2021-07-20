@@ -7,8 +7,8 @@ export const matchingInjectionTypes = {
   GetUsersMeMatchingsRequestHandler: Symbol(
     'GetUsersMeMatchingsRequestHandler',
   ),
-  GetV1MatchingsRequestToMatchingFindQueryTransformer: Symbol(
-    'GetV1MatchingsRequestToMatchingFindQueryTransformer',
+  GetV1UsersMeMatchingsRequestToMatchingFindQueryTransformer: Symbol(
+    'GetV1UsersMeMatchingsRequestToMatchingFindQueryTransformer',
   ),
   MatchingApiV1UpdateQueryTypeGuard: Symbol(
     'MatchingApiV1UpdateQueryTypeGuard',
@@ -32,8 +32,9 @@ export const matchingInjectionTypes = {
   PatchV1MatchingsMatchingUuidRequestParser: Symbol(
     'PatchV1MatchingsMatchingUuidRequestParser',
   ),
-  PatchV1MatchingsMatchingUuidRequestToMatchingUpdateQueryTransformer: Symbol(
-    'PatchV1MatchingsMatchingUuidRequestToMatchingUpdateQueryTransformer',
-  ),
+  PatchV1UsersMeMatchingsMatchingUuidRequestToMatchingUpdateQueryTransformer:
+    Symbol(
+      'PatchV1UsersMeMatchingsMatchingUuidRequestToMatchingUpdateQueryTransformer',
+    ),
   UpdateMatchingInteractor: Symbol('UpdateMatchingInteractor'),
 };

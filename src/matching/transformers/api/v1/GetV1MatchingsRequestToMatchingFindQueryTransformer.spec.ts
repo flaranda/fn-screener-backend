@@ -5,14 +5,14 @@ import { requestContextSymbol } from '../../../../common/models/domain/requestCo
 import { RequestWithContext } from '../../../../server/models/RequestWithContext';
 import { UserFixtures } from '../../../../user/fixtures/domain/UserFixtures';
 import { MatchingFindQueryFixtures } from '../../../fixtures/domain/MatchingFindQueryFixtures';
-import { GetV1MatchingsRequestToMatchingFindQueryTransformer } from './GetV1MatchingsRequestToMatchingFindQueryTransformer';
+import { GetV1UsersMeMatchingsRequestToMatchingFindQueryTransformer } from './GetV1MatchingsRequestToMatchingFindQueryTransformer';
 
-describe('GetV1MatchingsRequestToMatchingFindQueryTransformer', () => {
-  let getV1MatchingsRequestToMatchingFindQueryTransformer: GetV1MatchingsRequestToMatchingFindQueryTransformer;
+describe('GetV1UsersMeMatchingsRequestToMatchingFindQueryTransformer', () => {
+  let getV1UsersMeMatchingsRequestToMatchingFindQueryTransformer: GetV1UsersMeMatchingsRequestToMatchingFindQueryTransformer;
 
   beforeAll(() => {
-    getV1MatchingsRequestToMatchingFindQueryTransformer =
-      new GetV1MatchingsRequestToMatchingFindQueryTransformer();
+    getV1UsersMeMatchingsRequestToMatchingFindQueryTransformer =
+      new GetV1UsersMeMatchingsRequestToMatchingFindQueryTransformer();
   });
 
   describe('.transform()', () => {
@@ -35,7 +35,7 @@ describe('GetV1MatchingsRequestToMatchingFindQueryTransformer', () => {
 
         beforeAll(async () => {
           result =
-            await getV1MatchingsRequestToMatchingFindQueryTransformer.transform(
+            await getV1UsersMeMatchingsRequestToMatchingFindQueryTransformer.transform(
               requestFixture,
             );
         });
@@ -63,7 +63,7 @@ describe('GetV1MatchingsRequestToMatchingFindQueryTransformer', () => {
 
         beforeAll(async () => {
           try {
-            await getV1MatchingsRequestToMatchingFindQueryTransformer.transform(
+            await getV1UsersMeMatchingsRequestToMatchingFindQueryTransformer.transform(
               requestFixture,
             );
           } catch (error: unknown) {

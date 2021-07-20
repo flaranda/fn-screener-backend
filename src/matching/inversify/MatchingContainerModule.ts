@@ -5,7 +5,7 @@ import { FindOneMatchingInteractor } from '../interactors/FindOneMatchingInterac
 import { GenerateMatchingAnalysisInteractor } from '../interactors/GenerateMatchingAnalysisInteractor';
 import { UpdateMatchingInteractor } from '../interactors/UpdateMatchingInteractor';
 import { MatchingMongoSchemaContainer } from '../models/mongo/MatchingMongoSchemaContainer';
-import { PatchV1MatchingsMatchingUuidRequestParser } from '../parsers/api/v1/PatchV1MatchingsMatchingUuidRequestParser';
+import { PatchV1UsersMeMatchingsMatchingUuidRequestParser } from '../parsers/api/v1/PatchV1UsersMeMatchingsMatchingUuidRequestParser';
 import { MatchingMongoFindManyRepository } from '../repositories/mongo/MatchingMongoFindManyRepository';
 import { MatchingMongoFindOneRepository } from '../repositories/mongo/MatchingMongoFindOneRepository';
 import { MatchingMongoUpdateRepository } from '../repositories/mongo/MatchingMongoUpdateRepository';
@@ -14,9 +14,9 @@ import { MatchingUuidRequestParamHandler } from '../request-handlers/MatchingUui
 import { PatchUsersMeMatchingsMatchingUuidRequestHandler } from '../request-handlers/PatchUsersMeMatchingsMatchingUuidRequestHandler';
 import { MeMatchingsRouter } from '../routers/MeMatchingsRouter';
 import { MatchingMongoSeeder } from '../seeders/mongo/MatchingMongoSeeder';
-import { GetV1MatchingsRequestToMatchingFindQueryTransformer } from '../transformers/api/v1/GetV1MatchingsRequestToMatchingFindQueryTransformer';
+import { GetV1UsersMeMatchingsRequestToMatchingFindQueryTransformer } from '../transformers/api/v1/GetV1MatchingsRequestToMatchingFindQueryTransformer';
 import { MatchingToMatchingApiV1Transformer } from '../transformers/api/v1/MatchingToMatchingApiV1Transformer';
-import { PatchV1MatchingsMatchingUuidRequestToMatchingUpdateQueryTransformer } from '../transformers/api/v1/PatchV1MatchingsMatchingUuidRequestToMatchingUpdateQueryTransformer';
+import { PatchV1UsersMeMatchingsMatchingUuidRequestToMatchingUpdateQueryTransformer } from '../transformers/api/v1/PatchV1UsersMeMatchingsMatchingUuidRequestToMatchingUpdateQueryTransformer';
 import { MatchingMongoDocumentToMatchingTransformer } from '../transformers/mongo/MatchingMongoDocumentToMatchingTransformer';
 import { MatchingApiV1UpdateQueryTypeGuard } from '../type-guards/api/v1/MatchingApiV1UpdateQueryTypeGuard';
 import { matchingInjectionTypes } from './matchingInjectionTypes';
@@ -39,8 +39,8 @@ export class MatchingContainerModule extends inversify.ContainerModule {
         GetUsersMeMatchingsRequestHandler,
       );
       bind(
-        matchingInjectionTypes.GetV1MatchingsRequestToMatchingFindQueryTransformer,
-      ).to(GetV1MatchingsRequestToMatchingFindQueryTransformer);
+        matchingInjectionTypes.GetV1UsersMeMatchingsRequestToMatchingFindQueryTransformer,
+      ).to(GetV1UsersMeMatchingsRequestToMatchingFindQueryTransformer);
       bind(matchingInjectionTypes.MatchingApiV1UpdateQueryTypeGuard).to(
         MatchingApiV1UpdateQueryTypeGuard,
       );
@@ -71,11 +71,13 @@ export class MatchingContainerModule extends inversify.ContainerModule {
         PatchUsersMeMatchingsMatchingUuidRequestHandler,
       );
       bind(matchingInjectionTypes.PatchV1MatchingsMatchingUuidRequestParser).to(
-        PatchV1MatchingsMatchingUuidRequestParser,
+        PatchV1UsersMeMatchingsMatchingUuidRequestParser,
       );
       bind(
-        matchingInjectionTypes.PatchV1MatchingsMatchingUuidRequestToMatchingUpdateQueryTransformer,
-      ).to(PatchV1MatchingsMatchingUuidRequestToMatchingUpdateQueryTransformer);
+        matchingInjectionTypes.PatchV1UsersMeMatchingsMatchingUuidRequestToMatchingUpdateQueryTransformer,
+      ).to(
+        PatchV1UsersMeMatchingsMatchingUuidRequestToMatchingUpdateQueryTransformer,
+      );
       bind(matchingInjectionTypes.UpdateMatchingInteractor).to(
         UpdateMatchingInteractor,
       );

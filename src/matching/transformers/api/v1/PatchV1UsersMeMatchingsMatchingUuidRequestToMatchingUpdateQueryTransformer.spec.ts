@@ -8,22 +8,22 @@ import { MatchingApiV1UpdateQueryFixtures } from '../../../fixtures/api/v1/Match
 import { MatchingFixtures } from '../../../fixtures/domain/MatchingFixtures';
 import { MatchingUpdateQueryFixtures } from '../../../fixtures/domain/MatchingUpdateQueryFixtures';
 import { MatchingApiV1UpdateQuery } from '../../../models/api/v1/MatchingApiV1UpdateQuery';
-import { PatchV1MatchingsMatchingUuidRequestToMatchingUpdateQueryTransformer } from './PatchV1MatchingsMatchingUuidRequestToMatchingUpdateQueryTransformer';
+import { PatchV1UsersMeMatchingsMatchingUuidRequestToMatchingUpdateQueryTransformer } from './PatchV1UsersMeMatchingsMatchingUuidRequestToMatchingUpdateQueryTransformer';
 
 describe('PatchV1MatchingsMatchingUuidRequestToMatchingUpdateQueryTransformer', () => {
   let patchV1MatchingsMatchingUuidRequestParser: jest.Mocked<
     IRequestParser<MatchingApiV1UpdateQuery>
   >;
 
-  let patchV1MatchingsMatchingUuidRequestToMatchingUpdateQueryTransformer: PatchV1MatchingsMatchingUuidRequestToMatchingUpdateQueryTransformer;
+  let patchV1UsersMeMatchingsMatchingUuidRequestToMatchingUpdateQueryTransformer: PatchV1UsersMeMatchingsMatchingUuidRequestToMatchingUpdateQueryTransformer;
 
   beforeAll(() => {
     patchV1MatchingsMatchingUuidRequestParser = {
       parse: jest.fn(),
     };
 
-    patchV1MatchingsMatchingUuidRequestToMatchingUpdateQueryTransformer =
-      new PatchV1MatchingsMatchingUuidRequestToMatchingUpdateQueryTransformer(
+    patchV1UsersMeMatchingsMatchingUuidRequestToMatchingUpdateQueryTransformer =
+      new PatchV1UsersMeMatchingsMatchingUuidRequestToMatchingUpdateQueryTransformer(
         patchV1MatchingsMatchingUuidRequestParser,
       );
   });
@@ -54,7 +54,7 @@ describe('PatchV1MatchingsMatchingUuidRequestToMatchingUpdateQueryTransformer', 
 
         beforeAll(async () => {
           result =
-            await patchV1MatchingsMatchingUuidRequestToMatchingUpdateQueryTransformer.transform(
+            await patchV1UsersMeMatchingsMatchingUuidRequestToMatchingUpdateQueryTransformer.transform(
               requestFixture,
             );
         });
@@ -69,7 +69,7 @@ describe('PatchV1MatchingsMatchingUuidRequestToMatchingUpdateQueryTransformer', 
         });
 
         it('should return a MatchingUpdateQuery', () => {
-          expect(result).toStrictEqual(MatchingUpdateQueryFixtures.withStatus);
+          expect(result).toStrictEqual(MatchingUpdateQueryFixtures.withAll);
         });
       });
     });
@@ -91,7 +91,7 @@ describe('PatchV1MatchingsMatchingUuidRequestToMatchingUpdateQueryTransformer', 
 
         beforeAll(async () => {
           try {
-            await patchV1MatchingsMatchingUuidRequestToMatchingUpdateQueryTransformer.transform(
+            await patchV1UsersMeMatchingsMatchingUuidRequestToMatchingUpdateQueryTransformer.transform(
               requestFixture,
             );
           } catch (error: unknown) {

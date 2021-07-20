@@ -4,22 +4,22 @@ import { ITypeGuard } from '../../../../common/interfaces/ITypeGuard';
 import { RequestWithContext } from '../../../../server/models/RequestWithContext';
 import { MatchingApiV1UpdateQueryFixtures } from '../../../fixtures/api/v1/MatchingApiV1UpdateQueryFixtures';
 import { MatchingApiV1UpdateQuery } from '../../../models/api/v1/MatchingApiV1UpdateQuery';
-import { PatchV1MatchingsMatchingUuidRequestParser } from './PatchV1MatchingsMatchingUuidRequestParser';
+import { PatchV1UsersMeMatchingsMatchingUuidRequestParser } from './PatchV1UsersMeMatchingsMatchingUuidRequestParser';
 
-describe('PatchV1MatchingsMatchingUuidRequestParser', () => {
+describe('PatchV1UsersMeMatchingsMatchingUuidRequestParser', () => {
   let matchingApiV1UpdateQueryTypeGuard: jest.Mocked<
     ITypeGuard<MatchingApiV1UpdateQuery>
   >;
 
-  let patchV1MatchingsMatchingUuidRequestParser: PatchV1MatchingsMatchingUuidRequestParser;
+  let patchV1UsersMeMatchingsMatchingUuidRequestParser: PatchV1UsersMeMatchingsMatchingUuidRequestParser;
 
   beforeAll(() => {
     matchingApiV1UpdateQueryTypeGuard = {
       is: jest.fn(),
     } as unknown as jest.Mocked<ITypeGuard<MatchingApiV1UpdateQuery>>;
 
-    patchV1MatchingsMatchingUuidRequestParser =
-      new PatchV1MatchingsMatchingUuidRequestParser(
+    patchV1UsersMeMatchingsMatchingUuidRequestParser =
+      new PatchV1UsersMeMatchingsMatchingUuidRequestParser(
         matchingApiV1UpdateQueryTypeGuard,
       );
   });
@@ -39,7 +39,7 @@ describe('PatchV1MatchingsMatchingUuidRequestParser', () => {
       let result: unknown;
 
       beforeAll(async () => {
-        result = await patchV1MatchingsMatchingUuidRequestParser.parse(
+        result = await patchV1UsersMeMatchingsMatchingUuidRequestParser.parse(
           requestFixture,
         );
       });
@@ -69,7 +69,9 @@ describe('PatchV1MatchingsMatchingUuidRequestParser', () => {
         matchingApiV1UpdateQueryTypeGuard.is.mockReturnValueOnce(false);
 
         try {
-          await patchV1MatchingsMatchingUuidRequestParser.parse(requestFixture);
+          await patchV1UsersMeMatchingsMatchingUuidRequestParser.parse(
+            requestFixture,
+          );
         } catch (error: unknown) {
           result = error;
         }

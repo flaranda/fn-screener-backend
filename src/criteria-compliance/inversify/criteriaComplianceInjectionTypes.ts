@@ -18,12 +18,12 @@ export const criteriaComplianceInjectionTypes = {
   CriteriaComplianceMongoUpdateRepository: Symbol(
     'CriteriaComplianceMongoUpdateRepository',
   ),
-  CriteriaComplianceUuidRequestParamHandler: Symbol(
-    'CriteriaComplianceRequestParamHandler',
-  ),
   CriteriaCompliancesRouter: Symbol('CriteriaCompliancesRouter'),
   CriteriaComplianceToCriteriaComplianceApiV1Transformer: Symbol(
     'CriteriaComplianceToCriteriaComplianceApiV1Transformer',
+  ),
+  CriteriaComplianceUuidRequestParamHandler: Symbol(
+    'CriteriaComplianceUuidRequestParamHandler',
   ),
   FindManyCriteriaCompliancesInteractor: Symbol(
     'FindManyCriteriaCompliancesInteractor',

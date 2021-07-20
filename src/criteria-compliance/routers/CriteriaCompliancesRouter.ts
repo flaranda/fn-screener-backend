@@ -14,7 +14,7 @@ export class CriteriaCompliancesRouter extends ExpressRouter {
     @inversify.inject(
       criteriaComplianceInjectionTypes.PatchCriteriaCompliancesCriteriaComplianceUuidRequestHandler,
     )
-    private readonly patchCriteriaCompliancesRequestHandler: ExpressRequestHandler,
+    private readonly patchCriteriaCompliancesCriteriaComplianceUuidRequestHandler: ExpressRequestHandler,
   ) {
     super();
 
@@ -29,6 +29,9 @@ export class CriteriaCompliancesRouter extends ExpressRouter {
 
     this.expressRouter
       .route('/:criteriaComplianceUuid')
-      .patch(this.patchCriteriaCompliancesRequestHandler.handler);
+      .patch(
+        this.patchCriteriaCompliancesCriteriaComplianceUuidRequestHandler
+          .handler,
+      );
   }
 }

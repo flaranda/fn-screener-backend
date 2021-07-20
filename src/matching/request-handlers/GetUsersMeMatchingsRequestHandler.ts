@@ -14,9 +14,9 @@ import { MatchingFindQuery } from '../models/domain/MatchingFindQuery';
 export class GetUsersMeMatchingsRequestHandler extends ApiExpressRequestHandler {
   constructor(
     @inversify.inject(
-      matchingInjectionTypes.GetV1MatchingsRequestToMatchingFindQueryTransformer,
+      matchingInjectionTypes.GetV1UsersMeMatchingsRequestToMatchingFindQueryTransformer,
     )
-    private readonly getV1MatchingsRequestToMatchingFindQueryTransformer: ITransformer<
+    private readonly getV1UsersMeMatchingsRequestToMatchingFindQueryTransformer: ITransformer<
       RequestWithContext,
       MatchingFindQuery
     >,
@@ -40,7 +40,7 @@ export class GetUsersMeMatchingsRequestHandler extends ApiExpressRequestHandler 
     _next: express.NextFunction,
   ): Promise<void> {
     const matchingFindQuery: MatchingFindQuery =
-      await this.getV1MatchingsRequestToMatchingFindQueryTransformer.transform(
+      await this.getV1UsersMeMatchingsRequestToMatchingFindQueryTransformer.transform(
         request,
       );
 

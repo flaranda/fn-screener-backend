@@ -8,7 +8,7 @@ import { matchingInjectionTypes } from '../../../inversify/matchingInjectionType
 import { MatchingApiV1UpdateQuery } from '../../../models/api/v1/MatchingApiV1UpdateQuery';
 
 @inversify.injectable()
-export class PatchV1MatchingsMatchingUuidRequestParser
+export class PatchV1UsersMeMatchingsMatchingUuidRequestParser
   implements IRequestParser<MatchingApiV1UpdateQuery>
 {
   constructor(
