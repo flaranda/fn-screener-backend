@@ -13,6 +13,7 @@ import { PatchUsersMeSelectedCriteriasSelectedCriteriaUuidRequestHandler } from 
 import { SelectedCriteriaUuidRequestParamHandler } from '../request-handlers/SelectedCriteriaUuidRequestParamHandler';
 import { MeSelectedCriteriasRouter } from '../routers/MeSelectedCriteriasRouter';
 import { SelectedCriteriaMongoSeeder } from '../seeder/mongo/SelectedCriteriaMongoSeeder';
+import { PatchV1UsersMeSelectedCriteriasSelectedCriteriaUuidRequestToSelectedCriteriaUpdateQueryTransformer } from '../transformers/api/v1/PatchV1UsersMeSelectedCriteriasSelectedCriteriaUuidRequestToSelectedCriteriaUpdateQueryTransformer';
 import { SelectedCriteriaToSelectedCriteriaApiV1Transformer } from '../transformers/api/v1/SelectedCriteriaToSelectedCriteriaApiV1Transformer';
 import { SelectedCriteriaMongoDocumentToSelectedCriteriaTransformer } from '../transformers/mongo/SelectedCriteriaMongoDocumentToSelectedCriteriaTransformer';
 import { SelectedCriteriaApiV1UpdateQueryTypeGuard } from '../type-guards/api/v1/SelectedCriteriaApiV1UpdateQueryTypeGuard';
@@ -41,6 +42,11 @@ export class SelectedCriteriaContainerModule extends inversify.ContainerModule {
       bind(
         selectedCriteriaInjectionTypes.PatchV1UsersMeSelectedCriteriasSelectedCriteriaUuidRequestParser,
       ).to(PatchV1UsersMeSelectedCriteriasSelectedCriteriaUuidRequestParser);
+      bind(
+        selectedCriteriaInjectionTypes.PatchV1UsersMeSelectedCriteriasSelectedCriteriaUuidRequestToSelectedCriteriaUpdateQueryTransformer,
+      ).to(
+        PatchV1UsersMeSelectedCriteriasSelectedCriteriaUuidRequestToSelectedCriteriaUpdateQueryTransformer,
+      );
       bind(
         selectedCriteriaInjectionTypes.SelectedCriteriaApiV1UpdateQueryTypeGuard,
       ).to(SelectedCriteriaApiV1UpdateQueryTypeGuard);

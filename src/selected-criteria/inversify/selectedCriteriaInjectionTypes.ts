@@ -15,6 +15,10 @@ export const selectedCriteriaInjectionTypes = {
   PatchV1UsersMeSelectedCriteriasSelectedCriteriaUuidRequestParser: Symbol(
     'PatchV1UsersMeSelectedCriteriasSelectedCriteriaUuidRequestParser',
   ),
+  PatchV1UsersMeSelectedCriteriasSelectedCriteriaUuidRequestToSelectedCriteriaUpdateQueryTransformer:
+    Symbol(
+      'PatchV1UsersMeSelectedCriteriasSelectedCriteriaUuidRequestToSelectedCriteriaUpdateQueryTransformer',
+    ),
   SelectedCriteriaApiV1UpdateQueryTypeGuard: Symbol(
     'SelectedCriteriaApiV1UpdateQueryTypeGuard',
   ),
