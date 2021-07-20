@@ -4,6 +4,7 @@ import { FindOneStartupInteractor } from '../interactors/FindOneStartupInteracto
 import { StartupMongoSchemaContainer } from '../models/mongo/StartupMongoSchemaContainer';
 import { StartupMongoFindOneRepository } from '../repositories/mongo/StartupMongoFindOneRepository';
 import { StartupUuidRequestParamHandler } from '../request-handlers/StartupUuidRequestParamHandler';
+import { StartupsRouter } from '../routers/StartupsRouter';
 import { StartupMongoSeeder } from '../seeder/mongo/StartupMongoSeeder';
 import { StartupMongoDocumentToStartupTransformer } from '../transformers/mongo/StartupMongoDocumentToStartupTransformer';
 import { startupInjectionTypes } from './startupInjectionTypes';
@@ -26,6 +27,7 @@ export class StartupContainerModule extends inversify.ContainerModule {
         StartupMongoSchemaContainer,
       );
       bind(startupInjectionTypes.StartupMongoSeeder).to(StartupMongoSeeder);
+      bind(startupInjectionTypes.StartupsRouter).to(StartupsRouter);
       bind(startupInjectionTypes.StartupUuidRequestParamHandler).to(
         StartupUuidRequestParamHandler,
       );
