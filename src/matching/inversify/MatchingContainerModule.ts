@@ -70,9 +70,9 @@ export class MatchingContainerModule extends inversify.ContainerModule {
       bind(matchingInjectionTypes.PatchMatchingsMatchingUuidRequestHandler).to(
         PatchUsersMeMatchingsMatchingUuidRequestHandler,
       );
-      bind(matchingInjectionTypes.PatchV1MatchingsMatchingUuidRequestParser).to(
-        PatchV1UsersMeMatchingsMatchingUuidRequestParser,
-      );
+      bind(
+        matchingInjectionTypes.PatchV1UsersMeMatchingsMatchingUuidRequestParser,
+      ).to(PatchV1UsersMeMatchingsMatchingUuidRequestParser);
       bind(
         matchingInjectionTypes.PatchV1UsersMeMatchingsMatchingUuidRequestToMatchingUpdateQueryTransformer,
       ).to(

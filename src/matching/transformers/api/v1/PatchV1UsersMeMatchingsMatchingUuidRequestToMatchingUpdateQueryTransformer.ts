@@ -18,7 +18,7 @@ export class PatchV1UsersMeMatchingsMatchingUuidRequestToMatchingUpdateQueryTran
 {
   constructor(
     @inversify.inject(
-      matchingInjectionTypes.PatchV1MatchingsMatchingUuidRequestParser,
+      matchingInjectionTypes.PatchV1UsersMeMatchingsMatchingUuidRequestParser,
     )
     private readonly patchV1MatchingsMatchingUuidRequestParser: IRequestParser<MatchingApiV1UpdateQuery>,
   ) {}
