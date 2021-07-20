@@ -31,6 +31,10 @@ export const criteriaComplianceInjectionTypes = {
   FindOneCriteriaComplianceInteractor: Symbol(
     'FindOneCriteriaComplianceInteractor',
   ),
+  GetV1StartupsStartupUuidCriteriaCompliancesRequestToCriteriaComplianceFindQueryTransformer:
+    Symbol(
+      'GetV1StartupsStartupUuidCriteriaCompliancesRequestToCriteriaComplianceFindQueryTransformer',
+    ),
   PatchCriteriaCompliancesCriteriaComplianceUuidRequestHandler: Symbol(
     'PatchCriteriaCompliancesCriteriaComplianceUuidRequestHandler',
   ),
