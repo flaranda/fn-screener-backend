@@ -16,11 +16,11 @@ Execute the following scripts to configure your environment:
 
 - `npm install`
 - `npm run docker`
-- `npm run mongo-seed`
+- `npm run build` (optional, if you want to run `npm run start:dist` or `npm run setup:dist` later)
 
 And just a few more scripts to get everything up and running:
 
-- `npm run build` (optional, if you want to run `npm run start:dist` later)
+- `npm run setup` or `npm run setup:dist`
 - `npm run start` or `npm run start:dist`
 
 And that's all, you can find the API on `localhost:3000`
