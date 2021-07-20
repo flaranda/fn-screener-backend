@@ -3,12 +3,23 @@ Matching:
   properties:
     analysis:
       $ref: './MatchingAnalysis.yml#/MatchingAnalysis'
+    startup_name:
+      type: string
+      description: Name of the related startup
+    startup_url:
+      type: string
+      description: Url of the related startup
     status:
       $ref: './MatchingStatus.yml#/MatchingStatus'
     status_reason:
       type: string
       nullable: true
       description: Reason given by the user along the status
+    uuid:
+      type: string
+      format: uuid
+      description: Matching identifier
+      example: bb12fbe5-3f6e-4756-9e8f-d8fb8e0636d8
   required:
     - status
     - status_reason
