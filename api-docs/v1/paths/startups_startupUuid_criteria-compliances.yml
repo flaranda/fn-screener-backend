@@ -1,0 +1,12 @@
+get:
+  tags:
+    - CriteriaCompliance
+  parameters:
+    - $ref: '../components/parameters/StartupUuid.yml#/StartupUuid'
+  responses:
+    200:
+      description: Endpoint to get a startups's criteria compliances list
+      content:
+        application/json:
+          schema:
+            $ref: '../components/schemas/criteria-compliance/CriteriaComplianceList.yml#/CriteriaComplianceList'

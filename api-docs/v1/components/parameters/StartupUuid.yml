@@ -1,0 +1,9 @@
+StartupUuid:
+  name: startupUuid
+  in: path
+  description: Startup identifier
+  required: true
+  schema:
+    type: string
+    format: uuid
+    example: bd5e9abb-be19-415c-943b-af2850423fea

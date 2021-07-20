@@ -6,4 +6,4 @@ CriteriaComplianceUuid:
   schema:
     type: string
     format: uuid
-    example: 8c04525a-90c8-40c7-a151-d18859cecfc9
+    example: 22878c87-fe6a-4943-bad7-bc1d5c3cbd16

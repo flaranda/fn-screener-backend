@@ -6,4 +6,4 @@ SelectedCriteriaUuid:
   schema:
     type: string
     format: uuid
-    example: ca062b0f-ff9f-41da-a223-05855ce0d1cd
+    example: 60ed9c4e-c093-4ead-94e0-dec9aae9b599

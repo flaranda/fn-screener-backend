@@ -1,0 +1,4 @@
+CriteriaComplianceList:
+  type: array
+  items:
+    $ref: './CriteriaCompliance.yml#/CriteriaCompliance'

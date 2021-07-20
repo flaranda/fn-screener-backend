@@ -40,6 +40,8 @@ paths:
     $ref: './v1/paths/criterias.yml'
   /criteria-compliances/{criteriaComplianceUuid}/:
     $ref: './v1/paths/criteria-compliances_criteriaComplianceUuid.yml'
+  /startups/{startupUuid}/criteria-compliances/:
+    $ref: './v1/paths/startups_startupUuid_criteria-compliances.yml'
   /users/me/matchings/:
     $ref: './v1/paths/users_me_matchings.yml'
   /users/me/matchings/{matchingUuid}/:
@@ -56,3 +58,5 @@ parameters:
     $ref: './v1/components/parameters/MatchingUuid.yml#/MatchingUuid'
   SelectedCriteriaUuid:
     $ref: './v1/components/parameters/SelectedCriteriaUuid.yml#/SelectedCriteriaUuid'
+  StartupUuid:
+    $ref: './v1/components/parameters/StartupUuid.yml#/StartupUuid'
