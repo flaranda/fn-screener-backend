@@ -6,13 +6,11 @@ export const criteriaInjectionTypes = {
   CriteriaMongoFindOneRepository: Symbol('CriteriaMongoFindOneRepository'),
   CriteriaMongoSchemaContainer: Symbol('CriteriaMongoSchemaContainer'),
   CriteriaMongoSeeder: Symbol('CriteriaMongoSeeder'),
-  CriteriasExpressRouter: Symbol('CriteriasExpressRouter'),
+  CriteriasRouter: Symbol('CriteriasRouter'),
   CriteriaToCriteriaApiV1Transformer: Symbol(
     'CriteriaToCriteriaApiV1Transformer',
   ),
   FindManyCriteriasInteractor: Symbol('FindManyCriteriasInteractor'),
   FindOneCriteriaInteractor: Symbol('FindOneCriteriaInteractor'),
-  GetCriteriasExpressRequestHandler: Symbol(
-    'GetCriteriasExpressRequestHandler',
-  ),
+  GetCriteriasRequestHandler: Symbol('GetCriteriasRequestHandler'),
 };

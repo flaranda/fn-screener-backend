@@ -12,17 +12,17 @@ export class MeSelectedCriteriasRouter extends ExpressRouter {
     @inversify.inject(userInjectionTypes.UserMiddleware)
     private readonly userMiddleware: ExpressRequestHandler,
     @inversify.inject(
-      selectedCriteriaInjectionTypes.GetUsersMeSelectedCriteriasExpressRequestHandler,
+      selectedCriteriaInjectionTypes.GetUsersMeSelectedCriteriasRequestHandler,
     )
     private readonly getUsersMeSelectedCriteriasRequestHandler: ExpressRequestHandler,
     @inversify.inject(
-      selectedCriteriaInjectionTypes.SelectedCriteriaRequestParamHandler,
+      selectedCriteriaInjectionTypes.SelectedCriteriaUuidRequestParamHandler,
     )
-    private readonly selectedCriteriaRequestParamHandler: ExpressRequestParamHandler,
+    private readonly selectedCriteriaUuidRequestParamHandler: ExpressRequestParamHandler,
     @inversify.inject(
-      selectedCriteriaInjectionTypes.PatchUsersMeSelectedCriteriasRequestHandler,
+      selectedCriteriaInjectionTypes.PatchUsersMeSelectedCriteriasSelectedCriteriaUuidRequestHandler,
     )
-    private readonly patchUsersMeSelectedCriteriasRequestHandler: ExpressRequestHandler,
+    private readonly patchUsersMeSelectedCriteriasSelectedCriteriaUuidRequestHandler: ExpressRequestHandler,
   ) {
     super();
 
@@ -32,7 +32,7 @@ export class MeSelectedCriteriasRouter extends ExpressRouter {
   protected initialize(): void {
     this.expressRouter.param(
       'selectedCriteriaUuid',
-      this.selectedCriteriaRequestParamHandler.handler,
+      this.selectedCriteriaUuidRequestParamHandler.handler,
     );
 
     this.expressRouter
@@ -46,7 +46,8 @@ export class MeSelectedCriteriasRouter extends ExpressRouter {
       .route('/:selectedCriteriaUuid')
       .patch([
         this.userMiddleware.handler,
-        this.patchUsersMeSelectedCriteriasRequestHandler.handler,
+        this.patchUsersMeSelectedCriteriasSelectedCriteriaUuidRequestHandler
+          .handler,
       ]);
   }
 }

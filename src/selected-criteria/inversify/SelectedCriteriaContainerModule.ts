@@ -8,9 +8,9 @@ import { PatchV1SelectedCriteriasRequestParser } from '../parsers/api/v1/PatchV1
 import { SelectedCriteriaMongoFindManyRepository } from '../repositories/mongo/SelectedCriteriaMongoFindManyRepository';
 import { SelectedCriteriaMongoFindOneRepository } from '../repositories/mongo/SelectedCriteriaMongoFindOneRepository';
 import { SelectedCriteriaMongoUpdateRepository } from '../repositories/mongo/SelectedCriteriaMongoUpdateRepository';
-import { GetUsersMeSelectedCriteriasExpressRequestHandler } from '../request-handlers/GetUsersMeSelectedCriteriasExpressRequestHandler';
-import { PatchUsersMeSelectedCriteriasRequestHandler } from '../request-handlers/PatchUsersMeSelectedCriteriasRequestHandler';
-import { SelectedCriteriaRequestParamHandler } from '../request-handlers/SelectedCriteriaRequestParamHandler';
+import { GetUsersMeSelectedCriteriasRequestHandler } from '../request-handlers/GetUsersMeSelectedCriteriasRequestHandler';
+import { PatchUsersMeSelectedCriteriasSelectedCriteriaUuidRequestHandler } from '../request-handlers/PatchUsersMeSelectedCriteriasSelectedCriteriaUuidRequestHandler';
+import { SelectedCriteriaUuidRequestParamHandler } from '../request-handlers/SelectedCriteriaUuidRequestParamHandler';
 import { MeSelectedCriteriasRouter } from '../routers/MeSelectedCriteriasRouter';
 import { SelectedCriteriaMongoSeeder } from '../seeder/mongo/SelectedCriteriaMongoSeeder';
 import { SelectedCriteriaToSelectedCriteriaApiV1Transformer } from '../transformers/api/v1/SelectedCriteriaToSelectedCriteriaApiV1Transformer';
@@ -30,14 +30,14 @@ export class SelectedCriteriaContainerModule extends inversify.ContainerModule {
         FindOneSelectedCriteriaInteractor,
       );
       bind(
-        selectedCriteriaInjectionTypes.GetUsersMeSelectedCriteriasExpressRequestHandler,
-      ).to(GetUsersMeSelectedCriteriasExpressRequestHandler);
+        selectedCriteriaInjectionTypes.GetUsersMeSelectedCriteriasRequestHandler,
+      ).to(GetUsersMeSelectedCriteriasRequestHandler);
       bind(selectedCriteriaInjectionTypes.MeSelectedCriteriasRouter).to(
         MeSelectedCriteriasRouter,
       );
       bind(
-        selectedCriteriaInjectionTypes.PatchUsersMeSelectedCriteriasRequestHandler,
-      ).to(PatchUsersMeSelectedCriteriasRequestHandler);
+        selectedCriteriaInjectionTypes.PatchUsersMeSelectedCriteriasSelectedCriteriaUuidRequestHandler,
+      ).to(PatchUsersMeSelectedCriteriasSelectedCriteriaUuidRequestHandler);
       bind(
         selectedCriteriaInjectionTypes.PatchV1SelectedCriteriasRequestParser,
       ).to(PatchV1SelectedCriteriasRequestParser);
@@ -63,11 +63,11 @@ export class SelectedCriteriaContainerModule extends inversify.ContainerModule {
         selectedCriteriaInjectionTypes.SelectedCriteriaMongoUpdateRepository,
       ).to(SelectedCriteriaMongoUpdateRepository);
       bind(
-        selectedCriteriaInjectionTypes.SelectedCriteriaRequestParamHandler,
-      ).to(SelectedCriteriaRequestParamHandler);
-      bind(
         selectedCriteriaInjectionTypes.SelectedCriteriaToSelectedCriteriaApiV1Transformer,
       ).to(SelectedCriteriaToSelectedCriteriaApiV1Transformer);
+      bind(
+        selectedCriteriaInjectionTypes.SelectedCriteriaUuidRequestParamHandler,
+      ).to(SelectedCriteriaUuidRequestParamHandler);
       bind(selectedCriteriaInjectionTypes.UpdateSelectedCriteriaInteractor).to(
         UpdateSelectedCriteriaInteractor,
       );

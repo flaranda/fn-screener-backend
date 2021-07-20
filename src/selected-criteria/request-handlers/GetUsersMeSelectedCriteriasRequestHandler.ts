@@ -15,7 +15,7 @@ import { SelectedCriteria } from '../models/domain/SelectedCriteria';
 import { SelectedCriteriaFindQuery } from '../models/domain/SelectedCriteriaFindQuery';
 
 @inversify.injectable()
-export class GetUsersMeSelectedCriteriasExpressRequestHandler extends ApiExpressRequestHandler {
+export class GetUsersMeSelectedCriteriasRequestHandler extends ApiExpressRequestHandler {
   constructor(
     @inversify.inject(
       selectedCriteriaInjectionTypes.FindManySelectedCriteriasInteractor,

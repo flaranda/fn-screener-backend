@@ -18,7 +18,7 @@ export const criteriaComplianceInjectionTypes = {
   CriteriaComplianceMongoUpdateRepository: Symbol(
     'CriteriaComplianceMongoUpdateRepository',
   ),
-  CriteriaComplianceRequestParamHandler: Symbol(
+  CriteriaComplianceUuidRequestParamHandler: Symbol(
     'CriteriaComplianceRequestParamHandler',
   ),
   CriteriaCompliancesRouter: Symbol('CriteriaCompliancesRouter'),

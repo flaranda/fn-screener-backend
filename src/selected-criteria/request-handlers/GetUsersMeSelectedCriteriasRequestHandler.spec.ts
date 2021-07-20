@@ -16,9 +16,9 @@ import { SelectedCriteriaFixtures } from '../fixtures/domain/SelectedCriteriaFix
 import { SelectedCriteriaApiV1 } from '../models/api/v1/SelectedCriteriaApiV1';
 import { SelectedCriteria } from '../models/domain/SelectedCriteria';
 import { SelectedCriteriaFindQuery } from '../models/domain/SelectedCriteriaFindQuery';
-import { GetUsersMeSelectedCriteriasExpressRequestHandler } from './GetUsersMeSelectedCriteriasExpressRequestHandler';
+import { GetUsersMeSelectedCriteriasRequestHandler } from './GetUsersMeSelectedCriteriasRequestHandler';
 
-describe('GetUsersMeSelectedCriteriasExpressRequestHandler', () => {
+describe('GetUsersMeSelectedCriteriasRequestHandler', () => {
   let findManySelectedCriteriasInteractor: jest.Mocked<
     IInteractor<SelectedCriteriaFindQuery, SelectedCriteria[]>
   >;
@@ -26,7 +26,7 @@ describe('GetUsersMeSelectedCriteriasExpressRequestHandler', () => {
     ITransformer<SelectedCriteria, SelectedCriteriaApiV1>
   >;
 
-  let getUsersMeSelectedCriteriasExpressRequestHandler: GetUsersMeSelectedCriteriasExpressRequestHandler;
+  let getUsersMeSelectedCriteriasRequestHandler: GetUsersMeSelectedCriteriasRequestHandler;
 
   beforeAll(() => {
     let expressRouterMockHandler: express.RequestHandler | undefined =
@@ -66,8 +66,8 @@ describe('GetUsersMeSelectedCriteriasExpressRequestHandler', () => {
       transform: jest.fn(),
     };
 
-    getUsersMeSelectedCriteriasExpressRequestHandler =
-      new GetUsersMeSelectedCriteriasExpressRequestHandler(
+    getUsersMeSelectedCriteriasRequestHandler =
+      new GetUsersMeSelectedCriteriasRequestHandler(
         findManySelectedCriteriasInteractor,
         selectedCriteriaToSelectedCriteriaApiV1Transformer,
       );
@@ -93,7 +93,7 @@ describe('GetUsersMeSelectedCriteriasExpressRequestHandler', () => {
       );
     });
 
-    describe('having an ExpressRequest with ApiVersion.v1 and User', () => {
+    describe('having an Request with ApiVersion.v1 and User', () => {
       let expressRequestMock: RequestWithContext;
 
       beforeAll(() => {
@@ -107,7 +107,7 @@ describe('GetUsersMeSelectedCriteriasExpressRequestHandler', () => {
 
       describe('when called', () => {
         beforeAll(async () => {
-          await (getUsersMeSelectedCriteriasExpressRequestHandler.handler(
+          await (getUsersMeSelectedCriteriasRequestHandler.handler(
             expressRequestMock,
             expressResponseMock,
             expressNextFunctionMock,

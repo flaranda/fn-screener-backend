@@ -4,12 +4,12 @@ import { FindManyCriteriaCompliancesInteractor } from '../interactors/FindManyCr
 import { FindOneCriteriaComplianceInteractor } from '../interactors/FindOneCriteriaComplianceInteractor';
 import { UpdateCriteriaComplianceInteractor } from '../interactors/UpdateCriteriaComplianceInteractor';
 import { CriteriaComplianceMongoSchemaContainer } from '../models/mongo/CriteriaComplianceMongoSchemaContainer';
-import { PatchV1CriteriaCompliancesCriteriaComplianceUuidRequestParser } from '../parsers/api/v1/PatchV1CriteriaCompliancesRequestParser';
+import { PatchV1CriteriaCompliancesCriteriaComplianceUuidRequestParser } from '../parsers/api/v1/PatchV1CriteriaCompliancesCriteriaComplianceUuidRequestParser';
 import { CriteriaComplianceMongoFindManyRepository } from '../repositories/mongo/CriteriaComplianceMongoFindManyRepository';
 import { CriteriaComplianceMongoFindOneRepository } from '../repositories/mongo/CriteriaComplianceMongoFindOneRepository';
 import { CriteriaComplianceMongoUpdateRepository } from '../repositories/mongo/CriteriaComplianceMongoUpdateRepository';
-import { CriteriaComplianceRequestParamHandler } from '../request-handlers/CriteriaComplianceRequestParamHandler';
-import { PatchCriteriaCompliancesCriteriaComplianceUuidRequestHandler } from '../request-handlers/PatchCriteriaCompliancesRequestHandler';
+import { CriteriaComplianceUuidRequestParamHandler } from '../request-handlers/CriteriaComplianceUuidRequestParamHandler';
+import { PatchCriteriaCompliancesCriteriaComplianceUuidRequestHandler } from '../request-handlers/PatchCriteriaCompliancesCriteriaComplianceUuidRequestHandler';
 import { CriteriaCompliancesRouter } from '../routers/CriteriaCompliancesRouter';
 import { CriteriaComplianceMongoSeeder } from '../seeder/mongo/CriteriaComplianceMongoSeeder';
 import { CriteriaComplianceToCriteriaComplianceApiV1Transformer } from '../transformers/api/v1/CriteriaComplianceToCriteriaComplianceApiV1Transformer';
@@ -45,8 +45,8 @@ export class CriteriaComplianceContainerModule extends inversify.ContainerModule
         criteriaComplianceInjectionTypes.CriteriaComplianceMongoUpdateRepository,
       ).to(CriteriaComplianceMongoUpdateRepository);
       bind(
-        criteriaComplianceInjectionTypes.CriteriaComplianceRequestParamHandler,
-      ).to(CriteriaComplianceRequestParamHandler);
+        criteriaComplianceInjectionTypes.CriteriaComplianceUuidRequestParamHandler,
+      ).to(CriteriaComplianceUuidRequestParamHandler);
       bind(criteriaComplianceInjectionTypes.CriteriaCompliancesRouter).to(
         CriteriaCompliancesRouter,
       );

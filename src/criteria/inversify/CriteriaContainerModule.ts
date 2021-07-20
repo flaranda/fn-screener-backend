@@ -5,8 +5,8 @@ import { FindOneCriteriaInteractor } from '../interactors/FindOneCriteriaInterac
 import { CriteriaMongoSchemaContainer } from '../models/mongo/CriteriaMongoSchemaContainer';
 import { CriteriaMongoFindManyRepository } from '../repositories/mongo/CriteriaMongoFindManyRepository';
 import { CriteriaMongoFindOneRepository } from '../repositories/mongo/CriteriaMongoFindOneRepository';
-import { GetCriteriasExpressRequestHandler } from '../request-handlers/GetCriteriasExpressRequestHandler';
-import { CriteriasExpressRouter } from '../routers/CriteriasExpressRouter';
+import { GetCriteriasRequestHandler } from '../request-handlers/GetCriteriasRequestHandler';
+import { CriteriasRouter } from '../routers/CriteriasExpressRouter';
 import { CriteriaMongoSeeder } from '../seeder/mongo/CriteriaMongoSeeder';
 import { CriteriaToCriteriaApiV1Transformer } from '../transformers/api/v1/CriteriaToCriteriaApiV1Transformer';
 import { CriteriaMongoDocumentToCriteriaTransformer } from '../transformers/mongo/CriteriaMongoDocumentToCriteriaTransformer';
@@ -30,9 +30,7 @@ export class CriteriaContainerModule extends inversify.ContainerModule {
         CriteriaMongoSchemaContainer,
       );
       bind(criteriaInjectionTypes.CriteriaMongoSeeder).to(CriteriaMongoSeeder);
-      bind(criteriaInjectionTypes.CriteriasExpressRouter).to(
-        CriteriasExpressRouter,
-      );
+      bind(criteriaInjectionTypes.CriteriasRouter).to(CriteriasRouter);
       bind(criteriaInjectionTypes.CriteriaToCriteriaApiV1Transformer).to(
         CriteriaToCriteriaApiV1Transformer,
       );
@@ -42,8 +40,8 @@ export class CriteriaContainerModule extends inversify.ContainerModule {
       bind(criteriaInjectionTypes.FindOneCriteriaInteractor).to(
         FindOneCriteriaInteractor,
       );
-      bind(criteriaInjectionTypes.GetCriteriasExpressRequestHandler).to(
-        GetCriteriasExpressRequestHandler,
+      bind(criteriaInjectionTypes.GetCriteriasRequestHandler).to(
+        GetCriteriasRequestHandler,
       );
     };
 

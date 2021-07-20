@@ -15,9 +15,9 @@ import { CriteriaFixtures } from '../fixtures/domain/CriteriaFixtures';
 import { CriteriaApiV1 } from '../models/api/v1/CriteriaApiV1';
 import { Criteria } from '../models/domain/Criteria';
 import { CriteriaFindQuery } from '../models/domain/CriteriaFindQuery';
-import { GetCriteriasExpressRequestHandler } from './GetCriteriasExpressRequestHandler';
+import { GetCriteriasRequestHandler } from './GetCriteriasRequestHandler';
 
-describe('GetCriteriasExpressRequestHandler', () => {
+describe('GetCriteriasRequestHandler', () => {
   let findManyCriteriasInteractor: jest.Mocked<
     IInteractor<CriteriaFindQuery, Criteria[]>
   >;
@@ -25,7 +25,7 @@ describe('GetCriteriasExpressRequestHandler', () => {
     ITransformer<Criteria, CriteriaApiV1>
   >;
 
-  let getCriteriasExpressRequestHandler: GetCriteriasExpressRequestHandler;
+  let getCriteriasRequestHandler: GetCriteriasRequestHandler;
 
   beforeAll(() => {
     let expressRouterMockHandler: express.RequestHandler | undefined =
@@ -65,7 +65,7 @@ describe('GetCriteriasExpressRequestHandler', () => {
       transform: jest.fn(),
     };
 
-    getCriteriasExpressRequestHandler = new GetCriteriasExpressRequestHandler(
+    getCriteriasRequestHandler = new GetCriteriasRequestHandler(
       findManyCriteriasInteractor,
       criteriaToCriteriaApiV1Transformer,
     );
@@ -91,7 +91,7 @@ describe('GetCriteriasExpressRequestHandler', () => {
       );
     });
 
-    describe('having an ExpressRequest with ApiVersion.v1', () => {
+    describe('having a Request with ApiVersion.v1', () => {
       let expressRequestMock: RequestWithContext;
 
       beforeAll(() => {
@@ -104,7 +104,7 @@ describe('GetCriteriasExpressRequestHandler', () => {
 
       describe('when called', () => {
         beforeAll(async () => {
-          await (getCriteriasExpressRequestHandler.handler(
+          await (getCriteriasRequestHandler.handler(
             expressRequestMock,
             expressResponseMock,
             expressNextFunctionMock,
@@ -115,14 +115,14 @@ describe('GetCriteriasExpressRequestHandler', () => {
           jest.clearAllMocks();
         });
 
-        it('should call findManyCriteriasInteractor.interact()', () => {
+        it('should call FindManyCriteriasInteractor.interact()', () => {
           expect(findManyCriteriasInteractor.interact).toHaveBeenCalledTimes(1);
           expect(findManyCriteriasInteractor.interact).toHaveBeenCalledWith(
             CriteriaFindQueryFixtures.withMandatory,
           );
         });
 
-        it('should call criteriaToCriteriaApiV1Transformer.transform()', () => {
+        it('should call CriteriaToCriteriaApiV1Transformer.transform()', () => {
           expect(
             criteriaToCriteriaApiV1Transformer.transform,
           ).toHaveBeenCalledTimes(1);

@@ -8,9 +8,9 @@ import { criteriaComplianceInjectionTypes } from '../inversify/criteriaComplianc
 export class CriteriaCompliancesRouter extends ExpressRouter {
   constructor(
     @inversify.inject(
-      criteriaComplianceInjectionTypes.CriteriaComplianceRequestParamHandler,
+      criteriaComplianceInjectionTypes.CriteriaComplianceUuidRequestParamHandler,
     )
-    private readonly criteriaComplianceRequestParamHandler: ExpressRequestHandler,
+    private readonly criteriaComplianceUuidRequestParamHandler: ExpressRequestHandler,
     @inversify.inject(
       criteriaComplianceInjectionTypes.PatchCriteriaCompliancesCriteriaComplianceUuidRequestHandler,
     )
@@ -24,7 +24,7 @@ export class CriteriaCompliancesRouter extends ExpressRouter {
   protected initialize(): void {
     this.expressRouter.param(
       'criteriaComplianceUuid',
-      this.criteriaComplianceRequestParamHandler.handler,
+      this.criteriaComplianceUuidRequestParamHandler.handler,
     );
 
     this.expressRouter

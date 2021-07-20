@@ -5,9 +5,9 @@ import { ExpressRouter } from '../../server/modules/ExpressRouter';
 import { criteriaInjectionTypes } from '../inversify/criteriaInjectionTypes';
 
 @inversify.injectable()
-export class CriteriasExpressRouter extends ExpressRouter {
+export class CriteriasRouter extends ExpressRouter {
   constructor(
-    @inversify.inject(criteriaInjectionTypes.GetCriteriasExpressRequestHandler)
+    @inversify.inject(criteriaInjectionTypes.GetCriteriasRequestHandler)
     private readonly getCriteriasRequestHandler: ExpressRequestHandler,
   ) {
     super();

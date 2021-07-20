@@ -5,11 +5,11 @@ export const selectedCriteriaInjectionTypes = {
   FindOneSelectedCriteriaInteractor: Symbol(
     'FindOneSelectedCriteriaInteractor',
   ),
-  GetUsersMeSelectedCriteriasExpressRequestHandler: Symbol(
+  GetUsersMeSelectedCriteriasRequestHandler: Symbol(
     'GetUsersMeSelectedCriteriasExpressRequestHandler',
   ),
   MeSelectedCriteriasRouter: Symbol('SelectedCriteriasRouter'),
-  PatchUsersMeSelectedCriteriasRequestHandler: Symbol(
+  PatchUsersMeSelectedCriteriasSelectedCriteriaUuidRequestHandler: Symbol(
     'PatchUsersMeSelectedCriteriasRequestHandler',
   ),
   PatchV1SelectedCriteriasRequestParser: Symbol(
@@ -34,11 +34,11 @@ export const selectedCriteriaInjectionTypes = {
   SelectedCriteriaMongoUpdateRepository: Symbol(
     'SelectedCriteriaMongoUpdateRepository',
   ),
-  SelectedCriteriaRequestParamHandler: Symbol(
-    'SelectedCriteriaRequestParamHandler',
-  ),
   SelectedCriteriaToSelectedCriteriaApiV1Transformer: Symbol(
     'SelectedCriteriaToSelectedCriteriaApiV1Transformer',
+  ),
+  SelectedCriteriaUuidRequestParamHandler: Symbol(
+    'SelectedCriteriaUuidRequestParamHandler',
   ),
   UpdateSelectedCriteriaInteractor: Symbol('UpdateSelectedCriteriaInteractor'),
 };

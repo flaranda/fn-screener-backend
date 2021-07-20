@@ -17,7 +17,7 @@ import { SelectedCriteria } from '../models/domain/SelectedCriteria';
 import { SelectedCriteriaUpdateQuery } from '../models/domain/SelectedCriteriaUpdateQuery';
 
 @inversify.injectable()
-export class PatchUsersMeSelectedCriteriasRequestHandler extends ApiExpressRequestHandler {
+export class PatchUsersMeSelectedCriteriasSelectedCriteriaUuidRequestHandler extends ApiExpressRequestHandler {
   constructor(
     @inversify.inject(
       selectedCriteriaInjectionTypes.PatchV1SelectedCriteriasRequestParser,

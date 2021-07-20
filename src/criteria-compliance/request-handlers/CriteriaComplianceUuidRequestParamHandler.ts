@@ -6,19 +6,19 @@ import { IInteractor } from '../../common/interfaces/IInteractor';
 import { RequestContext } from '../../common/models/domain/RequestContext';
 import { RequestWithContext } from '../../server/models/RequestWithContext';
 import { ExpressRequestParamHandler } from '../../server/modules/ExpressRequestParamHandler';
-import { selectedCriteriaInjectionTypes } from '../inversify/selectedCriteriaInjectionTypes';
-import { SelectedCriteria } from '../models/domain/SelectedCriteria';
-import { SelectedCriteriaFindQuery } from '../models/domain/SelectedCriteriaFindQuery';
+import { criteriaComplianceInjectionTypes } from '../inversify/criteriaComplianceInjectionTypes';
+import { CriteriaCompliance } from '../models/domain/CriteriaCompliance';
+import { CriteriaComplianceFindQuery } from '../models/domain/CriteriaComplianceFindQuery';
 
 @inversify.injectable()
-export class SelectedCriteriaRequestParamHandler extends ExpressRequestParamHandler {
+export class CriteriaComplianceUuidRequestParamHandler extends ExpressRequestParamHandler {
   constructor(
     @inversify.inject(
-      selectedCriteriaInjectionTypes.FindOneSelectedCriteriaInteractor,
+      criteriaComplianceInjectionTypes.FindOneCriteriaComplianceInteractor,
     )
-    private readonly findOneSelectedCriteriaInteractor: IInteractor<
-      SelectedCriteriaFindQuery,
-      SelectedCriteria
+    private readonly findOneCriteriaComplianceInteractor: IInteractor<
+      CriteriaComplianceFindQuery,
+      CriteriaCompliance
     >,
   ) {
     super();
@@ -30,18 +30,18 @@ export class SelectedCriteriaRequestParamHandler extends ExpressRequestParamHand
     next: express.NextFunction,
     param: string,
   ): Promise<void> {
-    const selectedCriteriaFindQuery: SelectedCriteriaFindQuery = {
+    const criteriaComplianceFindQuery: CriteriaComplianceFindQuery = {
       uuid: param,
     };
 
-    const selectedCriteria: SelectedCriteria =
-      await this.findOneSelectedCriteriaInteractor.interact(
-        selectedCriteriaFindQuery,
+    const criteriaCompliance: CriteriaCompliance =
+      await this.findOneCriteriaComplianceInteractor.interact(
+        criteriaComplianceFindQuery,
       );
 
     const requestContext: RequestContext = getRequestContext(request);
 
-    requestContext.selectedCriteria = selectedCriteria;
+    requestContext.criteriaCompliance = criteriaCompliance;
 
     next();
   }

@@ -11,7 +11,7 @@ import { Matching } from '../models/domain/Matching';
 import { MatchingUpdateQuery } from '../models/domain/MatchingUpdateQuery';
 
 @inversify.injectable()
-export class PatchMatchingsMatchingUuidRequestHandler extends ApiExpressRequestHandler {
+export class PatchUsersMeMatchingsMatchingUuidRequestHandler extends ApiExpressRequestHandler {
   constructor(
     @inversify.inject(
       matchingInjectionTypes.PatchV1MatchingsMatchingUuidRequestToMatchingUpdateQueryTransformer,

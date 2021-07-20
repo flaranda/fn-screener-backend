@@ -1,6 +1,7 @@
 import 'reflect-metadata';
 
 import { IInteractor } from '../../../common/interfaces/IInteractor';
+import { MatchingAnalysisGenerationQueryFixtures } from '../../fixtures/domain/MatchingAnalysisGenerationQueryFixtures';
 import { MatchingFixtures } from '../../fixtures/domain/MatchingFixtures';
 import { MatchingMongoDocumentFixtures } from '../../fixtures/mongo/MatchingMongoDocumentFixtures';
 import { MatchingAnalysis } from '../../models/domain/MatchingAnalysis';
@@ -38,6 +39,17 @@ describe('MatchingMongoDocumentToMatchingTransformer', () => {
       beforeAll(async () => {
         result = await matchingMongoDocumentToMatchingTransformer.transform(
           MatchingMongoDocumentFixtures.withMandatory,
+        );
+      });
+
+      it('should call GenerateMatchingAnalysisInteractor.interact()', () => {
+        expect(
+          generateMatchingAnalysisInteractor.interact,
+        ).toHaveBeenCalledTimes(1);
+        expect(
+          generateMatchingAnalysisInteractor.interact,
+        ).toHaveBeenCalledWith(
+          MatchingAnalysisGenerationQueryFixtures.withMandatory,
         );
       });
 
