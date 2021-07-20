@@ -1,7 +1,7 @@
 import 'reflect-metadata';
 
+import { IServer } from '../common/interfaces/IServer';
 import { Script } from '../common/modules/domain/Script';
-import { IServer } from '../server/interfaces/IServer';
 import { serverInjectionTypes } from '../server/inversify/serverInjectionTypes';
 
 class StartServer extends Script {
