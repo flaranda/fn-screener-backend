@@ -1,7 +1,11 @@
 import * as inversify from 'inversify';
 
+import { IInteractor } from '../../../common/interfaces/IInteractor';
 import { ITransformer } from '../../../common/interfaces/ITransformer';
+import { matchingInjectionTypes } from '../../inversify/matchingInjectionTypes';
 import { Matching } from '../../models/domain/Matching';
+import { MatchingAnalysis } from '../../models/domain/MatchingAnalysis';
+import { MatchingAnalysisGenerationQuery } from '../../models/domain/MatchingAnalysisGenerationQuery';
 import { MatchingMongoDocument } from '../../models/mongo/MatchingMongoDocument';
 import { matchingMongoStatusToMatchingStatusMap } from '../../models/mongo/matchingMongoStatusToMatchingStatusMap';
 
@@ -9,10 +13,22 @@ import { matchingMongoStatusToMatchingStatusMap } from '../../models/mongo/match
 export class MatchingMongoDocumentToMatchingTransformer
   implements ITransformer<MatchingMongoDocument, Matching>
 {
+  constructor(
+    @inversify.inject(matchingInjectionTypes.GenerateMatchingAnalysisInteractor)
+    private readonly generateMatchingAnalysisInteractor: IInteractor<
+      MatchingAnalysisGenerationQuery,
+      MatchingAnalysis
+    >,
+  ) {}
+
   public async transform(
     matchingMongoDocument: MatchingMongoDocument,
   ): Promise<Matching> {
+    const matchingAnalysis: MatchingAnalysis =
+      await this.transformToMatchingAnalysis(matchingMongoDocument);
+
     const matching: Matching = {
+      analysis: matchingAnalysis,
       createdAt: matchingMongoDocument.created_at,
       startupUuid: matchingMongoDocument.startup_uuid,
       status:
@@ -23,5 +39,21 @@ export class MatchingMongoDocumentToMatchingTransformer
     };
 
     return matching;
+  }
+
+  private async transformToMatchingAnalysis(
+    matchingMongoDocument: MatchingMongoDocument,
+  ): Promise<MatchingAnalysis> {
+    const matchingAnalysisGenerationQuery: MatchingAnalysisGenerationQuery = {
+      startupUuid: matchingMongoDocument.startup_uuid,
+      userUuid: matchingMongoDocument.user_uuid,
+    };
+
+    const matchingAnalysis: MatchingAnalysis =
+      await this.generateMatchingAnalysisInteractor.interact(
+        matchingAnalysisGenerationQuery,
+      );
+
+    return matchingAnalysis;
   }
 }

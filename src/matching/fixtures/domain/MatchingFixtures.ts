@@ -2,10 +2,12 @@ import { StartupFixtures } from '../../../startup/fixtures/domain/StartupFixture
 import { UserFixtures } from '../../../user/fixtures/domain/UserFixtures';
 import { Matching } from '../../models/domain/Matching';
 import { MatchingStatus } from '../../models/domain/MatchingStatus';
+import { MatchingAnalysisFixtures } from './MatchingAnalysisFixtures';
 
 export class MatchingFixtures {
   public static get withMandatory(): Matching {
     const fixture: Matching = {
+      analysis: MatchingAnalysisFixtures.withMandatory,
       createdAt: new Date('2021-07-19T00:00:00Z'),
       startupUuid: StartupFixtures.withMandatory.uuid,
       status: MatchingStatus.Pending,

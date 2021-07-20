@@ -2,6 +2,7 @@ import * as inversify from 'inversify';
 
 import { FindManyMatchingsInteractor } from '../interactors/FindManyMatchingsInteractor';
 import { FindOneMatchingInteractor } from '../interactors/FindOneMatchingInteractor';
+import { GenerateMatchingAnalysisInteractor } from '../interactors/GenerateMatchingAnalysisInteractor';
 import { UpdateMatchingInteractor } from '../interactors/UpdateMatchingInteractor';
 import { MatchingMongoSchemaContainer } from '../models/mongo/MatchingMongoSchemaContainer';
 import { PatchV1MatchingsMatchingUuidRequestParser } from '../parsers/api/v1/PatchV1MatchingsMatchingUuidRequestParser';
@@ -30,6 +31,9 @@ export class MatchingContainerModule extends inversify.ContainerModule {
       );
       bind(matchingInjectionTypes.FindOneMatchingInteractor).to(
         FindOneMatchingInteractor,
+      );
+      bind(matchingInjectionTypes.GenerateMatchingAnalysisInteractor).to(
+        GenerateMatchingAnalysisInteractor,
       );
       bind(matchingInjectionTypes.GetUsersMeMatchingsRequestHandler).to(
         GetUsersMeMatchingsRequestHandler,
