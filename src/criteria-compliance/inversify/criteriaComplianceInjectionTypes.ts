@@ -48,6 +48,9 @@ export const criteriaComplianceInjectionTypes = {
     Symbol(
       'PatchV1CriteriaCompliancesCriteriaComplianceUuidRequestToCriteriaComplianceUpdateQueryTransformer',
     ),
+  StartupUuidCriteriaCompliancesRouter: Symbol(
+    'StartupUuidCriteriaCompliancesRouter',
+  ),
   UpdateCriteriaComplianceInteractor: Symbol(
     'UpdateCriteriaComplianceInteractor',
   ),

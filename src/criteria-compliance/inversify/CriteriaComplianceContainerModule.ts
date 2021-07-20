@@ -12,6 +12,7 @@ import { CriteriaComplianceUuidRequestParamHandler } from '../request-handlers/C
 import { GetStartupsStartupUuidCriteriaCompliancesRequestHandler } from '../request-handlers/GetStartupsStartupUuidCriteriaCompliancesRequestHandler';
 import { PatchCriteriaCompliancesCriteriaComplianceUuidRequestHandler } from '../request-handlers/PatchCriteriaCompliancesCriteriaComplianceUuidRequestHandler';
 import { CriteriaCompliancesRouter } from '../routers/CriteriaCompliancesRouter';
+import { StartupUuidCriteriaCompliancesRouter } from '../routers/StartupUuidCriteriaCompliancesRouter';
 import { CriteriaComplianceMongoSeeder } from '../seeder/mongo/CriteriaComplianceMongoSeeder';
 import { CriteriaComplianceToCriteriaComplianceApiV1Transformer } from '../transformers/api/v1/CriteriaComplianceToCriteriaComplianceApiV1Transformer';
 import { GetV1StartupsStartupUuidCriteriaCompliancesRequestToCriteriaComplianceFindQueryTransformer } from '../transformers/api/v1/GetV1StartupsStartupUuidCriteriaCompliancesRequestToCriteriaComplianceFindQueryTransformer';
@@ -80,6 +81,9 @@ export class CriteriaComplianceContainerModule extends inversify.ContainerModule
       ).to(
         PatchV1CriteriaCompliancesCriteriaComplianceUuidRequestToCriteriaComplianceUpdateQueryTransformer,
       );
+      bind(
+        criteriaComplianceInjectionTypes.StartupUuidCriteriaCompliancesRouter,
+      ).to(StartupUuidCriteriaCompliancesRouter);
       bind(
         criteriaComplianceInjectionTypes.UpdateCriteriaComplianceInteractor,
       ).to(UpdateCriteriaComplianceInteractor);
