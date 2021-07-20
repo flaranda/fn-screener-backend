@@ -6,4 +6,5 @@ export const startupInjectionTypes = {
   StartupMongoFindOneRepository: Symbol('StartupMongoFindOneRepository'),
   StartupMongoSchemaContainer: Symbol('StartupMongoSchemaContainer'),
   StartupMongoSeeder: Symbol('StartupMongoSeeder'),
+  StartupUuidRequestParamHandler: Symbol('StartupUuidRequestParamHandler'),
 };
