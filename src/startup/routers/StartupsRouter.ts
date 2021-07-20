@@ -1,7 +1,5 @@
 import * as inversify from 'inversify';
 
-import { criteriaComplianceInjectionTypes } from '../../criteria-compliance/inversify/criteriaComplianceInjectionTypes';
-import { ExpressRequestHandler } from '../../server/modules/ExpressRequestHandler';
 import { ExpressRequestParamHandler } from '../../server/modules/ExpressRequestParamHandler';
 import { ExpressRouter } from '../../server/modules/ExpressRouter';
 import { startupInjectionTypes } from '../inversify/startupInjectionTypes';
@@ -11,10 +9,8 @@ export class StartupsRouter extends ExpressRouter {
   constructor(
     @inversify.inject(startupInjectionTypes.StartupUuidRequestParamHandler)
     private readonly startupUuidRequestParamHandler: ExpressRequestParamHandler,
-    @inversify.inject(
-      criteriaComplianceInjectionTypes.StartupUuidCriteriaCompliancesRouter,
-    )
-    private readonly startupUuidCriteriaCompliancesRouter: ExpressRequestHandler,
+    @inversify.inject(startupInjectionTypes.StartupsStartupUuidRouter)
+    private readonly startupsStartupUuidRouter: ExpressRouter,
   ) {
     super();
 
@@ -29,7 +25,7 @@ export class StartupsRouter extends ExpressRouter {
 
     this.expressRouter.use(
       '/:startupUuid',
-      this.startupUuidCriteriaCompliancesRouter.handler,
+      this.startupsStartupUuidRouter.handler,
     );
   }
 }

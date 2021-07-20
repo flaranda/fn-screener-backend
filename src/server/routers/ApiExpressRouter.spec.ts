@@ -12,6 +12,7 @@ describe('ApiExpressRouter', () => {
   let criteriasRouter: jest.Mocked<ExpressRouter>;
   let criteriaCompliancesRouter: jest.Mocked<ExpressRouter>;
   let usersRouter: jest.Mocked<ExpressRouter>;
+  let startupsRouter: jest.Mocked<ExpressRouter>;
 
   beforeAll(() => {
     expressRouterFixture = {
@@ -24,6 +25,10 @@ describe('ApiExpressRouter', () => {
     } as Partial<ExpressRouter> as jest.Mocked<ExpressRouter>;
 
     criteriaCompliancesRouter = {
+      handler: jest.fn(),
+    } as Partial<ExpressRouter> as jest.Mocked<ExpressRouter>;
+
+    startupsRouter = {
       handler: jest.fn(),
     } as Partial<ExpressRouter> as jest.Mocked<ExpressRouter>;
 
@@ -40,6 +45,7 @@ describe('ApiExpressRouter', () => {
         criteriasRouter,
         criteriaCompliancesRouter,
         usersRouter,
+        startupsRouter,
       );
     });
 
@@ -48,7 +54,7 @@ describe('ApiExpressRouter', () => {
     });
 
     it('should call expressRouterFixture.use()', () => {
-      expect(expressRouterFixture.use).toHaveBeenCalledTimes(3);
+      expect(expressRouterFixture.use).toHaveBeenCalledTimes(4);
 
       expect(expressRouterFixture.use).toHaveBeenNthCalledWith(
         1,
@@ -61,9 +67,13 @@ describe('ApiExpressRouter', () => {
         '/criteria-compliances',
         criteriaCompliancesRouter.handler,
       );
-
       expect(expressRouterFixture.use).toHaveBeenNthCalledWith(
         3,
+        '/startups',
+        startupsRouter.handler,
+      );
+      expect(expressRouterFixture.use).toHaveBeenNthCalledWith(
+        4,
         '/users',
         usersRouter.handler,
       );
