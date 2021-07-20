@@ -10,6 +10,7 @@ export class MatchingApiV1Fixtures {
       startup_url: 'https://some-startup-domain.com/',
       startup_uuid: '1039fd3f-1614-4d85-8588-fba871d7e351',
       status: MatchingApiV1Status.pending,
+      status_reason: null,
       uuid: '783b1b15-712c-46ca-a9c3-2c17fe52c531',
     };
 

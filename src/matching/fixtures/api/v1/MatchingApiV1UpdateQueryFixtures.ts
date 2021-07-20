@@ -12,6 +12,7 @@ export class MatchingApiV1UpdateQueryFixtures {
     const fixture: Required<MatchingApiV1UpdateQuery> = {
       ...this.withMandatory,
       status: MatchingApiV1Status.pending,
+      status_reason: 'some reason',
     };
 
     return fixture;

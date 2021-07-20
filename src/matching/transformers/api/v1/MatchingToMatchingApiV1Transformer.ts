@@ -63,6 +63,7 @@ export class MatchingToMatchingApiV1Transformer
       startup_url: startup.url.href,
       startup_uuid: matching.startupUuid,
       status: matchingStatusToMatchingApiV1StatusMap[matching.status],
+      status_reason: matching.statusReason,
       uuid: matching.uuid,
     };
 

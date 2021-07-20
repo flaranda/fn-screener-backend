@@ -16,4 +16,13 @@ export class MatchingMongoFixtures {
 
     return fixture;
   }
+
+  public static get withStatusReason(): MatchingMongo {
+    const fixture: MatchingMongo = {
+      ...this.withMandatory,
+      status_reason: 'some reason',
+    };
+
+    return fixture;
+  }
 }

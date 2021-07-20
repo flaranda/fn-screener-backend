@@ -7,5 +7,6 @@ export interface MatchingApiV1 {
   startup_url: string;
   startup_uuid: string;
   status: MatchingApiV1Status;
+  status_reason: string | null;
   uuid: string;
 }

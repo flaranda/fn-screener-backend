@@ -10,6 +10,9 @@
         "pass",
         "pending"
       ]
+    },
+    "status_reason": {
+      "type": "string"
     }
   },
   "additionalProperties": true

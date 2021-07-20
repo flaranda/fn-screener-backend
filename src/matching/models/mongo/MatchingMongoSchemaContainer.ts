@@ -19,6 +19,9 @@ export class MatchingMongoSchemaContainer extends EntityMongoSchemaContainer<Mat
         required: true,
         type: String,
       },
+      status_reason: {
+        type: String,
+      },
       user_uuid: {
         required: true,
         type: String,

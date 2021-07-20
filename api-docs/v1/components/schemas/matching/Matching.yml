@@ -5,6 +5,11 @@ Matching:
       $ref: './MatchingAnalysis.yml#/MatchingAnalysis'
     status:
       $ref: './MatchingStatus.yml#/MatchingStatus'
+    status_reason:
+      type: string
+      nullable: true
+      description: Reason given by the user along the status
   required:
     - status
+    - status_reason
   additionalProperties: false

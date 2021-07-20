@@ -5,6 +5,7 @@ import { MatchingStatus } from './MatchingStatus';
 export interface Matching extends Entity {
   readonly startupUuid: string;
   readonly status: MatchingStatus;
+  readonly statusReason: string | null;
   readonly analysis: MatchingAnalysis;
   readonly userUuid: string;
 }

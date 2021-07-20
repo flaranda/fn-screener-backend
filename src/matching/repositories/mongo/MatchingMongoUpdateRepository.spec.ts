@@ -58,6 +58,34 @@ describe('MatchingMongoUpdateRepository', () => {
       );
     });
 
+    describe('having an MatchingUpdateQuery with statusReason property', () => {
+      describe('when called', () => {
+        beforeAll(async () => {
+          await matchingMongoUpdateRepository.update(
+            MatchingUpdateQueryFixtures.withStatusReason,
+          );
+        });
+
+        afterAll(() => {
+          jest.clearAllMocks();
+        });
+
+        it('should call mongoose.Model.findOneAndUpdate()', () => {
+          expect(mongooseModel.findOneAndUpdate).toHaveBeenCalledTimes(1);
+          expect(mongooseModel.findOneAndUpdate).toHaveBeenCalledWith(
+            expect.objectContaining({
+              uuid: MatchingUpdateQueryFixtures.withStatusReason.uuid,
+            }),
+            expect.objectContaining({
+              status_reason:
+                MatchingMongoFixtures.withStatusReason.status_reason,
+            }),
+            expect.any(Object),
+          );
+        });
+      });
+    });
+
     describe('having an MatchingUpdateQuery with status property', () => {
       describe('when called', () => {
         beforeAll(async () => {

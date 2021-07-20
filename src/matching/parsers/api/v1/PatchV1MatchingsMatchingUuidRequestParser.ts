@@ -28,6 +28,10 @@ export class PatchV1MatchingsMatchingUuidRequestParser
         matchingApiV1UpdateQuery.status = body.status;
       }
 
+      if (hasValue(body.status_reason)) {
+        matchingApiV1UpdateQuery.status_reason = body.status_reason;
+      }
+
       return matchingApiV1UpdateQuery;
     } else {
       throw new Error('Could not parse Request to MatchingApiV1UpdateQuery');

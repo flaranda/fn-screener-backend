@@ -3,4 +3,5 @@ import { MatchingStatus } from './MatchingStatus';
 
 export interface MatchingUpdateQuery extends EntityUpdateQuery {
   status?: MatchingStatus;
+  statusReason?: string;
 }

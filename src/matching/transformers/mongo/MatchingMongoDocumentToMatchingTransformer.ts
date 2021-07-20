@@ -33,6 +33,7 @@ export class MatchingMongoDocumentToMatchingTransformer
       startupUuid: matchingMongoDocument.startup_uuid,
       status:
         matchingMongoStatusToMatchingStatusMap[matchingMongoDocument.status],
+      statusReason: matchingMongoDocument.status_reason ?? null,
       updatedAt: matchingMongoDocument.updated_at,
       userUuid: matchingMongoDocument.user_uuid,
       uuid: matchingMongoDocument.uuid,

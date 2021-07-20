@@ -50,6 +50,10 @@ export class MatchingMongoUpdateRepository extends EntityMongoUpdateRepository<
         matchingStatusToMatchingMongoStatusMap[matchingUpdateQuery.status];
     }
 
+    if (hasValue(matchingUpdateQuery.statusReason)) {
+      matchingMongo.status_reason = matchingUpdateQuery.statusReason;
+    }
+
     const mongooseUpdateQuery: mongoose.UpdateQuery<MatchingMongo> = {
       ...baseMongooseUpdateQuery,
       ...matchingMongo,

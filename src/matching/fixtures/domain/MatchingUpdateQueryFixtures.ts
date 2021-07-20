@@ -10,10 +10,29 @@ export class MatchingUpdateQueryFixtures {
     return fixture;
   }
 
+  public static get withAll(): MatchingUpdateQuery {
+    const fixture: MatchingUpdateQuery = {
+      ...this.withMandatory,
+      status: MatchingFixtures.withMandatory.status,
+      statusReason: MatchingFixtures.withStatusReason.statusReason as string,
+    };
+
+    return fixture;
+  }
+
   public static get withStatus(): MatchingUpdateQuery {
     const fixture: MatchingUpdateQuery = {
       ...this.withMandatory,
       status: MatchingFixtures.withMandatory.status,
+    };
+
+    return fixture;
+  }
+
+  public static get withStatusReason(): MatchingUpdateQuery {
+    const fixture: MatchingUpdateQuery = {
+      ...this.withMandatory,
+      statusReason: MatchingFixtures.withStatusReason.statusReason as string,
     };
 
     return fixture;
