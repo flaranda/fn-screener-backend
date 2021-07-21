@@ -3,6 +3,8 @@ FounderNest Screener Backend, developed with love by [__Francisco Aranda__](http
 
 This project is an MVP backend that exposes a minimal API for the [FounderNest Screener MVP](http://beta.928684.foundernest.com:8080/)
 
+You can find the total time spent [here](./TIMESPENT.md).
+
 ---
 
 ## Requirements
