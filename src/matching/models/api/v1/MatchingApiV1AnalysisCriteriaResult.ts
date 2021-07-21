@@ -1,5 +1,5 @@
 export interface MatchingApiV1AnalysisCriteriaResult {
-  accomplished: number;
-  non_accomplished: number;
-  unanswered: number;
+  readonly accomplished: number;
+  readonly non_accomplished: number;
+  readonly unanswered: number;
 }
