@@ -9,7 +9,6 @@ import { ITransformer } from '../../common/interfaces/ITransformer';
 import { ApiVersion } from '../../common/models/domain/ApiVersion';
 import { requestContextSymbol } from '../../common/models/domain/requestContextSymbol';
 import { RequestWithContext } from '../../server/models/RequestWithContext';
-import { UserFixtures } from '../../user/fixtures/domain/UserFixtures';
 import { MatchingApiV1Fixtures } from '../fixtures/api/v1/MatchingApiV1Fixtures';
 import { MatchingFindQueryFixtures } from '../fixtures/domain/MatchingFindQueryFixtures';
 import { MatchingFixtures } from '../fixtures/domain/MatchingFixtures';
@@ -104,14 +103,13 @@ describe('GetUsersMeMatchingsRequestHandler', () => {
       );
     });
 
-    describe('having an ExpressRequest with ApiVersion.v1 and User', () => {
+    describe('having an ExpressRequest with ApiVersion.v1', () => {
       let expressRequestMock: RequestWithContext;
 
       beforeAll(() => {
         expressRequestMock = {
           [requestContextSymbol]: {
             apiVersion: ApiVersion.v1,
-            user: UserFixtures.withMandatory,
           },
         } as RequestWithContext;
       });

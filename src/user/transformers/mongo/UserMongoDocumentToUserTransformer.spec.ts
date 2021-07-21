@@ -5,10 +5,10 @@ import { UserMongoDocumentFixtures } from '../../fixtures/mongo/UserMongoDocumen
 import { UserMongoDocumentToUserTransformer } from './UserMongoDocumentToUserTransformer';
 
 describe('UserMongoDocumentToUserTransformer', () => {
-  let criteriaMongoDocumentToUserTransformer: UserMongoDocumentToUserTransformer;
+  let userMongoDocumentToUserTransformer: UserMongoDocumentToUserTransformer;
 
   beforeAll(() => {
-    criteriaMongoDocumentToUserTransformer =
+    userMongoDocumentToUserTransformer =
       new UserMongoDocumentToUserTransformer();
   });
 
@@ -17,7 +17,7 @@ describe('UserMongoDocumentToUserTransformer', () => {
       let result: unknown;
 
       beforeAll(async () => {
-        result = await criteriaMongoDocumentToUserTransformer.transform(
+        result = await userMongoDocumentToUserTransformer.transform(
           UserMongoDocumentFixtures.withMandatory,
         );
       });

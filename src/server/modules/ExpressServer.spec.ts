@@ -25,7 +25,7 @@ describe('ExpressServer', () => {
   let httpServer: jest.Mocked<http.Server>;
   let serverConfig: jest.Mocked<ServerConfig>;
   let mongoDatasource: jest.Mocked<IDatasource>;
-  let mainExpressRouter: jest.Mocked<ExpressRouter>;
+  let mainRouter: jest.Mocked<ExpressRouter>;
 
   let expressServer: ExpressServer;
 
@@ -70,14 +70,14 @@ describe('ExpressServer', () => {
       disconnect: jest.fn(),
     };
 
-    mainExpressRouter = {
+    mainRouter = {
       handler: jest.fn(),
     } as Partial<ExpressRouter> as jest.Mocked<ExpressRouter>;
 
     expressServer = new ExpressServer(
       serverConfig,
       mongoDatasource,
-      mainExpressRouter,
+      mainRouter,
     );
   });
 
@@ -87,11 +87,7 @@ describe('ExpressServer', () => {
     beforeAll(() => {
       jest.clearAllMocks();
 
-      server = new ExpressServer(
-        serverConfig,
-        mongoDatasource,
-        mainExpressRouter,
-      );
+      server = new ExpressServer(serverConfig, mongoDatasource, mainRouter);
     });
 
     afterAll(() => {
@@ -104,10 +100,7 @@ describe('ExpressServer', () => {
 
     it('should call expressMock.use()', () => {
       expect(expressMock.use).toHaveBeenCalledTimes(2);
-      expect(expressMock.use).toHaveBeenNthCalledWith(
-        2,
-        mainExpressRouter.handler,
-      );
+      expect(expressMock.use).toHaveBeenNthCalledWith(2, mainRouter.handler);
     });
 
     it('should call http.createServer()', () => {

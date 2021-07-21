@@ -20,7 +20,7 @@ export class ExpressServer implements IServer {
     private readonly serverConfig: ServerConfig,
     @inversify.inject(mongoInjectionTypes.MongoDatasource)
     private readonly mongoDatasource: IDatasource,
-    @inversify.inject(serverInjectionTypes.MainExpressRouter)
+    @inversify.inject(serverInjectionTypes.MainRouter)
     private readonly mainExpressRouter: ExpressRouter,
   ) {
     this.express = this.configureExpress();

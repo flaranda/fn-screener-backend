@@ -1,9 +1,9 @@
 export const serverInjectionTypes = {
-  ApiExpressRouter: Symbol('ApiExpressRouter'),
+  ApiRouter: Symbol('ApiRouter'),
   ApiVersionExpressRequestParamHandler: Symbol(
     'ApiVersionExpressRequestParamHandler',
   ),
   ExpressServer: Symbol('ExpressServer'),
-  MainExpressRouter: Symbol('MainExpressRouter'),
+  MainRouter: Symbol('MainRouter'),
   ServerConfig: Symbol('ServerConfig'),
 };

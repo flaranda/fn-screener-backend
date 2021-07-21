@@ -9,7 +9,6 @@ import { ITransformer } from '../../common/interfaces/ITransformer';
 import { ApiVersion } from '../../common/models/domain/ApiVersion';
 import { requestContextSymbol } from '../../common/models/domain/requestContextSymbol';
 import { RequestWithContext } from '../../server/models/RequestWithContext';
-import { StartupFixtures } from '../../startup/fixtures/domain/StartupFixtures';
 import { CriteriaComplianceApiV1Fixtures } from '../fixtures/api/v1/CriteriaComplianceApiV1Fixtures';
 import { CriteriaComplianceFindQueryFixtures } from '../fixtures/domain/CriteriaComplianceFindQueryFixtures';
 import { CriteriaComplianceFixtures } from '../fixtures/domain/CriteriaComplianceFixtures';
@@ -105,14 +104,13 @@ describe('GetStartupsStartupUuidCriteriaCompliancesRequestHandler', () => {
       );
     });
 
-    describe('having an ExpressRequest with ApiVersion.v1 and Startup', () => {
+    describe('having an ExpressRequest with ApiVersion.v1', () => {
       let expressRequestMock: RequestWithContext;
 
       beforeAll(() => {
         expressRequestMock = {
           [requestContextSymbol]: {
             apiVersion: ApiVersion.v1,
-            startup: StartupFixtures.withMandatory,
           },
         } as RequestWithContext;
       });

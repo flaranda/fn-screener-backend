@@ -9,7 +9,6 @@ import { ITransformer } from '../../common/interfaces/ITransformer';
 import { ApiVersion } from '../../common/models/domain/ApiVersion';
 import { requestContextSymbol } from '../../common/models/domain/requestContextSymbol';
 import { RequestWithContext } from '../../server/models/RequestWithContext';
-import { UserFixtures } from '../../user/fixtures/domain/UserFixtures';
 import { SelectedCriteriaApiV1Fixtures } from '../fixtures/api/v1/SelectedCriteriaApiV1Fixtures';
 import { SelectedCriteriaFixtures } from '../fixtures/domain/SelectedCriteriaFixtures';
 import { SelectedCriteriaUpdateQueryFixtures } from '../fixtures/domain/SelectedCriteriaUpdateQueryFixtures';
@@ -106,14 +105,13 @@ describe('PatchUsersMeSelectedCriteriasSelectedCriteriaUuidExpressRequestHandler
       );
     });
 
-    describe('having an ExpressRequest with ApiVersion.v1 and User', () => {
+    describe('having an ExpressRequest with ApiVersion.v1', () => {
       let expressRequestMock: RequestWithContext;
 
       beforeAll(() => {
         expressRequestMock = {
           [requestContextSymbol]: {
             apiVersion: ApiVersion.v1,
-            user: UserFixtures.withMandatory,
           },
         } as RequestWithContext;
       });

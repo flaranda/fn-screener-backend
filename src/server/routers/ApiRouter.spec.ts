@@ -5,9 +5,9 @@ jest.mock('express');
 import express from 'express';
 
 import { ExpressRouter } from '../modules/ExpressRouter';
-import { ApiExpressRouter } from './ApiExpressRouter';
+import { ApiRouter } from './ApiRouter';
 
-describe('ApiExpressRouter', () => {
+describe('ApiRouter', () => {
   let expressRouterFixture: jest.Mocked<express.Router>;
   let criteriasRouter: jest.Mocked<ExpressRouter>;
   let criteriaCompliancesRouter: jest.Mocked<ExpressRouter>;
@@ -41,7 +41,7 @@ describe('ApiExpressRouter', () => {
 
   describe('when instantiated', () => {
     beforeAll(() => {
-      new ApiExpressRouter(
+      new ApiRouter(
         criteriasRouter,
         criteriaCompliancesRouter,
         usersRouter,

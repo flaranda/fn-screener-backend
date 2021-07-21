@@ -6,13 +6,13 @@ import { ExpressRequestParamHandler } from '../modules/ExpressRequestParamHandle
 import { ExpressRouter } from '../modules/ExpressRouter';
 
 inversify.injectable();
-export class MainExpressRouter extends ExpressRouter {
+export class MainRouter extends ExpressRouter {
   constructor(
     @inversify.inject(serverInjectionTypes.ApiVersionExpressRequestParamHandler)
     private readonly apiVersionRequestParamHandler: ExpressRequestParamHandler,
     @inversify.inject(pingInjectionTypes.PingExpressRouter)
     private readonly pingRouter: ExpressRouter,
-    @inversify.inject(serverInjectionTypes.ApiExpressRouter)
+    @inversify.inject(serverInjectionTypes.ApiRouter)
     private readonly apiRouter: ExpressRouter,
   ) {
     super();

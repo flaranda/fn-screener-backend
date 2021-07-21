@@ -106,14 +106,13 @@ describe('PatchCriteriaCompliancesCriteriaComplianceUuidExpressRequestHandler', 
       );
     });
 
-    describe('having an ExpressRequest with ApiVersion.v1 and User', () => {
+    describe('having an ExpressRequest with ApiVersion.v1', () => {
       let expressRequestMock: RequestWithContext;
 
       beforeAll(() => {
         expressRequestMock = {
           [requestContextSymbol]: {
             apiVersion: ApiVersion.v1,
-            user: UserFixtures.withMandatory,
           },
         } as RequestWithContext;
       });

@@ -6,9 +6,9 @@ import express from 'express';
 
 import { ExpressRequestParamHandler } from '../modules/ExpressRequestParamHandler';
 import { ExpressRouter } from '../modules/ExpressRouter';
-import { MainExpressRouter } from './MainExpressRouter';
+import { MainRouter } from './MainRouter';
 
-describe('MainExpressRouter', () => {
+describe('MainRouter', () => {
   let expressRouterFixture: jest.Mocked<express.Router>;
   let apiVersionRequestParamHandler: jest.Mocked<ExpressRequestParamHandler>;
   let pingRouter: jest.Mocked<ExpressRouter>;
@@ -37,11 +37,7 @@ describe('MainExpressRouter', () => {
 
   describe('when instantiated', () => {
     beforeAll(() => {
-      new MainExpressRouter(
-        apiVersionRequestParamHandler,
-        pingRouter,
-        apiRouter,
-      );
+      new MainRouter(apiVersionRequestParamHandler, pingRouter, apiRouter);
     });
 
     afterAll(() => {

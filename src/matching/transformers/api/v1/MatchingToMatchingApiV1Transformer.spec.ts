@@ -1,5 +1,6 @@
 import 'reflect-metadata';
 import { IInteractor } from '../../../../common/interfaces/IInteractor';
+import { StartupFindQueryFixtures } from '../../../../startup/fixtures/domain/StartupFindQueryFixtures';
 import { StartupFixtures } from '../../../../startup/fixtures/domain/StartupFixtures';
 import { Startup } from '../../../../startup/models/domain/Startup';
 import { StartupFindQuery } from '../../../../startup/models/domain/StartupFindQuery';
@@ -37,6 +38,13 @@ describe('MatchingToMatchingApiV1Transformer', () => {
       beforeAll(async () => {
         result = await matchingToMatchingApiV1Transformer.transform(
           MatchingFixtures.withMandatory,
+        );
+      });
+
+      it('should call FindOneStartupInteractor.interact()', () => {
+        expect(findOneStartupInteractor.interact).toHaveBeenCalledTimes(1);
+        expect(findOneStartupInteractor.interact).toHaveBeenCalledWith(
+          StartupFindQueryFixtures.withUuid,
         );
       });
 

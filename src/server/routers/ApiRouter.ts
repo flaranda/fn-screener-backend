@@ -7,7 +7,7 @@ import { userInjectionTypes } from '../../user/inversify/userInjectionTypes';
 import { ExpressRouter } from '../modules/ExpressRouter';
 
 inversify.injectable();
-export class ApiExpressRouter extends ExpressRouter {
+export class ApiRouter extends ExpressRouter {
   constructor(
     @inversify.inject(criteriaInjectionTypes.CriteriasRouter)
     private readonly criteriasRouter: ExpressRouter,
